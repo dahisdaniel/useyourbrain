@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Sua inteligência importa. Descreva uma tarefa e descubra quando usar inteligência artificial, quando usá-la como tutora e quando pensar por conta própria. Recomendações transparentes com referências científicas.">
+  <meta property="og:title" content="Use Your Brain — vale a pena fazer sozinho?">
+  <meta property="og:description" content="Busque 3.000 exemplos locais para decidir quando usar IA, com justificativas e estudos científicos.">
+  <meta property="og:type" content="website">
+  <title>Use Your Brain — quando usar IA?</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101d25'/%3E%3Ctext x='32' y='45' fill='%23c9f265' font-size='45' font-family='Arial' text-anchor='middle'%3E✳%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:light;--paper:#f4f1e9;--cream:#eae6dc;--ink:#121a1e;--midnight:#101d25;--night:#09131a;--acid:#c9f265;--royal:#2647db;--orange:#f57b54;--muted:#646d69;--line:#d7d6cc;--white:#fff;--sans:'DM Sans',Arial,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:'Space Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:105px}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+    button,textarea,select,input{font:inherit}
+    button{cursor:pointer}
+    button,a{-webkit-tap-highlight-color:transparent}
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration-color:var(--royal)}
+    :focus-visible{outline:3px solid var(--royal);outline-offset:3px}
+    ::selection{background:var(--acid);color:var(--ink)}
+    h1,h2,h3,h4,p{margin:0}
+    .container{width:min(100% - 72px,1160px);margin-inline:auto}
+    .mono{font:700 10px/1.5 var(--mono);letter-spacing:.045em;text-transform:uppercase}
+    .top-strip{height:7px;background:var(--acid)}
+    .site-header{display:flex;justify-content:space-between;align-items:center;gap:26px;min-height:80px;border-bottom:1px solid var(--line)}
+    .brand{display:inline-flex;gap:12px;align-items:center;font-size:18px;font-weight:800;letter-spacing:-.065em;white-space:nowrap}
+    .brand-star{color:var(--royal);font:400 31px/1 var(--sans);display:inline-block;transition:transform .4s ease}
+    .brand:hover .brand-star{transform:rotate(45deg)}
+    .top-links{display:flex;align-items:center;gap:28px;font-size:12px;font-weight:700}
+    .top-links a{transition:color .2s}.top-links a:hover{color:var(--royal)}
+    .site-status{font:700 10px/1.2 var(--mono);color:#55615a;display:flex;align-items:center;gap:9px}
+    .status-dot{width:7px;height:7px;background:var(--royal);border-radius:50%;display:inline-block}
+    .hero{padding:106px 0 102px;min-height:660px;position:relative;isolation:isolate;text-align:center}
+    .hero:before{content:'';position:absolute;inset:0 auto auto 50%;width:min(760px,100%);height:500px;transform:translateX(-50%);z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 44%,rgba(255,255,255,.60),transparent 67%)}
+    .hero .eyebrow{display:flex;align-items:center;justify-content:center;gap:13px;color:var(--royal);margin-bottom:24px}
+    .hero .eyebrow .small-line{display:block;width:24px;height:1px;background:var(--royal)}
+    h1{font-size:clamp(56px,7.3vw,105px);font-weight:700;line-height:.99;letter-spacing:-.088em;margin-bottom:23px}
+    h1 em{font-family:var(--serif);font-size:1.11em;font-style:italic;font-weight:400;letter-spacing:-.065em;color:var(--royal)}
+    .hero-description{color:#57615c;font-size:clamp(15px,1.42vw,18px);line-height:1.75;max-width:660px;margin:0 auto 43px;letter-spacing:-.01em}
+    .hero-description strong{color:var(--ink)}
+    .search-wrap{max-width:840px;margin:0 auto;text-align:left}
+    .search-panel{background:#fff;border:1px solid #d7d7cc;border-radius:17px;box-shadow:0 22px 66px rgba(15,34,40,.075),0 2px 7px rgba(15,34,40,.025);transition:box-shadow .2s,border-color .2s;overflow:hidden}
+    .search-panel:focus-within{border-color:#97a2bd;box-shadow:0 20px 72px rgba(15,34,40,.10),0 0 0 3px rgba(38,71,219,.08)}
+    .search-main{display:flex;align-items:flex-start;padding:21px 20px 10px 23px;gap:15px}
+    .search-symbol{color:var(--royal);flex:none;margin-top:4px;width:21px;height:21px}
+    textarea{width:100%;border:0;outline:0;resize:vertical;min-height:75px;max-height:260px;background:transparent;color:var(--ink);font-size:18px;line-height:1.55;font-weight:500;letter-spacing:-.018em;padding:0;display:block}
+    textarea::placeholder{color:#929893;font-weight:400}
+    .search-bottom{padding:11px 14px 14px 60px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+    .search-help{font:400 10px/1.5 var(--mono);color:#8a9189;letter-spacing:-.02em}
+    .search-actions{display:flex;align-items:center;gap:12px;flex:none}
+    .charcount{font:400 10px var(--mono);color:#9ba39e;white-space:nowrap}
+    .submit-btn{border:0;background:var(--acid);color:var(--ink);font-size:13px;font-weight:800;border-radius:7px;padding:13px 18px;min-height:44px;display:inline-flex;justify-content:center;align-items:center;gap:17px;transition:transform .2s,background .2s}
+    .submit-btn:hover{background:#b5e645;transform:translateY(-1px)}
+    .submit-btn span{font-size:20px;line-height:.7;font-weight:400}
+    .examples{display:flex;justify-content:center;align-items:center;gap:9px;flex-wrap:wrap;margin-top:22px}
+    .examples-title{color:#7a807a;margin-right:4px;font-size:12px;font-weight:600}
+    .example{background:transparent;color:#535d56;border:1px solid #d5d5cc;border-radius:100px;padding:8px 14px;font-size:12px;font-weight:600;transition:background .15s,border-color .15s,transform .15s;white-space:nowrap}
+    .example:hover{background:white;border-color:#a9b2a5;transform:translateY(-1px)}
+    .below-search{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:21px;max-width:840px;margin-inline:auto}
+    .privacy{font:400 10px/1.55 var(--mono);color:#7e8680;display:inline-flex;align-items:center;gap:8px;letter-spacing:-.015em}
+    .privacy svg{flex:none}
+    .custom-details{max-width:840px;margin:0 auto;position:relative}
+    .custom-details>summary{list-style:none;cursor:pointer;color:#475451;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px}
+    .custom-details>summary::-webkit-details-marker{display:none}
+    .custom-details>summary::after{content:'+';font:400 20px var(--sans);line-height:1;margin-left:1px;color:var(--royal)}
+    .custom-details[open]>summary::after{content:'−'}
+    .custom-body{margin-top:19px;background:#fff;border:1px solid var(--line);padding:22px;border-radius:11px;display:grid;grid-template-columns:1fr 1fr;gap:28px;text-align:left;box-shadow:0 16px 38px rgba(15,34,40,.035)}
+    .field-title{display:block;font-size:12px;font-weight:800;margin-bottom:9px}
+    .field-hint{font-size:12px;color:#7c837e;margin-top:-4px;margin-bottom:12px;line-height:1.5}
+    select{width:100%;appearance:none;background:#fbfaf7;border:1px solid #d6d6cb;padding:13px 33px 13px 13px;border-radius:5px;font-size:13px;color:#33413d;outline-offset:3px}
+    .select-wrap{position:relative}.select-wrap::after{content:'⌄';position:absolute;right:13px;top:8px;font-size:23px;color:#536159;pointer-events:none}
+    .checkboxes{display:grid;gap:12px}.checkbox-line{display:flex;gap:10px;align-items:flex-start;color:#505c56;font-size:12px;line-height:1.55;cursor:pointer}.checkbox-line input{accent-color:var(--royal);margin-top:3px;flex:none}
+    .error{font-size:13px;text-align:center;color:#a33b35;min-height:0;margin-top:13px}
+    .transition-band{height:1px;background:var(--line);width:100%}
+    .results{display:none;padding:86px 0 112px;scroll-margin-top:40px}.results.show{display:block;animation:fadein .35s ease both}
+    @keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .section-top{display:flex;align-items:center;justify-content:space-between;gap:22px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:27px}
+    .section-top .mono{color:var(--royal)}
+    .section-top small{font-size:11px;color:#848b84}
+    .result-card{--accent:var(--acid);background:var(--midnight);color:#f5f5ec;border-radius:8px;padding:47px 54px 45px;position:relative;overflow:hidden}
+    .result-card[data-variant='creative']{--accent:#c3b9ff}.result-card[data-variant='routine']{--accent:#a9cafa}.result-card[data-variant='highrisk']{--accent:#ffbb77}.result-card[data-variant='personal']{--accent:#e7c1d4}.result-card[data-variant='sensitive'],.result-card[data-variant='noai']{--accent:#f9a18f}
+    .result-card::after{content:'';position:absolute;border:1px solid rgba(255,255,255,.095);border-radius:50%;width:600px;height:600px;right:-330px;top:-332px;box-shadow:0 0 0 78px rgba(255,255,255,.018),0 0 0 159px rgba(255,255,255,.013);pointer-events:none}
+    .result-top{font:700 10px var(--mono);letter-spacing:.055em;display:flex;gap:12px;align-items:center;color:var(--accent);position:relative;z-index:1;text-transform:uppercase}
+    .res-icon{width:33px;height:33px;border:1px solid rgba(255,255,255,.24);color:var(--accent);font:400 22px/1 var(--sans);display:grid;place-items:center;border-radius:50%}
+    .result-card h3{font-size:clamp(37px,5vw,70px);font-weight:600;letter-spacing:-.067em;line-height:1.06;max-width:880px;margin:31px 0 20px;position:relative;z-index:1}
+    .result-desc{font-size:16px;line-height:1.75;color:#cbd6d3;max-width:710px;position:relative;z-index:1}
+    .result-task{border-top:1px solid rgba(255,255,255,.18);margin-top:33px;padding-top:18px;font-size:12px;line-height:1.6;color:#aebdbb;position:relative;z-index:1}
+    .result-task b{color:var(--accent);font:700 10px var(--mono);text-transform:uppercase;letter-spacing:.03em;margin-right:11px}
+    .res-rule{display:none}
+    .result-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:21px 0 55px}
+    .text-action{border:0;background:transparent;border-bottom:1px solid #bcbeb4;border-radius:0;color:#42504b;padding:9px 1px;font-size:12px;font-weight:700;transition:color .2s}.text-action:hover{color:var(--royal)}
+    .text-action.primary{color:var(--royal);border-color:var(--royal)}
+    .result-detail-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:74px;align-items:start}
+    .overline{color:var(--royal);margin-bottom:17px}
+    .subcard h4{font-size:clamp(29px,3.35vw,42px);line-height:1.12;letter-spacing:-.06em;font-weight:700;margin-bottom:24px}
+    .steps{list-style:none;padding:0;margin:0;display:grid;gap:0}
+    .steps li{display:grid;grid-template-columns:35px 1fr;gap:15px;padding:18px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.6;color:#4b5954}
+    .steps li:last-child{border-bottom:1px solid var(--line)}
+    .num{font:700 12px var(--mono);color:var(--royal)}
+    .reason{color:#485752;font-size:14px;line-height:1.85;margin-bottom:15px}
+    .reason-pill{color:#4d5b57;font-size:10px;font-weight:700;display:inline-block;letter-spacing:.02em}
+    .evidence-heading{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;color:var(--ink);margin-top:30px;margin-bottom:11px}
+    .evidence-heading::before{content:'';width:7px;height:7px;background:var(--royal);border-radius:50%}
+    .evidence-list{border-top:1px solid var(--line)}
+    .evidence-item{padding:15px 0 18px;border-bottom:1px solid var(--line)}
+    .ev-label{font:700 10px var(--mono);letter-spacing:.01em;color:var(--royal);margin-bottom:8px}
+    .evidence-item h5{font-size:15px;letter-spacing:-.025em;line-height:1.35;margin:0 0 5px}
+    .evidence-item p{font-size:12px;line-height:1.62;color:#737b74;margin:0 0 7px}
+    .evidence-item a{color:var(--royal);font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:6px}
+    .evidence-item a:hover{text-decoration:underline}
+    .limitation{font-size:11px;line-height:1.75;color:#858d85;margin-top:18px}
+    .prompt-box{background:#e8e6dc;padding:21px;margin-top:28px;border-left:3px solid var(--royal)}
+    .prompt-box[hidden]{display:none}.prompt-box strong{font-size:13px;display:block;margin-bottom:9px}
+    .prompt-box p{font-size:12px;line-height:1.65;color:#5c675f;white-space:pre-wrap;overflow-wrap:anywhere}
+    .prompt-box button{margin-top:13px;border:0;padding:0;background:transparent;color:var(--royal);font-size:12px;font-weight:800}
+    .science{background:#e9e6dc;padding:100px 0 110px}
+    .science-heading{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #c4c7be;padding-bottom:17px;gap:20px;margin-bottom:52px}
+    .science-heading span{color:var(--royal)}
+    .science-layout{display:grid;grid-template-columns:1.07fr .93fr;gap:85px;align-items:start}
+    .science h2{font-size:clamp(48px,5.35vw,79px);letter-spacing:-.075em;line-height:1.03;font-weight:600;margin-bottom:25px}
+    .science h2 em{color:var(--royal);font-family:var(--serif);font-size:1.06em;letter-spacing:-.06em;font-weight:400}
+    .science-intro{max-width:535px;color:#5b655e;font-size:15px;line-height:1.78;margin-bottom:19px}
+    .science-point{border-top:1px solid #c6cbc1;padding:17px 0;display:grid;grid-template-columns:37px 1fr;gap:15px}
+    .science-point:last-child{border-bottom:1px solid #c6cbc1}
+    .science-point .point-num{font:700 11px var(--mono);color:var(--royal);padding-top:2px}
+    .science-point h3{font-size:15px;letter-spacing:-.025em;font-weight:800;margin-bottom:6px}
+    .science-point p{color:#656e66;font-size:12px;line-height:1.65}
+    .disclosure-wrap{margin-top:65px;border-top:1px solid #c6cbc1;padding-top:24px}
+    .disclosure-details>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:13px;font-weight:800}
+    .disclosure-details>summary::-webkit-details-marker{display:none}
+    .disclosure-details>summary::after{content:'+';font-size:22px;font-weight:400;color:var(--royal)}
+    .disclosure-details[open]>summary::after{content:'−'}
+    .disclosure{color:#5a655d;font-size:13px;line-height:1.85;max-width:940px;padding:21px 0 0}
+    .footer{background:var(--night);color:#e9ede5;padding:41px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .footer-brand{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:800;letter-spacing:-.035em}
+    .footer-brand i{font-style:normal;color:var(--acid);font-size:29px;font-weight:400}
+    .footer-credit{font-size:12px;color:#98aaa7;text-align:right;line-height:1.55}
+    .footer-credit a{color:#d4e3df;text-decoration:underline;text-underline-offset:3px}
+    @media(max-width:900px){.result-detail-grid,.science-layout{gap:37px}.container{width:min(100% - 48px,1160px)}.hero{padding:88px 0 80px}.top-links{gap:18px}.site-status{display:none}}
+    @media(max-width:660px){.container{width:calc(100% - 36px)}.site-header{min-height:68px}.brand{font-size:17px}.brand-star{font-size:28px}.top-links{gap:16px;font-size:11px}.top-links a:first-child{display:none}.hero{padding:75px 0 70px;min-height:auto}.hero .eyebrow{font-size:9px;gap:8px;margin-bottom:22px}.hero .eyebrow .small-line{width:14px}h1{font-size:clamp(50px,11.7vw,76px);letter-spacing:-.08em;line-height:.99;margin-bottom:22px}.hero-description{font-size:15px;line-height:1.65;margin-bottom:31px;padding:0 5px}.search-main{padding:21px 19px 7px 19px;gap:11px}.search-symbol{width:18px;height:18px}textarea{font-size:16px;min-height:100px}.search-bottom{padding:10px 12px 12px 19px;align-items:flex-end}.search-help{max-width:160px;font-size:9px}.search-actions{gap:8px}.submit-btn{padding:12px 13px;gap:9px;font-size:12px;white-space:nowrap}.charcount{display:none}.examples{justify-content:flex-start;gap:7px;margin-top:18px}.examples-title{flex-basis:100%;text-align:left}.example{font-size:11px;padding:8px 11px}.below-search{align-items:flex-start;flex-wrap:wrap;gap:11px;flex-direction:column-reverse;margin-top:19px}.custom-body{grid-template-columns:1fr;gap:24px;padding:18px;margin-top:14px}.results{padding:62px 0 78px}.section-top{display:block}.section-top small{display:block;margin-top:7px}.result-card{padding:32px 24px 31px}.result-card h3{font-size:clamp(34px,8.5vw,51px);margin:28px 0 17px}.result-desc{font-size:14px}.result-task{margin-top:26px}.result-actions{gap:13px 20px;margin:16px 0 43px}.text-action{font-size:11px}.result-detail-grid{grid-template-columns:1fr;gap:48px}.subcard h4{font-size:35px;margin-bottom:19px}.science{padding:66px 0 75px}.science-heading{margin-bottom:37px}.science-layout{grid-template-columns:1fr;gap:22px}.science h2{font-size:clamp(45px,11vw,69px)}.science-intro{font-size:14px}.science-point{padding:17px 0}.disclosure-wrap{margin-top:44px}.footer{padding:36px 0}.footer-inner{display:block}.footer-credit{text-align:left;margin-top:16px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+    .matched-note{margin:20px 0 2px;padding:18px 22px;border:1px solid var(--line);background:rgba(255,255,255,.45);border-radius:9px}
+    .matched-note[hidden]{display:none}
+    .matched-note .mono{color:var(--royal);font-size:9px}
+    .matched-note p{margin:8px 0 4px;font-size:15px;font-weight:700;letter-spacing:-.016em}
+    .matched-note small{font-size:11px;line-height:1.5;color:var(--muted)}
+    @media print{.top-strip,.site-header,.hero,.science,.footer,.result-actions{display:none!important}.results{display:block!important;padding:0}.result-card{background:white!important;color:black!important;border:1px solid #ccc}.result-desc,.result-task{color:#555}.result-detail-grid{display:block}.subcard{break-inside:avoid;margin-top:30px}.evidence-item{break-inside:avoid}.container{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="top-strip" aria-hidden="true"></div>
+  <header class="site-header container" aria-label="Navegação principal">
+    <a class="brand" href="#inicio" aria-label="Use Your Brain, início"><span class="brand-star" aria-hidden="true">✳</span><span>use your brain<span style="color:var(--royal)">.</span></span></a>
+    <nav class="top-links" aria-label="Seções"><a href="#como-funciona">Experimentar</a><a href="#fundamentos">A ciência</a><span class="site-status"><span class="status-dot"></span> 3.000 CASOS · SEM API</span></nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="inicio" aria-labelledby="hero-title">
+      <div class="eyebrow mono"><span class="small-line"></span>UM EXPERIMENTO SOBRE AUTONOMIA INTELECTUAL<span class="small-line"></span></div>
+      <h1 id="hero-title">Pensar primeiro<br>ou <em>usar IA?</em></h1>
+      <p class="hero-description">Nem tudo que pode ser automatizado <strong>deveria ser automatizado.</strong><br>Descreva sua tarefa. Encontre uma das 3.000 situações do catálogo e descubra quando usar IA — e quando não usar.</p>
+      <div class="search-wrap" id="como-funciona">
+        <form id="task-form" novalidate>
+          <div class="search-panel">
+            <div class="search-main">
+              <svg class="search-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.3"/><path d="m16.6 16.6 4.1 4.1"/></svg>
+              <label class="sr-only" for="task" style="position:absolute;left:-10000px">Qual tarefa você quer realizar?</label>
+              <textarea id="task" maxlength="700" required aria-describedby="task-help" placeholder="Qual tarefa você está pensando em fazer?&#10;Ex.: Quero estudar estatística para uma prova..."></textarea>
+            </div>
+            <div class="search-bottom"><span class="search-help" id="task-help">A resposta depende do seu objetivo.</span><div class="search-actions"><span id="charcount" class="charcount">0 / 700</span><button class="submit-btn" id="analyze" type="submit">Analisar tarefa <span aria-hidden="true">↗</span></button></div></div>
+          </div>
+          <p class="error" id="error" role="alert"></p>
+        </form>
+        <div class="examples" aria-label="Exemplos de tarefas"><span class="examples-title">Experimente</span>
+          <button type="button" class="example sample" data-sample="Resolver exercícios de estatística para aprender o conteúdo">Aprender estatística</button>
+          <button type="button" class="example sample" data-sample="Criar uma hipótese original para investigar uma doença">Criar hipótese</button>
+          <button type="button" class="example sample" data-sample="Organizar referências e formatar uma bibliografia">Organizar referências</button>
+          <button type="button" class="example sample" data-sample="Escrever uma carta pessoal de pedido de desculpas">Carta pessoal</button>
+          <button type="button" class="example sample" data-sample="Decidir se devo começar um novo tratamento médico">Decisão médica</button>
+          <button type="button" class="example sample" data-sample="Fazer uma prova individual em que o uso de IA é proibido">Prova sem IA</button>
+        </div>
+        <div class="below-search">
+          <p class="privacy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Sua tarefa é analisada neste navegador, sem envio a um servidor.</p>
+          <details class="custom-details" id="advanced-panel"><summary>Ajustar contexto (opcional)</summary>
+            <div class="custom-body">
+              <div><label class="field-title" for="goal">Qual é seu objetivo?</label><p class="field-hint">Escolha para tornar a recomendação mais precisa.</p><div class="select-wrap"><select id="goal"><option value="auto">Deixar o site interpretar</option><option value="learn">Aprender ou desenvolver uma habilidade</option><option value="creative">Criar algo original</option><option value="routine">Executar uma tarefa com eficiência</option><option value="highrisk">Tomar uma decisão importante</option><option value="personal">Expressar algo pessoal/autêntico</option></select></div></div>
+              <div><span class="field-title">Cuidados especiais</span><div class="checkboxes"><label class="checkbox-line"><input type="checkbox" id="sensitive"><span>Envolve dados privados ou confidenciais</span></label><label class="checkbox-line"><input type="checkbox" id="stakes"><span>Um erro poderia causar consequências graves</span></label><label class="checkbox-line"><input type="checkbox" id="prohibited"><span>Preciso realizar sem ajuda de IA</span></label></div></div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="transition-band" aria-hidden="true"></div>
+    <section class="results container" id="resultado" aria-live="polite" aria-label="Recomendação baseada na descrição da tarefa">
+      <div class="section-top"><span class="mono">01 / SUA RECOMENDAÇÃO</span><small>Busca local em 3.000 exemplos + regras transparentes · nenhuma consulta a IA</small></div>
+      <article class="result-card" id="result-card">
+        <div class="result-top"><span class="res-icon" id="res-symbol" aria-hidden="true">✳</span><span id="res-category">Estratégia recomendada</span></div>
+        <h3 id="res-title">—</h3><p class="result-desc" id="res-summary"></p><div class="res-rule"></div><p class="result-task"><b>Sua tarefa</b><span id="res-task"></span></p>
+      </article>
+      <aside class="matched-note" id="matched-note" hidden aria-label="Correspondência do catálogo">
+        <span class="mono">SITUAÇÃO SEMELHANTE NO CATÁLOGO</span>
+        <p id="matched-task"></p>
+        <small id="matched-quality"></small>
+      </aside>
+      <div class="result-actions"><button type="button" class="text-action primary" id="copy-result">Copiar recomendação ↗</button><button type="button" class="text-action" id="print-result">Imprimir / salvar PDF ↗</button><button type="button" class="text-action" id="new-task">Analisar outra tarefa ↗</button></div>
+      <div class="result-detail-grid">
+        <section class="subcard" aria-labelledby="steps-title"><p class="mono overline">02 / COMO COLOCAR EM PRÁTICA</p><h4 id="steps-title">Três passos para começar.</h4><ol class="steps" id="res-steps"></ol><div class="prompt-box" id="prompt-box" hidden><strong id="prompt-title">Um prompt melhor para esta tarefa</strong><p id="res-prompt"></p><button type="button" id="copy-prompt">Copiar prompt ↗</button></div></section>
+        <section class="subcard" aria-labelledby="science-title"><p class="mono overline">03 / POR TRÁS DA RESPOSTA</p><h4 id="science-title">O que diz a ciência?</h4><p class="reason" id="res-reason"></p><span class="reason-pill" id="reason-pill"></span><div class="evidence-heading">Pesquisas e fontes</div><div class="evidence-list" id="res-evidence"></div><p class="limitation" id="res-limitation"></p></section>
+      </div>
+    </section>
+
+    <section class="science" id="fundamentos" aria-labelledby="science-main-title">
+      <div class="container">
+        <div class="science-heading"><span class="mono">POR QUE ESTA FERRAMENTA EXISTE</span><span class="mono" style="color:#778078">PENSAMENTO CRÍTICO × TECNOLOGIA</span></div>
+        <div class="science-layout">
+          <div><h2 id="science-main-title">Nem toda dificuldade precisa <em>desaparecer.</em></h2><p class="science-intro">Algumas tarefas consomem tempo sem nos acrescentar muito. Outras são justamente o exercício que desenvolve nossa capacidade de pensar, criar e aprender.</p><p class="science-intro">A questão não é ser contra a IA. É saber quando <strong>delegar</strong>, quando <strong>colaborar</strong> e quando <strong>preservar o esforço humano</strong>.</p></div>
+          <div class="science-points"><div class="science-point"><span class="point-num">01</span><div><h3>Aprender não é só chegar à resposta.</h3><p>O desempenho com IA durante a prática pode ser diferente do desempenho posterior sem ajuda.</p></div></div><div class="science-point"><span class="point-num">02</span><div><h3>Ideias melhores podem ficar mais parecidas.</h3><p>Em certas tarefas, a IA aumenta a qualidade individual, mas reduz a diversidade entre produções.</p></div></div><div class="science-point"><span class="point-num">03</span><div><h3>Economizar esforço também tem valor.</h3><p>Em trabalhos instrumentais, experimentos mostram ganhos reais de produtividade.</p></div></div><div class="science-point"><span class="point-num">04</span><div><h3>O risco muda tudo.</h3><p>Privacidade, segurança, regras da atividade e consequências de um erro precisam entrar na decisão.</p></div></div></div>
+        </div>
+        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 3.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os exemplos foram gerados programaticamente, não resultam de um levantamento de frequência entre usuários. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade e produtividade); outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><div class="footer-brand"><i aria-hidden="true">✳</i><span>use your brain.</span></div><p class="footer-credit">Uma iniciativa sobre ciência e autonomia intelectual.<br><a href="#inicio">Voltar ao início ↑</a></p></div></footer>
+  <script src="catalogo-3000.js"></script>
+  <script>
+'use strict';
+    const REFERENCES={
+      pnas:{title:'Generative AI without guardrails can harm learning: Evidence from high school mathematics',authors:'Bastani et al.',journal:'PNAS',year:2025,url:'https://doi.org/10.1073/pnas.2422633122',kind:'Experimento randomizado',summary:'Alunos com acesso livre a GPT-4 tiveram melhor desempenho na prática, mas desempenho inferior na prova posterior sem IA. Uma versão tutora mitigou esse efeito.'},
+      kapur:{title:'Productive failure in learning math',authors:'Manu Kapur',journal:'Cognitive Science',year:2014,url:'https://doi.org/10.1111/cogs.12107',kind:'Dois experimentos randomizados',summary:'Tentar resolver problemas antes da instrução favoreceu a compreensão conceitual e a transferência, mesmo sem obter inicialmente a resposta correta.'},
+      dunlosky:{title:'Improving Students’ Learning With Effective Learning Techniques',authors:'Dunlosky et al.',journal:'Psychological Science in the Public Interest',year:2013,url:'https://doi.org/10.1177/1529100612453266',kind:'Revisão de evidências',summary:'Prática de recuperação e estudo distribuído tiveram ampla utilidade para aprender e reter conhecimentos.'},
+      doshi:{title:'Generative AI enhances individual creativity but reduces the collective diversity of novel content',authors:'Doshi & Hauser',journal:'Science Advances',year:2024,url:'https://doi.org/10.1126/sciadv.adn5290',kind:'Experimento randomizado',summary:'Histórias com sugestões de IA foram consideradas melhores individualmente, porém ficaram mais semelhantes entre si.'},
+      noy:{title:'Experimental evidence on the productivity effects of generative artificial intelligence',authors:'Noy & Zhang',journal:'Science',year:2023,url:'https://doi.org/10.1126/science.adh2586',kind:'Experimento randomizado',summary:'Em tarefas profissionais de escrita, o uso de ChatGPT reduziu o tempo médio em 40% e elevou a qualidade média em 18%.'},
+      lee:{title:'The Impact of Generative AI on Critical Thinking',authors:'Lee et al.',journal:'CHI',year:2025,url:'https://doi.org/10.1145/3706598.3713778',kind:'Pesquisa observacional',summary:'Em relatos de 319 trabalhadores, maior confiança na IA se associou a menor esforço percebido de pensamento crítico; não demonstra causalidade.'},
+      risko:{title:'Cognitive Offloading',authors:'Risko & Gilbert',journal:'Trends in Cognitive Sciences',year:2016,url:'https://doi.org/10.1016/j.tics.2016.07.002',kind:'Revisão conceitual',summary:'Descreve a transferência de demandas cognitivas para ferramentas externas e discute suas consequências e limites.'},
+      sparrow:{title:'Google Effects on Memory',authors:'Sparrow, Liu & Wegner',journal:'Science',year:2011,url:'https://doi.org/10.1126/science.1207745',kind:'Experimentos sobre memória',summary:'Esperar ter acesso posterior a informações pode reduzir a lembrança do conteúdo e aumentar a lembrança de onde recuperá-lo.'},
+      nist:{title:'AI Risk Management Framework: Generative AI Profile',authors:'NIST',journal:'NIST AI 600-1',year:2024,url:'https://doi.org/10.6028/NIST.AI.600-1',kind:'Diretriz técnica — não é estudo experimental',summary:'Organiza riscos de IA generativa, incluindo confabulação, privacidade, integridade das informações e necessidade de controles proporcionais.'}
+    };
+    const RECS={
+      learn:{tag:'Preservar a aprendizagem',symbol:'✳',title:'Pense primeiro. Use IA como tutora depois.',summary:'Se o objetivo é aprender, receber a resposta pronta pode atrapalhar o exercício intelectual que você quer desenvolver. Faça uma tentativa real antes de pedir ajuda.',steps:['Faça sua primeira tentativa sem IA e anote o que você não entendeu.','Peça pistas graduais, perguntas ou um contraexemplo — não uma solução pronta.','Resolva outra tarefa semelhante sem qualquer apoio. É esse o teste de aprendizagem.'],reason:'Em um experimento com estudantes, o uso irrestrito de IA ajudou na prática, mas prejudicou o desempenho posterior sem ajuda. Trabalhos sobre falha produtiva e recuperação ativa reforçam a importância de participar do processo de aprender.',evidence:['pnas','kapur','dunlosky'],caveat:'Os resultados dependem da disciplina, faixa etária e desenho da tarefa. Não provam que toda IA prejudica o aprendizado, nem que o uso de IA reduz a inteligência geral.',prompt:t=>`Estou aprendendo a seguinte tarefa: ${t}. Não entregue a resposta nem faça o exercício por mim. Faça uma pergunta de cada vez, ofereça pistas graduais apenas quando eu pedir e termine propondo uma questão semelhante para eu resolver sozinho.`,pill:'Evidência experimental sobre aprendizagem'},
+      creative:{tag:'Preservar a originalidade',symbol:'✧',title:'Sua ideia primeiro. IA como contraponto.',summary:'Quando a originalidade importa, começar pela sugestão de um modelo pode estreitar seus caminhos. Crie alternativas próprias antes de pedir à IA que critique ou desafie suas ideias.',steps:['Gere pelo menos três ideias próprias antes de abrir uma IA, incluindo uma hipótese improvável.','Peça à IA críticas, objeções, analogias distantes e lacunas — não apenas uma lista de soluções.','Compare caminhos diferentes e decida conscientemente o que representa sua visão.'],reason:'Um experimento publicado na Science Advances mostrou aumento de qualidade em histórias individuais com IA, mas também maior semelhança entre histórias. A sequência “primeiro humano, depois crítica da IA” é uma medida prudente derivada desse risco, não um método validado no mesmo experimento.',evidence:['doshi','lee','kapur'],caveat:'O achado de homogeneização foi observado em histórias curtas; sua generalização para pesquisa científica, filmes ou todas as formas de criatividade ainda requer estudos.',prompt:t=>`Minha tarefa é: ${t}. Eu já vou trazer minhas ideias primeiro. Aja como revisor crítico: identifique pressupostos frágeis, ofereça três objeções realmente diferentes e proponha caminhos alternativos que não sejam apenas variações da solução mais óbvia. Não substitua minha autoria.`,pill:'Evidência direta sobre diversidade criativa'},
+      routine:{tag:'Acelerar sem abdicar do julgamento',symbol:'↗',title:'Use IA para ganhar tempo. Revise o resultado.',summary:'Se o foco é executar bem uma tarefa repetitiva ou instrumental, a IA pode ser uma boa aliada. Delegue o rascunho ou a organização — mantenha a checagem e a responsabilidade.',steps:['Defina exatamente o que a IA deve produzir, com critérios de qualidade.','Peça um primeiro rascunho, estrutura ou classificação e confira fatos, números, fontes e detalhes.','Ajuste o resultado ao contexto e confirme que não há informações inventadas ou exposição indevida de dados.'],reason:'Em tarefas profissionais de escrita, um experimento encontrou ganhos de velocidade e qualidade com ChatGPT. Isso sustenta experimentar IA para produção instrumental, não confiar cegamente em qualquer saída.',evidence:['noy','lee','nist'],caveat:'Ganhos medidos em escrita profissional não se transferem automaticamente a qualquer tarefa, software ou área. Verificação proporcional ao risco continua necessária.',prompt:t=>`Ajude a executar esta tarefa: ${t}. Primeiro proponha um plano objetivo. Entregue um resultado organizado, sinalize toda informação que precise de confirmação e separe fatos verificados de suposições. Não invente referências.`,pill:'Evidência experimental sobre produtividade'},
+      highrisk:{tag:'Decisão sob responsabilidade humana',symbol:'!',title:'IA pode informar. Não deve decidir por você.',summary:'Em decisões com consequências médicas, jurídicas, financeiras ou de segurança, a IA pode ajudar a estruturar opções e perguntas, mas a decisão exige verificação independente e, quando cabível, apoio profissional.',steps:['Use IA apenas para mapear perguntas, opções e fontes que você possa verificar.','Confira informações com documentação original e profissionais qualificados, conforme a situação.','Tome a decisão com critérios explícitos, considerando contexto, riscos e responsabilidade.'],reason:'Diretrizes do NIST identificam riscos como respostas falsas convincentes e falhas de integridade da informação. Estudos sobre pensamento crítico indicam que confiar demais na IA pode estar associado a menor revisão percebida — associação, não causalidade.',evidence:['nist','lee','risko'],caveat:'Esta orientação é de gestão de risco, não um ensaio clínico sobre decisões. Não substitui avaliação médica, jurídica, financeira ou de segurança.',prompt:t=>`Quero entender melhor esta decisão, sem delegá-la à IA: ${t}. Liste perguntas que devo fazer a um especialista, alternativas que precisam ser consideradas, incertezas importantes e fontes primárias para verificação. Não tome a decisão por mim.`,pill:'Diretriz de segurança + evidência indireta'},
+      personal:{tag:'Preservar a voz humana',symbol:'♡',title:'Não use IA para substituir sua voz.',summary:'Se o valor da tarefa está em expressar o que você sente, acredita ou viveu, vale fazer isso por conta própria. Imperfeições podem ser parte da autenticidade.',steps:['Escreva do seu jeito, mesmo que o texto não fique perfeito.','Leia em voz alta e ajuste apenas o que não representa o que você quis dizer.','Se desejar, use uma ferramenta só para correções pontuais de ortografia — sem delegar o conteúdo emocional.'],reason:'Esta é principalmente uma recomendação ética e editorial: preservar autoria e autenticidade em relações pessoais. Pesquisas sobre terceirização cognitiva oferecem contexto, mas não demonstram que usar IA em mensagens pessoais seja necessariamente ruim.',evidence:['risko','lee'],caveat:'Não existe ensaio que estabeleça uma regra universal de “não usar IA” para expressão pessoal. Pessoas com dificuldades de comunicação ou acessibilidade podem se beneficiar enormemente de ferramentas de apoio.',prompt:null,pill:'Julgamento de valor explicitado'},
+      sensitive:{tag:'Privacidade em primeiro lugar',symbol:'▣',title:'Não coloque esses dados em uma IA pública.',summary:'A tarefa pode ser útil para IA, mas não com informações sensíveis, identificáveis ou sigilosas em uma ferramenta sem autorização e garantias adequadas.',steps:['Não cole dados de pacientes, clientes, terceiros, senhas ou segredos empresariais em serviços não autorizados.','Se a tarefa permitir, remova identificadores e informações confidenciais; avalie risco de reidentificação.','Utilize apenas ferramentas aprovadas pela organização e com controles adequados. Caso contrário, faça sem IA.'],reason:'O perfil de IA generativa do NIST destaca privacidade, segurança e integridade como riscos que precisam ser avaliados no contexto de uso. Aqui a recomendação é preventiva, não uma afirmação de que toda ferramenta de IA compartilha dados.',evidence:['nist','lee'],caveat:'Ferramentas empresariais e implementações locais podem ter proteções diferentes. A adequação depende de contratos, políticas, dados e legislação aplicável.',prompt:null,pill:'Princípio de precaução e gestão de risco'},
+      noai:{tag:'Integridade e escolha',symbol:'×',title:'Para esta tarefa, não use IA.',summary:'Se a atividade exige trabalho individual sem assistência, recorrer à IA compromete o propósito ou as regras da tarefa. Fazer por conta própria é parte do resultado.',steps:['Realize a atividade de forma independente e respeite as regras combinadas.','Registre dúvidas para estudá-las depois da avaliação ou atividade.','Quando o uso de IA for permitido, explore os pontos em que você encontrou dificuldade.'],reason:'Respeitar as regras da atividade é uma exigência de integridade, não uma descoberta experimental. Pesquisas de aprendizagem oferecem um argumento adicional para preservar tarefas de prática e avaliação independente.',evidence:['pnas','kapur','dunlosky'],caveat:'A recomendação depende de a atividade efetivamente proibir IA ou exigir trabalho individual. Em outros contextos, ferramentas de acessibilidade autorizadas podem ser apropriadas.',prompt:null,pill:'Regra de integridade, com apoio indireto da pesquisa'}
+    };
+    const $=id=>document.getElementById(id);
+    const normalize=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^\w\s]/g,' ').replace(/\s+/g,' ').trim();
+    const contains=(s,arr)=>arr.some(w=>s.includes(w));
+    function classify(task,goal,flags){
+      const s=normalize(task);
+      const prohibited=contains(s,['ia e proibid','uso de ia e proibid','sem usar ia','nao posso usar ia','nao pode usar ia','prova sem ia','exame sem ia','avaliacao sem ia','sem ajuda de ia','without ai','no ai allowed','closed book exam']);
+      const sensitive=contains(s,['prontuario','cpf','cnpj confidencial','senhas','senha pessoal','segredo comercial','segredo de empresa','sigiloso','confidencial','dados de paciente','dados de pacientes','informacoes privadas','informacoes sigilosas','dados sensiveis','medical record','private customer data','patient data','passwords','dados pessoais identificaveis']);
+      if(flags.prohibited||prohibited)return {category:'noai',source:'Regra de trabalho individual / proibição de IA'};
+      if(flags.sensitive||sensitive)return {category:'sensitive',source:'Possível presença de informações confidenciais'};
+      if(flags.stakes)return {category:'highrisk',source:'Consequências potencialmente graves indicadas por você'};
+      if(goal!=='auto')return {category:goal,source:'Objetivo selecionado por você'};
+      const scores={learn:0,creative:0,routine:0,highrisk:0,personal:0};
+      const rules={
+        learn:[['aprender',4],['estudar',4],['entender',3],['compreender',3],['exercicio',4],['matematica',3],['estatistica',3],['treinar raciocinio',4],['ensinar me',3],['prova',3],['vestibular',3],['mestrado',2],['doutorado',2],['revisar para a prova',4],['memorizar',4],['praticar',3],['study',3],['learn',4],['homework',3],['dissertacao',1],['resolver um problema',2],['programar para aprender',4],['aprender programacao',5]],
+        creative:[['original',5],['criativ',3],['invent',3],['hipotese',5],['novas ideias',4],['brainstorm',3],['roteiro',3],['escrever historia',4],['poema',4],['projeto de pesquisa',3],['descoberta',3],['pesquisa cientifica',2],['criar um',2],['criar uma',2],['escrever um livro',5],['design',2],['artigo de opiniao',4],['unique',3],['creative',4]],
+        routine:[['organizar',5],['formatar',5],['planilha',4],['resumir',4],['resumo',3],['traduzir',4],['traducao',4],['e mail de trabalho',5],['email de trabalho',5],['burocraci',4],['transcrever',5],['automatizar',4],['classificar',4],['compilar',4],['tabela',3],['lista de',2],['revisar gramatic',4],['processar',3],['rascunho profissional',3],['rotineir',5],['repetitiv',5],['organize',3],['format',4],['summarize',4],['business email',4],['escrever email',3]],
+        highrisk:[['decidir se',6],['devo tomar',6],['devo investir',6],['devo fazer cirurgia',7],['tratamento medico',5],['diagnostico',5],['sintomas',4],['prescrev',5],['dosagem',5],['cirurgia',5],['decisao medica',6],['investimento',3],['juridic',4],['contrato legal',4],['preciso escolher um tratamento',7],['seguranca',3],['medicamento',4],['devo parar',5],['decidir sobre',5],['minha saude',5],['medical treatment',5],['diagnosis',5],['legal advice',5],['financial decision',4]],
+        personal:[['pedido de desculpa',7],['declaracao de amor',7],['carta pessoal',6],['carta para minha',5],['mensagem para minha esposa',7],['mensagem para meu filho',7],['desabafar',6],['meus sentimentos',6],['terminar meu relacionamento',5],['carta de amor',7],['expressar o que sinto',6],['poema para minha',4],['voto de casamento',7],['pessoal e intimo',6],['apology letter',6],['love letter',6]]
+      };
+      for(const [cat,arr] of Object.entries(rules)) for(const [kw,weight] of arr) if(s.includes(kw)) scores[cat]+=weight;
+      // General 'criar' + 'roteiro' does not outweigh a clear learning intent.
+      let best='routine'; let bestScore=0;
+      for(const cat of ['highrisk','personal','learn','creative','routine'])if(scores[cat]>bestScore){bestScore=scores[cat];best=cat;}
+      if(!bestScore)return {category:'routine',source:'Nenhuma pista forte encontrada; recomendação provisória',uncertain:true};
+      return {category:best,source:'Pistas encontradas na descrição',uncertain:bestScore<=2};
+    }
+    // Offline retrieval: browse 3000 preset examples in memory.
+    // It is lexical matching, not semantic embeddings and not an AI query.
+    const CATALOG=Array.isArray(window.ANTES_TASKS)?window.ANTES_TASKS:[];
+    const STOP=new Set('a o as os um uma uns umas e de do da dos das no na nos nas em para por com que eu voce você quero preciso gostaria devo minha meu mais menos muito já ja sem sobre ao aos às ate até seja fazer usando usar ia inteligencia artificial inteligência é ser pra como qualquer aquele aquilo isto este essa esse me se'.split(' '));
+    const CANON={
+      estudar:'aprender',estudo:'aprender',estudando:'aprender',aprendizado:'aprender',aprendizagem:'aprender',
+      criar:'criacao',criando:'criacao',criaram:'criacao',inventar:'criacao',gerar:'criacao',original:'criacao',
+      hipoteses:'hipotese',ideia:'ideias',elaborar:'criacao',desenvolver:'criacao',
+      tratar:'tratamento',terapia:'tratamento',remedio:'medicamento',remedios:'medicamento',
+      computador:'programacao',codigo:'programacao',codigos:'programacao',programar:'programacao',
+      resumir:'resumo',resumos:'resumo',transcrever:'transcricao',transcricoes:'transcricao',
+      emails:'email',mensagens:'mensagem',pessoal:'pessoal',bibliografias:'bibliografia',
+      relatos:'relato',analisar:'analise',analiso:'analise',estatisticas:'estatistica',
+      exercicios:'exercicio',provas:'prova',avaliacoes:'avaliacao',relatorios:'relatorio',
+      organizar:'organizacao',formatar:'formatacao',decidir:'decisao',escolher:'decisao',
+      privados:'privado',sigilosas:'sigiloso',confidenciais:'confidencial',dados:'dado',
+      historinhas:'historia',roteiros:'roteiro',pesquisas:'pesquisa', cientificas:'cientifica'
+    };
+    function tokens(s){
+      return [...new Set(normalize(s).split(' ').filter(w=>w.length>2&&!STOP.has(w)).map(w=>CANON[w]||w))];
+    }
+    const CATALOG_INDEX=CATALOG.map(entry=>({...entry,tt:tokens(entry.task)}));
+    const FREQ={};for(const row of CATALOG_INDEX)for(const tok of row.tt)FREQ[tok]=(FREQ[tok]||0)+1;
+    function nearestTask(query,preferred){
+      const q=tokens(query); if(!q.length||!CATALOG_INDEX.length)return null;
+      let best=null,score=0;
+      // Document-frequency weighting stops very common words dominating retrieval.
+      for(const row of CATALOG_INDEX){
+        if(preferred&&row.category!==preferred)continue;
+        const common=q.filter(tok=>row.tt.includes(tok));
+        if(!common.length)continue;
+        const weight=common.reduce((sum,tok)=>sum+Math.log(1+CATALOG_INDEX.length/(1+(FREQ[tok]||0))),0);
+        const denominator=q.reduce((sum,tok)=>sum+Math.log(1+CATALOG_INDEX.length/(1+(FREQ[tok]||0))),0);
+        let current=(weight/Math.max(denominator,1)) * (0.83+0.17*common.length/Math.max(row.tt.length,1));
+        if(normalize(query)===normalize(row.task))current=1;
+        if(current>score){score=current;best=row;}
+      }
+      return best?{id:best.id,task:best.task,category:best.category,score}:null;
+    }
+    function classifyWithCatalog(task,goal,flags){
+      const base=classify(task,goal,flags);
+      const locked=flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive';
+      let match=nearestTask(task,locked||!base.uncertain?base.category:null);
+      // If the plain rule-engine had no strong clue, accept a sufficiently close, safe match.
+      if(!locked&&base.uncertain){
+        const global=nearestTask(task,null);
+        if(global&&global.score>=.48&&['learn','creative','routine','highrisk','personal'].includes(global.category)){
+          base.category=global.category;
+          base.uncertain=global.score<.62;
+          base.source='Correspondência aproximada do catálogo';
+          match=global;
+        }else{match=nearestTask(task,base.category);}
+      }
+      return {...base,matched:match};
+    }
+    function makeEl(tag,opts={}){const el=document.createElement(tag);if(opts.className)el.className=opts.className;if(opts.text!==undefined)el.textContent=opts.text;return el;}
+    function render(result,task){
+      const r=RECS[result.category]; $('result-card').dataset.variant=result.category;
+      $('res-category').textContent=r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=r.title; $('res-summary').textContent=r.summary; $('res-task').textContent=task;
+      $('res-reason').textContent=r.reason; $('reason-pill').textContent=r.pill;
+      const steps=$('res-steps');steps.replaceChildren();r.steps.forEach((step,i)=>{const li=makeEl('li');li.append(makeEl('span',{className:'num',text:String(i+1)}),makeEl('span',{text:step}));steps.append(li);});
+      const list=$('res-evidence');list.replaceChildren();r.evidence.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
+      const matched=$('matched-note');
+      if(result.matched && result.matched.score>=.20){
+        matched.hidden=false;
+        $('matched-task').textContent=result.matched.task;
+        $('matched-quality').textContent='Exemplo '+result.matched.id+' · correspondência textual aproximada, não uma validação científica individual.';
+      }else{matched.hidden=true;}
+      $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat}`;
+      const prompt=$('prompt-box');prompt.hidden=!r.prompt; if(r.prompt){$('res-prompt').textContent=r.prompt(task);} 
+      if(result.uncertain){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
+      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result};
+    }
+    $('task').addEventListener('input',()=>{$('charcount').textContent=`${$('task').value.length} / 700`;if($('error').textContent)$('error').textContent='';});
+    document.querySelectorAll('.sample').forEach(b=>b.addEventListener('click',()=>{$('task').value=b.dataset.sample;$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;$('task').focus();}));
+    $('task-form').addEventListener('submit',e=>{e.preventDefault();const task=$('task').value.trim();if(task.length<8){$('error').textContent='Descreva a tarefa com pelo menos algumas palavras.';$('task').focus();return;} $('error').textContent='';const flags={sensitive:$('sensitive').checked,stakes:$('stakes').checked,prohibited:$('prohibited').checked};render(classifyWithCatalog(task,$('goal').value,flags),task);});
+    function flash(button,text){const prev=button.textContent;button.textContent=text;setTimeout(()=>{button.textContent=prev;},1700);} 
+    async function copy(text,button){try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);}else{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}flash(button,'Copiado ✓');}catch(e){flash(button,'Não foi possível copiar');}}
+    $('copy-result').addEventListener('click',()=>{const s=window.currentResult;if(!s)return;let content=`ANTES DA IA — RECOMENDAÇÃO\nTarefa: ${s.task}\n${s.r.title}\n${s.r.summary}\n\nPLANO:\n${s.r.steps.map((x,i)=>i+1+'. '+x).join('\n')}\n\nPOR QUÊ:\n${s.r.reason}\n\nFONTES:\n${s.r.evidence.map(k=>`${REFERENCES[k].authors} (${REFERENCES[k].year}): ${REFERENCES[k].url}`).join('\n')}\n\nNota: árvore de decisão heurística, não validada cientificamente.`;copy(content,$('copy-result'));});
+    $('copy-prompt').addEventListener('click',()=>{if(window.currentResult?.r.prompt)copy(window.currentResult.r.prompt(window.currentResult.task),$('copy-prompt'));});
+    $('new-task').addEventListener('click',()=>{$('resultado').classList.remove('show');$('task').value='';$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;window.scrollTo({top:document.getElementById('como-funciona').offsetTop-20,behavior:'smooth'});$('task').focus({preventScroll:true});});
+    $('print-result').addEventListener('click',()=>window.print());
+    window.__matchTask=nearestTask;window.__classifyWithCatalog=classifyWithCatalog;window.__classify=classify; // usable for manual verification in browser console
+  </script>
+</body>
+</html>
