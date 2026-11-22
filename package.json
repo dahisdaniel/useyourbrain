@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Recomendações com base científica para decidir quando usar IA — 3000 exemplos offline.",
+  "description": "Recomendações com base científica para decidir quando usar IA — 10000 cenários profissionais offline.",
   "scripts": {
     "dev": "python3 -m http.server 4321",
     "build": "node scripts/build.mjs",
