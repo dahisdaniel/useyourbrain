@@ -1,4 +1,4 @@
-/* Busca local por tarefa e ocupação. 10.000 cenários editoriais, nenhuma API. */
+/* Busca local por tarefa e ocupação. 50.000 cenários editoriais, nenhuma API. */
 (() => {
   'use strict';
   const input = document.getElementById('task');
@@ -12,67 +12,10 @@
     routine:'IA com revisão',highrisk:'Decisão de risco',sensitive:'Privacidade',
     personal:'Voz pessoal',noai:'Não usar IA'
   };
-  const raw = Array.isArray(window.ANTES_TASKS) ? window.ANTES_TASKS : [];
-  const indexed = raw.map(row => ({
-    ...row,
-    norm:normalize(row.task),
-    tt:tokens(row.task),
-    pt:tokens(row.profession||''),
-    st:tokens(row.sector||'')
-  }));
-  const freq=Object.create(null);
-  indexed.forEach(row=>{for(const t of new Set([...row.tt,...row.pt]))freq[t]=(freq[t]||0)+1;});
   let suggestions=[],active=-1,debounce=0;
   const maxTasks=6;
-
-  const termMatch=(term, arr)=>{
-    if(arr.includes(term))return 1;
-    if(term.length>=3&&arr.some(t=>t.startsWith(term)))return .78;
-    if(term.length>=4&&arr.some(t=>term.startsWith(t)&&t.length>=4))return .48;
-    return 0;
-  };
-
   function similarTasks(query,limit=maxTasks){
-    const norm=normalize(query);
-    if(norm.length<3||!indexed.length)return [];
-    const q=tokens(query);
-    if(!q.length)return [];
-    const weights=q.map(t=>Math.log(1+indexed.length/(1+(freq[t]||0))));
-    const total=weights.reduce((s,n)=>s+n,0)||1;
-    const candidates=[];
-    const privacyIntent=/identificav|prontuario|sigil|confidenc|dados pessoais/.test(norm);
-    for(const row of indexed){
-      let weight=0, hits=0, taskHits=0;
-      for(let i=0;i<q.length;i++){
-        const inTask=termMatch(q[i],row.tt);
-        const inMeta=Math.max(termMatch(q[i],row.pt),termMatch(q[i],row.st));
-        const strength=Math.max(inTask,inMeta*.50);
-        if(strength){weight+=weights[i]*strength;hits++;if(inTask)taskHits++;}
-      }
-      if(!hits)continue;
-      let score=.79*weight/total +.08*taskHits/Math.max(row.tt.length,1);
-      if(row.norm.startsWith(norm))score+=.13;
-      else if(row.norm.includes(norm))score+=.07;
-      if(row.norm===norm)score=2;
-      if(row.priority==='ancora')score+=.16;
-      if(privacyIntent && row.category==='sensitive')score+=.16;
-      if(privacyIntent && /sistema clinico aprovado/.test(row.norm))score-=.24;
-      if(hits===q.length)score+=.10;
-      // Long, generic descriptions should not drown out specific matches.
-      if(taskHits===0)score-=.10;
-      if(score<.22)continue;
-      candidates.push({...row,score});
-    }
-    candidates.sort((a,b)=>b.score-a.score||a.task.length-b.task.length||a.id.localeCompare(b.id));
-    const results=[], professions=new Map();
-    for(const item of candidates){
-      const count=professions.get(item.profession)||0;
-      if(count>=2)continue;
-      professions.set(item.profession,count+1);
-      results.push(item);
-      if(results.length>=Math.max(1,Math.min(limit,12)))break;
-    }
-    return results;
+    return window.UYB_SEARCH?.search(query,limit)||[];
   }
 
   function hide(){

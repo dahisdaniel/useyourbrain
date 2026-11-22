@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f4f1e9">
   <meta name="description" content="Sua inteligência importa. Descreva uma tarefa e descubra quando usar inteligência artificial, quando usá-la como tutora e quando pensar por conta própria. Recomendações transparentes com referências científicas.">
   <meta property="og:title" content="Use Your Brain — vale a pena fazer sozinho?">
-  <meta property="og:description" content="Busque 10.000 exemplos locais para decidir quando usar IA, com justificativas e estudos científicos.">
+  <meta property="og:description" content="Busque 50.000 exemplos locais para decidir quando usar IA, com justificativas e estudos científicos.">
   <meta property="og:type" content="website">
   <title>Use Your Brain — quando usar IA?</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101d25'/%3E%3Ctext x='32' y='45' fill='%23c9f265' font-size='45' font-family='Arial' text-anchor='middle'%3E✳%3C/text%3E%3C/svg%3E">
@@ -104,7 +104,7 @@
     .steps li{display:grid;grid-template-columns:35px 1fr;gap:15px;padding:18px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.6;color:#4b5954}
     .steps li:last-child{border-bottom:1px solid var(--line)}
     .num{font:700 12px var(--mono);color:var(--royal)}
-    .reason{color:#485752;font-size:14px;line-height:1.85;margin-bottom:15px}
+    .reason{white-space:pre-line;color:#485752;font-size:14px;line-height:1.85;margin-bottom:15px}
     .reason-pill{color:#4d5b57;font-size:10px;font-weight:700;display:inline-block;letter-spacing:.02em}
     .evidence-heading{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;color:var(--ink);margin-top:30px;margin-bottom:11px}
     .evidence-heading::before{content:'';width:7px;height:7px;background:var(--royal);border-radius:50%}
@@ -153,28 +153,6 @@
     .matched-note p{margin:8px 0 4px;font-size:15px;font-weight:700;letter-spacing:-.016em}
     .matched-note small{font-size:11px;line-height:1.5;color:var(--muted)}
     .matched-source{display:block;margin-top:8px;font-size:11px;color:var(--royal);text-decoration:underline;text-underline-offset:3px}
-    .explore{padding:95px 0 100px}
-    .explore-top{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;gap:15px}
-    .explore-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin:44px 0 35px}
-    .explore-head h2{font-size:clamp(48px,5.4vw,77px);letter-spacing:-.079em;line-height:1.03;margin-bottom:17px}
-    .explore-head h2 em{font:italic 1.08em var(--serif);letter-spacing:-.065em;color:var(--royal)}
-    .explore-head p{font-size:15px;color:#53625d;line-height:1.75;max-width:590px}
-    .explore-disclaimer{max-width:315px!important;font-size:12px!important;color:#7b857c!important}
-    .explore-filters{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:13px}
-    .explore-filters label{font-size:11px;font-weight:800;color:#505c56}
-    .explore-filters select{display:block;margin-top:8px;min-width:0}
-    .explore-count{font:400 11px var(--mono);color:#68776c;margin:26px 0 11px}
-    .explore-items{display:grid;grid-template-columns:1fr 1fr;column-gap:27px;border-top:1px solid var(--line)}
-    .explore-item{background:transparent;text-align:left;border:0;border-bottom:1px solid var(--line);min-height:98px;padding:20px 16px 19px 0;display:flex;align-items:start;justify-content:space-between;gap:18px;color:var(--ink);transition:color .15s,padding-left .15s}
-    .explore-item:hover{color:var(--royal);padding-left:7px}
-    .explore-item strong{font-size:13px;line-height:1.48;display:block;font-weight:700}
-    .explore-item small{font-size:10px;display:block;margin-top:6px;color:#798379;line-height:1.45}
-    .explore-item b{font-size:18px;color:var(--royal);font-weight:400}
-    .explore-footer{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-top:26px;flex-wrap:wrap}
-    .explore-more{background:var(--ink);border:0;color:#f4f1e9;font-size:12px;font-weight:800;padding:14px 19px;border-radius:4px}
-    .explore-more:hover{background:var(--royal)}
-    .download-link{font-size:12px;font-weight:800;color:var(--royal);text-decoration:underline;text-underline-offset:4px}
-    @media(max-width:660px){.explore{padding:63px 0}.explore-head{display:block;margin:30px 0}.explore-head h2{font-size:51px}.explore-disclaimer{margin-top:14px!important}.explore-filters{grid-template-columns:1fr 1fr}.explore-filters label:last-child{grid-column:span 2}.explore-items{grid-template-columns:1fr}.explore-item{min-height:86px}.explore-top{flex-wrap:wrap}.matched-source{line-height:1.7}}
     @media print{.top-strip,.site-header,.hero,.science,.footer,.result-actions{display:none!important}.results{display:block!important;padding:0}.result-card{background:white!important;color:black!important;border:1px solid #ccc}.result-desc,.result-task{color:#555}.result-detail-grid{display:block}.subcard{break-inside:avoid;margin-top:30px}.evidence-item{break-inside:avoid}.container{width:100%}}
   
     /* Autocomplete: resultados rápidos, locais e acessíveis. */
@@ -197,14 +175,14 @@
   <div class="top-strip" aria-hidden="true"></div>
   <header class="site-header container" aria-label="Navegação principal">
     <a class="brand" href="#inicio" aria-label="Use Your Brain, início"><span class="brand-star" aria-hidden="true">✳</span><span>use your brain<span style="color:var(--royal)">.</span></span></a>
-    <nav class="top-links" aria-label="Seções"><a href="#como-funciona">Experimentar</a><a href="#explorar">Profissões</a><a href="#fundamentos">A ciência</a><span class="site-status"><span class="status-dot"></span> 10.000 CASOS · SEM API</span></nav>
+    <nav class="top-links" aria-label="Seções"><a href="#como-funciona">Experimentar</a><a href="#fundamentos">A ciência</a><span class="site-status"><span class="status-dot"></span> 50.000 CASOS · SEM API</span></nav>
   </header>
 
   <main>
     <section class="hero container" id="inicio" aria-labelledby="hero-title">
       <div class="eyebrow mono"><span class="small-line"></span>UM EXPERIMENTO SOBRE AUTONOMIA INTELECTUAL<span class="small-line"></span></div>
       <h1 id="hero-title">Pensar primeiro<br>ou <em>usar IA?</em></h1>
-      <p class="hero-description">Nem tudo que pode ser automatizado <strong>deveria ser automatizado.</strong><br>Descreva sua tarefa. Encontre uma das 10.000 situações do catálogo e descubra quando usar IA — e quando não usar.</p>
+      <p class="hero-description">Nem tudo que pode ser automatizado <strong>deveria ser automatizado.</strong><br>Descreva sua tarefa. Encontre uma das 50.000 situações do catálogo e descubra quando usar IA — e quando não usar.</p>
       <div class="search-wrap" id="como-funciona">
         <form id="task-form" novalidate>
           <div class="search-panel">
@@ -220,12 +198,12 @@
           <p class="error" id="error" role="alert"></p>
         </form>
         <div class="examples" aria-label="Exemplos de tarefas"><span class="examples-title">Experimente</span>
+          <button type="button" class="example sample" data-sample="Escrever um e-mail profissional">Escrever e-mail</button>
+          <button type="button" class="example sample" data-sample="Responder a um e-mail recebido">Responder e-mail</button>
+          <button type="button" class="example sample" data-sample="Organizar minhas fotos do Google Fotos">Google Fotos</button>
+          <button type="button" class="example sample" data-sample="Organizar pastas no computador">Organizar arquivos</button>
+          <button type="button" class="example sample" data-sample="Buscar artigos científicos no PubMed">Buscar artigos</button>
           <button type="button" class="example sample" data-sample="Escrever minha tese de doutorado">Escrever tese</button>
-          <button type="button" class="example sample" data-sample="Buscar artigos científicos no PubMed e verificar os DOI">Buscar artigos</button>
-          <button type="button" class="example sample" data-sample="Criar hipóteses originais para um projeto de pesquisa">Hipótese científica</button>
-          <button type="button" class="example sample" data-sample="Depurar código Python com um erro de execução">Depurar código</button>
-          <button type="button" class="example sample" data-sample="Resumir guideline médico para discussão clínica">Guideline médico</button>
-          <button type="button" class="example sample" data-sample="Dimensionar uma viga estrutural e conferir normas técnicas">Projeto engenharia</button>
         </div>
         <div class="below-search">
           <p class="privacy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Sua tarefa é analisada neste navegador, sem envio a um servidor.</p>
@@ -241,7 +219,7 @@
 
     <div class="transition-band" aria-hidden="true"></div>
     <section class="results container" id="resultado" aria-live="polite" aria-label="Recomendação baseada na descrição da tarefa">
-      <div class="section-top"><span class="mono">01 / SUA RECOMENDAÇÃO</span><small>Busca local em 10.000 exemplos + regras transparentes · nenhuma consulta a IA</small></div>
+      <div class="section-top"><span class="mono">01 / SUA RECOMENDAÇÃO</span><small>Busca local em 50.000 exemplos + regras transparentes · nenhuma consulta a IA</small></div>
       <article class="result-card" id="result-card">
         <div class="result-top"><span class="res-icon" id="res-symbol" aria-hidden="true">✳</span><span id="res-category">Estratégia recomendada</span></div>
         <h3 id="res-title">—</h3><p class="result-desc" id="res-summary"></p><div class="res-rule"></div><p class="result-task"><b>Sua tarefa</b><span id="res-task"></span></p>
@@ -258,14 +236,6 @@
       </div>
     </section>
 
-    <section class="explore container" id="explorar" aria-label="Catálogo por área profissional">
-      <div class="explore-top"><span class="mono" style="color:var(--royal)">02 / O CATÁLOGO</span><span class="mono" style="color:#78827b">10.000 CENÁRIOS · 198 PROFISSÕES</span></div>
-      <div class="explore-head"><div><h2>Seu trabalho.<br><em>Suas decisões.</em></h2><p>Explore situações comuns de cada área. Escolha uma tarefa para descobrir quando vale usar IA — e como preservar seu julgamento.</p></div><p class="explore-disclaimer">Os casos são exemplos estruturados de atividades profissionais; não são 10 mil buscas reais nem um ranking de popularidade.</p></div>
-      <div class="explore-filters"><label>Área<select id="sector-filter" aria-label="Filtrar por área"><option value="">Todas as áreas</option></select></label><label>Profissão<select id="profession-filter" aria-label="Filtrar por profissão"><option value="">Todas as profissões</option></select></label><label>Estratégia<select id="strategy-filter" aria-label="Filtrar por estratégia"><option value="">Todas</option><option value="routine">IA para produtividade</option><option value="learn">Aprender primeiro</option><option value="creative">Criar primeiro</option><option value="authorship">Autoria acadêmica</option><option value="highrisk">Decisões de risco</option><option value="sensitive">Privacidade</option><option value="noai">Não usar IA</option></select></label></div>
-      <p id="explore-count" class="explore-count" role="status"></p>
-      <div id="explore-tasks" class="explore-items"></div>
-      <div class="explore-footer"><button id="explore-more" type="button" class="explore-more">Mostrar mais tarefas ↓</button><a class="download-link" href="data/catalogo-10000.csv" download>Baixar catálogo completo (CSV) ↗</a></div>
-    </section>
     <section class="science" id="fundamentos" aria-labelledby="science-main-title">
       <div class="container">
         <div class="science-heading"><span class="mono">POR QUE ESTA FERRAMENTA EXISTE</span><span class="mono" style="color:#778078">PENSAMENTO CRÍTICO × TECNOLOGIA</span></div>
@@ -273,12 +243,23 @@
           <div><h2 id="science-main-title">Nem toda dificuldade precisa <em>desaparecer.</em></h2><p class="science-intro">Algumas tarefas consomem tempo sem nos acrescentar muito. Outras são justamente o exercício que desenvolve nossa capacidade de pensar, criar e aprender.</p><p class="science-intro">A questão não é ser contra a IA. É saber quando <strong>delegar</strong>, quando <strong>colaborar</strong> e quando <strong>preservar o esforço humano</strong>.</p></div>
           <div class="science-points"><div class="science-point"><span class="point-num">01</span><div><h3>Aprender não é só chegar à resposta.</h3><p>O desempenho com IA durante a prática pode ser diferente do desempenho posterior sem ajuda.</p></div></div><div class="science-point"><span class="point-num">02</span><div><h3>Ideias melhores podem ficar mais parecidas.</h3><p>Em certas tarefas, a IA aumenta a qualidade individual, mas reduz a diversidade entre produções.</p></div></div><div class="science-point"><span class="point-num">03</span><div><h3>Economizar esforço também tem valor.</h3><p>Em trabalhos instrumentais, experimentos mostram ganhos reais de produtividade.</p></div></div><div class="science-point"><span class="point-num">04</span><div><h3>O risco muda tudo.</h3><p>Privacidade, segurança, regras da atividade e consequências de um erro precisam entrar na decisão.</p></div></div></div>
         </div>
-        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 10.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os 10 mil exemplos combinam 198 profissões, fluxos de trabalho e contextos profissionais; não são 10 mil registros coletados de usuários nem representam um ranking mensurado de popularidade. Cada recomendação depende do propósito, das restrições e do risco da tarefa. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade e produtividade); outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
+        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 50.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os 50 mil exemplos combinam 208 perfis de atuação e uso, fluxos de trabalho e contextos profissionais; não são 50 mil registros coletados de usuários nem representam um ranking mensurado de popularidade. Cada recomendação depende do propósito, das restrições e do risco da tarefa. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade e produtividade); outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
       </div>
     </section>
   </main>
   <footer class="footer"><div class="container footer-inner"><div class="footer-brand"><i aria-hidden="true">✳</i><span>use your brain.</span></div><p class="footer-credit">Uma iniciativa sobre ciência e autonomia intelectual.<br><a href="#inicio">Voltar ao início ↑</a></p></div></footer>
-  <script src="catalogo-10000.js"></script>
+  <script src="catalogo/parte-00.js"></script>
+  <script src="catalogo/parte-01.js"></script>
+  <script src="catalogo/parte-02.js"></script>
+  <script src="catalogo/parte-03.js"></script>
+  <script src="catalogo/parte-04.js"></script>
+  <script src="catalogo/parte-05.js"></script>
+  <script src="catalogo/parte-06.js"></script>
+  <script src="catalogo/parte-07.js"></script>
+  <script src="catalogo/parte-08.js"></script>
+  <script src="catalogo/parte-09.js"></script>
+  <script src="catalogo-loader.js"></script>
+  <script src="search-engine.js"></script>
   <script>
 'use strict';
     const REFERENCES={
@@ -293,8 +274,20 @@
       icmje:{title:'Use of Artificial Intelligence in Publishing: Use of AI by Authors',authors:'ICMJE',journal:'Recomendações editoriais',year:2026,url:'https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html',kind:'Recomendação editorial — não é experimento',summary:'Autores humanos mantêm responsabilidade por integridade e exatidão, devem verificar conteúdo e declarar uso de IA quando exigido.'},
       researchsurvey:{title:'Generative Artificial Intelligence (GenAI) in the research process',authors:'Pesquisadores de universidades dinamarquesas',journal:'Technology in Society',year:2025,url:'https://doi.org/10.1016/j.techsoc.2025.102813',kind:'Pesquisa com 2.534 pesquisadores',summary:'Avaliou usos de IA em escrita, revisão, dados e desenho experimental; a aceitação ética variou conforme a tarefa.'},
       nist:{title:'AI Risk Management Framework: Generative AI Profile',authors:'NIST',journal:'NIST AI 600-1',year:2024,url:'https://doi.org/10.6028/NIST.AI.600-1',kind:'Diretriz técnica — não é estudo experimental',summary:'Organiza riscos de IA generativa, incluindo confabulação, privacidade, integridade das informações e necessidade de controles proporcionais.'}
+,
+      emailfield:{title:'Shifting Work Patterns with Generative AI',authors:'Dillon, Jaffe, Immorlica & Stanton',journal:'NBER Working Paper 33795',year:2025,url:'https://doi.org/10.3386/w33795',kind:'Experimento de campo — e-mails e reuniões',summary:'Em 66 empresas, 7.137 profissionais foram randomizados para ter acesso a IA de escritório. Entre usuários da ferramenta, houve redução média próxima de duas horas semanais em e-mails; não é estudo sobre cada tipo de mensagem.'},
+      openaiusage:{title:'How People Use ChatGPT',authors:'Chatterji e colaboradores',journal:'NBER 34255',year:2025,url:'https://doi.org/10.3386/w34255',kind:'Estudo observacional de uso real',summary:'Escrita, busca de informação e orientação prática são categorias comuns de pedidos; frequência de uso não prova benefício.'},
+      googlephotos:{title:'Use Ask Photos to search, edit & get assistance',authors:'Google Photos Help',journal:'Documentação do produto',year:2026,url:'https://support.google.com/photos/answer/15318661',kind:'Documentação de produto — não estudo científico',summary:'Explica recursos de busca por linguagem natural e edição. A disponibilidade depende da região e da versão; resultados podem ter erros.'},
+      scholar:{title:'Synthesizing scientific literature with retrieval-augmented language models',authors:'Artigo de pesquisa',journal:'Nature',year:2026,url:'https://doi.org/10.1038/s41586-025-10072-4',kind:'Estudo empírico de síntese científica',summary:'Mostra limitações importantes de citações produzidas sem recuperação confiável de fontes; verificar referências e textos originais é indispensável.'},
+      ama2026:{title:'More than 80% of physicians use AI professionally',authors:'American Medical Association',journal:'Pesquisa de médicos',year:2026,url:'https://www.ama-assn.org/practice-management/digital-health/more-80-physicians-use-ai-professionally-ama-survey',kind:'Pesquisa transversal de uso profissional',summary:'Médicos reportam uso de IA para resumir literatura, preparar documentação e rascunhar mensagens. Adoção não prova acurácia clínica.'},
+      clinicalsafety:{title:'A framework to assess clinical safety and hallucination rates of LLMs for medical text summarisation',authors:'Asgari e colaboradores',journal:'npj Digital Medicine',year:2025,url:'https://doi.org/10.1038/s41746-025-01670-7',kind:'Avaliação de segurança de sumarização clínica',summary:'Avalia segurança e alucinações em resumos clínicos, indicando a necessidade de validação apropriada ao uso.'},
+      codingrct:{title:'The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers',authors:'Cui e colaboradores',journal:'Management Science',year:2026,url:'https://doi.org/10.1287/mnsc.2025.00535',kind:'Três experimentos randomizados com desenvolvedores',summary:'Estudos com 4.867 desenvolvedores identificaram ganho médio nas tarefas concluídas usando assistência de código, com variação por contexto.'},
+      customerwork:{title:'Generative AI at Work',authors:'Brynjolfsson, Li & Raymond',journal:'NBER 31161',year:2023,url:'https://doi.org/10.3386/w31161',kind:'Estudo de campo em atendimento',summary:'Observou produtividade maior entre agentes de suporte que tiveram acesso a assistente, sobretudo profissionais menos experientes.'},
+      anthropicindex:{title:'Anthropic Economic Index',authors:'Anthropic',journal:'Relatórios de uso por ocupação',year:2026,url:'https://www.anthropic.com/economic-index',kind:'Estatísticas de uso ocupacional — não validação de segurança',summary:'Mostra tarefas profissionais em que modelos são usados; não significa que seus resultados sejam corretos ou seguros.'},
     };
     const OCC_SOURCES={
+      googlephotos:{label:'Google Fotos: documentação das tarefas disponíveis',url:'https://support.google.com/photos/answer/15318661'},
+      nist:{label:'NIST: riscos e proteção de dados',url:'https://doi.org/10.6028/NIST.AI.600-1'},
       research2025:{label:'Pesquisa sobre usos de IA no fluxo científico (2025)',url:'https://doi.org/10.1016/j.techsoc.2025.102813'},
       ama2026:{label:'AMA: aplicações relatadas por médicos (2026)',url:'https://www.ama-assn.org/practice-management/digital-health/more-80-physicians-use-ai-professionally-ama-survey'},
       anthropic2026:{label:'Anthropic Economic Index: tarefas por ocupação (2026)',url:'https://www.anthropic.com/economic-index'},
@@ -346,45 +339,11 @@
       if(!bestScore)return {category:'routine',source:'Nenhuma pista forte encontrada; recomendação provisória',uncertain:true};
       return {category:best,source:'Pistas encontradas na descrição',uncertain:bestScore<=2};
     }
-    // Offline retrieval: browse 3000 preset examples in memory.
+    // Offline retrieval: browse 50.000 exemplos in memory.
     // It is lexical matching, not semantic embeddings and not an AI query.
     const CATALOG=Array.isArray(window.ANTES_TASKS)?window.ANTES_TASKS:[];
-    const STOP=new Set('a o as os um uma uns umas e de do da dos das no na nos nas em para por com que eu voce você quero preciso gostaria devo minha meu mais menos muito já ja sem sobre ao aos às ate até seja fazer usando usar ia inteligencia artificial inteligência é ser pra como qualquer aquele aquilo isto este essa esse me se'.split(' '));
-    const CANON={
-      estudar:'aprender',estudo:'aprender',estudando:'aprender',aprendizado:'aprender',aprendizagem:'aprender',
-      criar:'criacao',criando:'criacao',criaram:'criacao',inventar:'criacao',gerar:'criacao',original:'criacao',
-      hipoteses:'hipotese',ideia:'ideias',elaborar:'criacao',desenvolver:'criacao',
-      tratar:'tratamento',terapia:'tratamento',remedio:'medicamento',remedios:'medicamento',
-      computador:'programacao',codigo:'programacao',codigos:'programacao',programar:'programacao',
-      resumir:'resumo',resumos:'resumo',transcrever:'transcricao',transcricoes:'transcricao',
-      emails:'email',mensagens:'mensagem',pessoal:'pessoal',bibliografias:'bibliografia',
-      relatos:'relato',analisar:'analise',analiso:'analise',estatisticas:'estatistica',
-      exercicios:'exercicio',provas:'prova',avaliacoes:'avaliacao',relatorios:'relatorio',
-      organizar:'organizacao',formatar:'formatacao',decidir:'decisao',escolher:'decisao',
-      privados:'privado',sigilosas:'sigiloso',confidenciais:'confidencial',dados:'dado',
-      historinhas:'historia',roteiros:'roteiro',pesquisas:'pesquisa', cientificas:'cientifica'
-    };
-    function tokens(s){
-      return [...new Set(normalize(s).split(' ').filter(w=>w.length>2&&!STOP.has(w)).map(w=>CANON[w]||w))];
-    }
-    const CATALOG_INDEX=CATALOG.map(entry=>({...entry,tt:tokens(entry.task)}));
-    const FREQ={};for(const row of CATALOG_INDEX)for(const tok of row.tt)FREQ[tok]=(FREQ[tok]||0)+1;
-    function nearestTask(query,preferred){
-      const q=tokens(query); if(!q.length||!CATALOG_INDEX.length)return null;
-      let best=null,score=0;
-      // Document-frequency weighting stops very common words dominating retrieval.
-      for(const row of CATALOG_INDEX){
-        if(preferred&&row.category!==preferred)continue;
-        const common=q.filter(tok=>row.tt.includes(tok));
-        if(!common.length)continue;
-        const weight=common.reduce((sum,tok)=>sum+Math.log(1+CATALOG_INDEX.length/(1+(FREQ[tok]||0))),0);
-        const denominator=q.reduce((sum,tok)=>sum+Math.log(1+CATALOG_INDEX.length/(1+(FREQ[tok]||0))),0);
-        let current=(weight/Math.max(denominator,1)) * (0.83+0.17*common.length/Math.max(row.tt.length,1));
-        if(normalize(query)===normalize(row.task))current=1;
-        if(current>score){score=current;best=row;}
-      }
-      return best?{id:best.id,task:best.task,category:best.category,score}:null;
-    }
+    // Um único índice invertido lida com 50 mil cenários e sinônimos PT/EN.
+    function nearestTask(query,preferred){return window.UYB_SEARCH?.nearest(query,preferred)||null;}
     function classifyWithCatalog(task,goal,flags){
       const base=classify(task,goal,flags);
       const selected=window.__selectedTask;
@@ -394,7 +353,7 @@
       let matched=null;
       if(isSelected){
         matched={...selected,score:1};
-        if(!(flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive')){base.category=selected.category;base.source='Tarefa escolhida no catálogo';base.uncertain=false;}
+        if(!(flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive'||(base.category==='highrisk'&&!base.uncertain))){base.category=selected.category;base.source='Tarefa escolhida no catálogo';base.uncertain=false;}
       } else if(!locked&&global&&global.score>=.82){
         base.category=global.category;
         base.source='Correspondência muito forte com tarefa do catálogo';base.uncertain=false;
@@ -407,13 +366,57 @@
       if(!matched){matched=global&&global.category===base.category?global:nearestTask(task,base.category);}
       return {...base,matched};
     }
+    const EVIDENCE_PROFILES={
+      email:{label:'Evidência específica de e-mail e escrita profissional',level:'Direta para ferramentas de e-mail; não para cada mensagem',keys:['emailfield','noy','openaiusage'],reason:'Um experimento de campo avaliou assistência de IA integrada a e-mails, reuniões e documentos. Esse resultado é aplicável a tarefas semelhantes de comunicação profissional, não garante qualidade automática de toda resposta.',caveat:'O estudo mediu tempo de trabalho com e-mails, não avaliou este modelo de e-mail nem a qualidade de cada mensagem.'},
+      photos:{label:'Recursos existentes para busca e organização de fotos',level:'Documentação de produto; evidência experimental indireta',keys:['googlephotos','risko','nist'],reason:'O Google documenta busca em linguagem natural, curadoria e organização de álbuns. Isso mostra que a tarefa pode ser tecnicamente assistida; não demonstra por ensaio que toda organização automática será correta.',caveat:'A documentação do Google é uma fonte técnica, não um experimento independente de produtividade. Revise fotos privadas e confirme antes de excluir, compartilhar ou mover.'},
+      files:{label:'Organização de documentos e automatização de tarefas',level:'Evidência adjacente',keys:['openaiusage','risko','nist'],reason:'Relatórios de uso real documentam atividades de escrita, busca e organização. Não foi identificado aqui um ensaio direto que teste esta organização exata de arquivos.',caveat:'Evite apagar, renomear em massa ou alterar permissões sem cópia de segurança e revisão humana.'},
+      research:{label:'Estudos sobre busca bibliográfica e apoio à pesquisa',level:'Direta para síntese científica; não para toda pesquisa',keys:['scholar','researchsurvey','icmje'],reason:'Pesquisas de síntese científica demonstram que modelos sem consulta a fontes podem produzir citações fabricadas. Use bases bibliográficas e confira DOI, texto completo, critérios e limitações.',caveat:'O artigo de síntese estudou sistemas e benchmarks específicos. Não mede a precisão de todas as ferramentas atuais nem autoriza delegar autoria ou validação metodológica.'},
+      clinical:{label:'Adoção médica e segurança em textos clínicos',level:'Observacional e avaliações de segurança',keys:['ama2026','clinicalsafety','nist'],reason:'Pesquisas com médicos documentam uso para literatura, documentação e mensagens a pacientes; estudos específicos avaliam alucinação em sumarização clínica. A segurança depende da ferramenta, dados e contexto.',caveat:'A utilização relatada por médicos não comprova eficácia clínica para uma decisão individual. Confidencialidade e revisão por profissional habilitado permanecem indispensáveis.'},
+      coding:{label:'Ensaios de IA em desenvolvimento de software',level:'Direta para tarefas de programação semelhantes',keys:['codingrct','noy','nist'],reason:'Experimentos em empresas avaliaram assistentes de código e observaram ganhos médios de produtividade. O resultado exige testes e revisão humana em software sensível.',caveat:'Produtividade em geração de código não demonstra que código gerado seja seguro, correto ou livre de vulnerabilidades.'},
+      engineering:{label:'Automação de tarefas técnicas e gestão de riscos',level:'Uso ocupacional e diretrizes; inferência indireta',keys:['anthropicindex','nist','codingrct'],reason:'Dados ocupacionais mostram que IA já auxilia tarefas técnicas. Isso é evidência de uso, não valida cálculos de engenharia. Para decisões físicas ou de segurança, normas, testes e responsabilidade profissional prevalecem.',caveat:'O ensaio de código é apenas um análogo de produtividade computacional, não valida cálculos estruturais ou dispositivos médicos.'},
+      executive:{label:'Produtividade em trabalho de escritório e liderança',level:'Direta apenas em tarefas próximas de e-mails e reuniões',keys:['emailfield','openaiusage','noy'],reason:'Estudos e dados de uso apontam aplicações reais em reuniões, escrita, planejamento e comunicação. Decisões estratégicas exigem análise própria e checagem dos pressupostos.',caveat:'Resultados de tarefas administrativas não provam que a IA tome decisões executivas melhores que profissionais.'},
+      office:{label:'Trabalho de escritório, e-mails e documentos',level:'Direta ou adjacente conforme tarefa',keys:['emailfield','noy','openaiusage'],reason:'Evidências de campo sobre assistência em e-mails e reuniões indicam economias de tempo. Para outras atividades administrativas, a extrapolação exige cautela.',caveat:'Resultados médios não são garantia individual; confira datas, destinatários, anexos e condições de compartilhamento.'},
+      education:{label:'Aprendizagem e apoio pedagógico',level:'Evidência direta em aprendizagem; indireta em preparação docente',keys:['pnas','kapur','risko'],reason:'Estudos diferenciam o uso de IA que substitui a tentativa do aluno do uso que fornece pistas. Para professores, revisar a adequação pedagógica dos materiais é essencial.',caveat:'Efeitos encontrados em estudantes e disciplinas específicas não podem ser generalizados automaticamente a todas as aulas.'},
+      legal:{label:'Riscos de decisões jurídicas e integridade de fontes',level:'Diretrizes técnicas e analogias, sem validação específica',keys:['nist','openaiusage','risko'],reason:'IA pode resumir ou comparar textos, mas políticas de risco alertam para erros factuais e citações inventadas. Decisões jurídicas exigem conferir legislação, jurisprudência e jurisdição.',caveat:'As fontes não demonstram que um chatbot possa substituir aconselhamento jurídico para este caso específico.'},
+      finance:{label:'Apoio analítico em finanças',level:'Evidência indireta; exigência de revisão',keys:['nist','openaiusage','emailfield'],reason:'Dados de produtividade em escritório justificam testar apoio para organização, relatórios e cenários. Não justificam delegar operações financeiras ou recomendações de investimento.',caveat:'Nenhuma dessas fontes valida previsões de mercado, consultoria financeira pessoal ou cálculo tributário específico.'},
+      business:{label:'Escrita, atendimento e produtividade profissional',level:'Direta para suporte e escrita; indireta para outras tarefas',keys:['customerwork','noy','openaiusage'],reason:'Estudos sobre atendimento ao cliente e escrita profissional encontraram ganhos mensuráveis, mas variáveis entre trabalhadores. Revisão e dados corretos são necessários.',caveat:'Estudos de empresas específicas não comprovam os mesmos efeitos para qualquer negócio.'},
+      everyday:{label:'Usos cotidianos de informação e planejamento',level:'Estatísticas de uso; recomendação por analogia',keys:['openaiusage','risko','nist'],reason:'Estudos de uso real mostram busca de informação e orientação prática entre os pedidos mais frequentes. Essa prevalência não comprova benefícios em cada situação.',caveat:'Não há ensaio específico para a maioria das tarefas domésticas aqui listadas. São conselhos prudenciais, não avaliações individualmente testadas.'},
+      creative:{label:'Criatividade individual e diversidade das ideias',level:'Evidência experimental em escrita criativa',keys:['doshi','noy','risko'],reason:'Experimentos mostraram possível ganho de qualidade individual acompanhado de menor diversidade entre textos com IA. Criar primeiro e pedir crítica depois é uma estratégia prudencial.',caveat:'O experimento foi sobre histórias; extrapolar diretamente a qualquer forma de criação exige novos estudos.'},
+      personal:{label:'Expressão pessoal e cognição',level:'Recomendação ética com evidência indireta',keys:['risko','lee'],reason:'A escolha de manter sua voz é ética e relacional; pesquisas sobre terceirização cognitiva não demonstram que toda mensagem pessoal com IA prejudica relações.',caveat:'Não há experimento que estabeleça que IA deve ser evitada universalmente na escrita pessoal; apoio à acessibilidade pode ser valioso.'},
+      privacy:{label:'Risco de vazamento ou uso inadequado de dados',level:'Diretriz técnica, não teste desta tarefa',keys:['nist','risko'],reason:'Documentos de gestão de risco identificam exposição de dados, confabulação e limitações de controles. O tipo de ferramenta e as autorizações são determinantes.',caveat:'Ferramentas empresariais e locais podem adotar proteções distintas; a adequação deve ser examinada caso a caso.'}
+    };
+    function evidenceFor(task,result){
+      const s=normalize(task);const m=result.matched;
+      let key=(m&&m.score>=.45)?m.intent:null;
+      if(/(?:e mail|email|gmail|outlook|correio eletronico)/.test(s))key='email';
+      else if(/(?:google fotos|google photos|icloud|fotos|fotografias|galeria de imagens)/.test(s))key='photos';
+      else if(/(?:buscar artigos|papers|artigos cientificos|pubmed|bibliografia|scholar|tese|dissertacao|manuscrito cientifico|revisao sistematica)/.test(s))key='research';
+      else if(/(?:prontuario|diagnostico|paciente|tratamento clinico|guideline medico|consulta medica)/.test(s))key='clinical';
+      else if(/(?:python|javascript|sql|programacao|codigo|software|api |github|depur)/.test(s))key='coding';
+      else if(/(?:engenharia|circuito eletrico|estrutural|viga|norma tecnica|sensor|concreto|cad)/.test(s))key='engineering';
+      else if(/(?:pasta|arquivos|pdf|documentos|downloads|onedrive|dropbox|drive)/.test(s))key='files';
+      if(result.category==='noai'||result.category==='sensitive')key='privacy';
+      if(result.category==='learn')key='education';
+      if(result.category==='personal')key='personal';
+      if(result.category==='creative'&&key!=='research')key='creative';
+      if(result.category==='authorship')key='research';
+      key=EVIDENCE_PROFILES[key]?key:'everyday';
+      const group=EVIDENCE_PROFILES[key];
+      let keys=[...group.keys];
+      if(result.category==='authorship'){keys=['icmje','scholar','researchsurvey'];}
+      if(result.category==='highrisk'){keys=[...(key==='clinical'?['clinicalsafety','ama2026']:key==='engineering'?['anthropicindex']:[]),'nist','lee'];}
+      if(result.category==='sensitive'||result.category==='noai'){keys=['nist',result.category==='noai'?'pnas':'risko','lee'];}
+      if(result.category==='learn'){keys=['pnas','kapur','dunlosky'];}
+      if(result.category==='creative'&&key==='research'){keys=['doshi','researchsurvey','kapur'];}
+      return {...group,keys:[...new Set(keys)].filter(k=>REFERENCES[k])};
+    }
     function makeEl(tag,opts={}){const el=document.createElement(tag);if(opts.className)el.className=opts.className;if(opts.text!==undefined)el.textContent=opts.text;return el;}
     function render(result,task){
-      const r=RECS[result.category]; $('result-card').dataset.variant=result.category;
+      const r=RECS[result.category]; const evid=evidenceFor(task,result); $('result-card').dataset.variant=result.category;
       $('res-category').textContent=r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=r.title; $('res-summary').textContent=r.summary; $('res-task').textContent=task;
-      $('res-reason').textContent=r.reason; $('reason-pill').textContent=r.pill;
+      $('res-reason').textContent=r.reason+'\n\nPara esta atividade: '+evid.reason; $('reason-pill').textContent=evid.label+' · '+evid.level;
       const steps=$('res-steps');steps.replaceChildren();r.steps.forEach((step,i)=>{const li=makeEl('li');li.append(makeEl('span',{className:'num',text:String(i+1)}),makeEl('span',{text:step}));steps.append(li);});
-      const list=$('res-evidence');list.replaceChildren();r.evidence.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
+      const list=$('res-evidence');list.replaceChildren();evid.keys.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
       const matched=$('matched-note');
       if(result.matched && result.matched.score>=.20){
         matched.hidden=false;
@@ -422,23 +425,22 @@
         const domain=OCC_SOURCES[result.matched.sourceGroup]||OCC_SOURCES.onet2026;
         const source=$('matched-source');source.href=domain.url;source.textContent='Contexto ocupacional: '+domain.label+' ↗';
       }else{matched.hidden=true;}
-      $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat}`;
+      $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat} ${evid.caveat} Os estudos indicados foram selecionados por tipo de tarefa; salvo indicação explícita, não testaram esta descrição exata nem validaram nosso algoritmo.`;
       const prompt=$('prompt-box');prompt.hidden=!r.prompt; if(r.prompt){$('res-prompt').textContent=r.prompt(task);} 
       if(result.uncertain){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
-      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result};
+      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid};
     }
     $('task').addEventListener('input',()=>{window.__selectedTask=null;$('charcount').textContent=`${$('task').value.length} / 700`;if($('error').textContent)$('error').textContent='';});
     document.querySelectorAll('.sample').forEach(b=>b.addEventListener('click',()=>{$('task').value=b.dataset.sample;$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;$('task').focus();}));
     $('task-form').addEventListener('submit',e=>{e.preventDefault();const task=$('task').value.trim();if(task.length<8){$('error').textContent='Descreva a tarefa com pelo menos algumas palavras.';$('task').focus();return;} $('error').textContent='';const flags={sensitive:$('sensitive').checked,stakes:$('stakes').checked,prohibited:$('prohibited').checked};render(classifyWithCatalog(task,$('goal').value,flags),task);});
     function flash(button,text){const prev=button.textContent;button.textContent=text;setTimeout(()=>{button.textContent=prev;},1700);} 
     async function copy(text,button){try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);}else{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}flash(button,'Copiado ✓');}catch(e){flash(button,'Não foi possível copiar');}}
-    $('copy-result').addEventListener('click',()=>{const s=window.currentResult;if(!s)return;let content=`ANTES DA IA — RECOMENDAÇÃO\nTarefa: ${s.task}\n${s.r.title}\n${s.r.summary}\n\nPLANO:\n${s.r.steps.map((x,i)=>i+1+'. '+x).join('\n')}\n\nPOR QUÊ:\n${s.r.reason}\n\nFONTES:\n${s.r.evidence.map(k=>`${REFERENCES[k].authors} (${REFERENCES[k].year}): ${REFERENCES[k].url}`).join('\n')}\n\nNota: árvore de decisão heurística, não validada cientificamente.`;copy(content,$('copy-result'));});
+    $('copy-result').addEventListener('click',()=>{const s=window.currentResult;if(!s)return;let content=`ANTES DA IA — RECOMENDAÇÃO\nTarefa: ${s.task}\n${s.r.title}\n${s.r.summary}\n\nPLANO:\n${s.r.steps.map((x,i)=>i+1+'. '+x).join('\n')}\n\nPOR QUÊ:\n${s.r.reason}\n\nFONTES:\n${s.evid.keys.map(k=>`${REFERENCES[k].authors} (${REFERENCES[k].year}): ${REFERENCES[k].url}`).join('\n')}\n\nNota: árvore de decisão heurística, não validada cientificamente.`;copy(content,$('copy-result'));});
     $('copy-prompt').addEventListener('click',()=>{if(window.currentResult?.r.prompt)copy(window.currentResult.r.prompt(window.currentResult.task),$('copy-prompt'));});
     $('new-task').addEventListener('click',()=>{$('resultado').classList.remove('show');$('task').value='';$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;window.scrollTo({top:document.getElementById('como-funciona').offsetTop-20,behavior:'smooth'});$('task').focus({preventScroll:true});});
     $('print-result').addEventListener('click',()=>window.print());
     window.__matchTask=nearestTask;window.__classifyWithCatalog=classifyWithCatalog;window.__classify=classify; // usable for manual verification in browser console
   </script>
   <script src="autocomplete.js"></script>
-  <script src="explore.js"></script>
 </body>
 </html>
