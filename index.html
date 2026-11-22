@@ -260,8 +260,8 @@
       const s=normalize(task);
       const prohibited=contains(s,['ia e proibid','uso de ia e proibid','sem usar ia','nao posso usar ia','nao pode usar ia','prova sem ia','exame sem ia','avaliacao sem ia','sem ajuda de ia','without ai','no ai allowed','closed book exam']) || ((/(^|\s)ia($|\s)/.test(s) || contains(s,['chatgpt','inteligencia artificial'])) && contains(s,['proib','nao permitid','nao autorizado','sem autorizacao','vetad','sem permissao']));
       const sensitive=contains(s,['prontuario','cpf','cnpj confidencial','senhas','senha pessoal','segredo comercial','segredo de empresa','sigiloso','confidencia','dados de paciente','dados de pacientes','informacoes privadas','informacoes sigilosas','dados sensiveis','medical record','private customer data','patient data','passwords','dados pessoais identificaveis','resultados de exames confidenciais','exames identificaveis','dados de saude de pacientes']);
-      if(flags.prohibited||prohibited)return {category:'noai',source:'Regra de trabalho individual / proibição de IA'};
       if(flags.sensitive||sensitive)return {category:'sensitive',source:'Possível presença de informações confidenciais'};
+      if(flags.prohibited||prohibited)return {category:'noai',source:'Regra de trabalho individual / proibição de IA'};
       if(flags.stakes)return {category:'highrisk',source:'Consequências potencialmente graves indicadas por você'};
       if(goal!=='auto')return {category:goal,source:'Objetivo selecionado por você'};
       const scores={learn:0,creative:0,routine:0,highrisk:0,personal:0};
@@ -320,18 +320,21 @@
     }
     function classifyWithCatalog(task,goal,flags){
       const base=classify(task,goal,flags);
-      const locked=flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive';
-      let match=nearestTask(task,locked||!base.uncertain?base.category:null);
-      // If the plain rule-engine had no strong clue, accept a sufficiently close, safe match.
-      if(!locked&&base.uncertain){
-        const global=nearestTask(task,null);
-        if(global&&global.score>=.48&&['learn','creative','routine','highrisk','personal'].includes(global.category)){
-          base.category=global.category;
-          base.uncertain=global.score<.62;
-          base.source='Correspondência aproximada do catálogo';
-          match=global;
-        }else{match=nearestTask(task,base.category);}
+      const global=nearestTask(task,null);
+      const explicitGoal=goal!=='auto';
+      const hardRestriction=flags.prohibited||flags.sensitive||flags.stakes||base.category==='noai'||base.category==='sensitive';
+      // A clear match to a preconfigured case may override a generic keyword rule.
+      // An explicit user choice, data sensitivity or an AI prohibition always takes priority.
+      if(!hardRestriction&&!explicitGoal&&global&&global.score>=.72){
+        base.category=global.category;
+        base.source='Correspondência forte com exemplo do catálogo';
+        base.uncertain=false;
+      }else if(!hardRestriction&&!explicitGoal&&base.uncertain&&global&&global.score>=.48){
+        base.category=global.category;
+        base.source='Correspondência aproximada do catálogo';
+        base.uncertain=global.score<.62;
       }
+      const match=global&&global.category===base.category?global:nearestTask(task,base.category);
       return {...base,matched:match};
     }
     function makeEl(tag,opts={}){const el=document.createElement(tag);if(opts.className)el.className=opts.className;if(opts.text!==undefined)el.textContent=opts.text;return el;}
