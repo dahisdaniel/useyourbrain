@@ -53,3 +53,17 @@ Abra `http://localhost:4321`. O build cria `dist/` com `index.html`, dez fragmen
 ## Resumos (buscas essenciais)
 
 `Resumir texto` e `Resumir e-mail` são tarefas prioritárias, com sinônimos e variantes PT/EN. O catálogo também distingue resumo de PDFs, Word, vídeos, reuniões, livros, contratos, pesquisa científica e mensagens. O site informa que verificações de fidelidade precisam consultar a fonte original, apoiando-se em FaithBench (NAACL 2025) e, para e-mails, estudo de campo sobre produtividade (não sobre precisão de cada resumo).
+
+## Força da evidência e autonomia intelectual (versão 2026-11-22)
+
+Cada recomendação mostra: **força da evidência**, o tipo de estudo ou norma que a sustenta, o que foi medido, as limitações e uma ação prática para manter raciocínio e julgamento humano. As etiquetas são **calibração editorial qualitativa**, não um sistema GRADE, metanálise nem ferramenta validada. Uma evidência forte para economia de tempo não implica evidência de dano cognitivo.
+
+- **Moderada**: experimento diretamente na tarefa ou em tarefa bastante parecida (p. ex. e-mails, programação, aprendizagem de matemática). Os efeitos não são universais.
+- **Limitada**: poucos testes ou dados próximos, mas não se testou exatamente esta prática (resumos, pesquisa, educação em outras disciplinas).
+- **Indireta**: dados de uso, analogia com outras tarefas ou documentação técnica (arquivos, fotos, muitos casos cotidianos).
+- **Regra/diretriz/valores**: recomendação fundamentada em segurança, integridade, autoria ou escolha ética; não confundir com resultado de ensaio randomizado.
+- **Baixa para esta busca**: o buscador não conseguiu inferir com clareza a tarefa ou finalidade.
+
+Nenhuma etiqueta significa que o usuário perderá QI ou ficará permanentemente menos inteligente por usar IA. Há estudos sobre aprendizagem posterior sem ferramenta em contextos delimitados, mas não prova de declínio geral da inteligência. O propósito do produto é favorecer decisões conscientes sobre o esforço que convém delegar versus preservar.
+
+A avaliação contextual é definida em `evidence-strength.js`, funciona 100% localmente e é copiada para `dist/` pelo build. Não há consultas pagas nem avaliação de cada uma das 50.000 tarefas em experimentos individuais.
