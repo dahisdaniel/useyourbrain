@@ -50,3 +50,6 @@ Abra `http://localhost:4321`. O build cria `dist/` com `index.html`, dez fragmen
 - `index.html` — interface e biblioteca de evidências.
 
 **Não editar ou vincular ao repositório `daniel-dahis` ou `futuro.danieldahis.com`.**
+## Resumos (buscas essenciais)
+
+`Resumir texto` e `Resumir e-mail` são tarefas prioritárias, com sinônimos e variantes PT/EN. O catálogo também distingue resumo de PDFs, Word, vídeos, reuniões, livros, contratos, pesquisa científica e mensagens. O site informa que verificações de fidelidade precisam consultar a fonte original, apoiando-se em FaithBench (NAACL 2025) e, para e-mails, estudo de campo sobre produtividade (não sobre precisão de cada resumo).
