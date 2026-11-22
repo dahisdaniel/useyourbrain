@@ -185,6 +185,19 @@
     .assessment-text strong{color:var(--ink)}
     .assessment-cognition{font-size:11px;line-height:1.7;color:#6b756e;border-top:1px solid #d4d5ca;margin-top:14px;padding-top:12px}
     @media(max-width:660px){.brain-card{margin-top:24px;padding:19px}.evidence-assessment{padding:17px;margin-top:20px}}
+
+    /* Resultado: primeiro a decisão humana, depois os estudos. */
+    .brain-recommendation{display:grid;grid-template-columns:200px minmax(0,1fr);gap:30px;align-items:start;margin:19px 0 27px;padding:30px 35px;background:#fff;border:1px solid #deded2;border-left:5px solid var(--royal);border-radius:9px;box-shadow:0 7px 32px rgba(15,34,40,.025)}
+    .brain-recommendation-label{display:flex;align-items:center;gap:10px;color:var(--royal);padding-top:3px}
+    .brain-recommendation-label>span{font-size:28px;line-height:1}
+    .brain-recommendation-label .mono{font-size:10px;letter-spacing:.035em}
+    .brain-recommendation-copy h4{font-size:clamp(22px,2.8vw,34px);line-height:1.13;letter-spacing:-.053em;font-weight:700;margin:0 0 9px}
+    .brain-recommendation-copy>p{font-size:14px;line-height:1.78;color:#42534d;max-width:720px;margin:0 0 9px}
+    .brain-recommendation-copy>small{font-size:11px;line-height:1.65;color:#79837a}
+    .evidence-section{max-width:980px;margin:37px auto 0;padding:0 0 14px}
+    .evidence-section h4{margin-bottom:21px}
+    @media(max-width:660px){.brain-recommendation{display:block;padding:22px 21px;margin:15px 0 21px}.brain-recommendation-label{margin-bottom:12px}.brain-recommendation-copy h4{font-size:26px}.brain-recommendation-copy>p{font-size:13px}.evidence-section{margin-top:27px}}
+    @media print{.brain-recommendation{box-shadow:none;break-inside:avoid}}
   </style>
 </head>
 <body>
@@ -240,16 +253,17 @@
         <div class="result-top"><span class="res-icon" id="res-symbol" aria-hidden="true">✳</span><span id="res-category">Estratégia recomendada</span></div>
         <h3 id="res-title">—</h3><p class="result-desc" id="res-summary"></p><p class="res-evidence-quick" id="res-evidence-quick"></p><div class="res-rule"></div><p class="result-task"><b>Sua tarefa</b><span id="res-task"></span></p>
       </article>
+      <section class="brain-recommendation" aria-labelledby="brain-title">
+        <div class="brain-recommendation-label"><span aria-hidden="true">✳</span><p class="mono">USE SEU CÉREBRO</p></div>
+        <div class="brain-recommendation-copy"><h4 id="brain-title"></h4><p id="brain-action"></p><small>Orientação prática. Confira abaixo o que os estudos realmente testaram.</small></div>
+      </section>
       <aside class="matched-note" id="matched-note" hidden aria-label="Correspondência do catálogo">
         <span class="mono">SITUAÇÃO SEMELHANTE NO CATÁLOGO</span>
         <p id="matched-task"></p>
         <small id="matched-quality"></small><a id="matched-source" class="matched-source" href="#fundamentos" target="_blank" rel="noopener noreferrer">Sobre este grupo de tarefas ↗</a>
       </aside>
       <div class="result-actions"><button type="button" class="text-action primary" id="copy-result">Copiar recomendação ↗</button><button type="button" class="text-action" id="print-result">Imprimir / salvar PDF ↗</button><button type="button" class="text-action" id="new-task">Analisar outra tarefa ↗</button></div>
-      <div class="result-detail-grid">
-        <section class="subcard" aria-labelledby="steps-title"><p class="mono overline">02 / COMO COLOCAR EM PRÁTICA</p><h4 id="steps-title">Três passos para começar.</h4><ol class="steps" id="res-steps"></ol><div class="brain-card" aria-labelledby="brain-title"><p class="mono">USE SEU CÉREBRO</p><h5 id="brain-title"></h5><p id="brain-action"></p></div><div class="prompt-box" id="prompt-box" hidden><strong id="prompt-title">Um prompt melhor para esta tarefa</strong><p id="res-prompt"></p><button type="button" id="copy-prompt">Copiar prompt ↗</button></div></section>
-        <section class="subcard" aria-labelledby="science-title"><p class="mono overline">03 / POR TRÁS DA RESPOSTA</p><h4 id="science-title">O que diz a ciência?</h4><p class="reason" id="res-reason"></p><span class="reason-pill" id="reason-pill"></span><div class="evidence-assessment" aria-label="Força da evidência para a recomendação"><div class="assessment-header"><span class="assessment-heading">FORÇA DA EVIDÊNCIA</span><span class="assessment-grade" id="evidence-grade"></span></div><p class="assessment-method" id="evidence-method"></p><p class="assessment-text"><strong>O que sustenta a sugestão:</strong> <span id="evidence-support"></span></p><p class="assessment-text"><strong>O que não está demonstrado:</strong> <span id="evidence-uncertainty"></span></p><p class="assessment-cognition" id="evidence-cognition"></p></div><div class="evidence-heading">Pesquisas e fontes</div><div class="evidence-list" id="res-evidence"></div><p class="limitation" id="res-limitation"></p></section>
-      </div>
+      <section class="subcard evidence-section" aria-labelledby="science-title"><p class="mono overline">02 / O QUE AS EVIDÊNCIAS DIZEM</p><h4 id="science-title">O que os estudos realmente mostram?</h4><p class="reason" id="res-reason"></p><span class="reason-pill" id="reason-pill"></span><div class="evidence-assessment" aria-label="Força da evidência para a recomendação"><div class="assessment-header"><span class="assessment-heading">FORÇA DA EVIDÊNCIA</span><span class="assessment-grade" id="evidence-grade"></span></div><p class="assessment-method" id="evidence-method"></p><p class="assessment-text"><strong>O que sustenta a sugestão:</strong> <span id="evidence-support"></span></p><p class="assessment-text"><strong>O que não está demonstrado:</strong> <span id="evidence-uncertainty"></span></p><p class="assessment-cognition" id="evidence-cognition"></p></div><div class="evidence-heading">Pesquisas e fontes</div><div class="evidence-list" id="res-evidence"></div><p class="limitation" id="res-limitation"></p></section>
     </section>
 
     <section class="science" id="fundamentos" aria-labelledby="science-main-title">
@@ -438,8 +452,12 @@
     function makeEl(tag,opts={}){const el=document.createElement(tag);if(opts.className)el.className=opts.className;if(opts.text!==undefined)el.textContent=opts.text;return el;}
     function render(result,task){
       const r=RECS[result.category]; const evid=evidenceFor(task,result); $('result-card').dataset.variant=result.category;
-      $('res-category').textContent=r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=r.title; $('res-summary').textContent=r.summary; $('res-task').textContent=task;
-      $('res-reason').textContent=r.reason+'\n\nPara esta atividade: '+evid.reason; $('reason-pill').textContent=evid.label+' · '+evid.level;
+      const s=normalize(task);
+      const emailWriting=result.category==='routine' && /(?:e mail|email|gmail|outlook|correio eletronico)/.test(s) && /(?:escrever|redigir|responder|resposta|preparar|compose|write|reply|answer)/.test(s) && !/(?:resumir|resumo|revisar|corrigir|classificar|organizar|filtrar|buscar|traduzir)/.test(s);
+      const displayTitle=emailWriting?'Escreva você. Deixe a IA revisar.':r.title;
+      const displaySummary=emailWriting?'Defina sua intenção e escreva a primeira versão com suas palavras. Use IA depois para sugerir ajustes de clareza, tom e gramática. Você decide o que aceita e confere tudo antes de enviar.':r.summary;
+      $('res-category').textContent=r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=displayTitle; $('res-summary').textContent=displaySummary; $('res-task').textContent=task;
+      $('res-reason').textContent=evid.reason; $('reason-pill').textContent=evid.label+' · '+evid.level;
       const assessment=window.UYB_EVIDENCE.assess(task,result,evid);
       $('res-evidence-quick').textContent='FORÇA DA EVIDÊNCIA: '+assessment.grade+' · Não é uma medida de QI';
       $('brain-title').textContent=assessment.brainTitle;
@@ -449,7 +467,6 @@
       $('evidence-support').textContent=assessment.supports;
       $('evidence-uncertainty').textContent=assessment.uncertainty;
       $('evidence-cognition').textContent='SOBRE “EMBURRECER”: '+assessment.cognition;
-      const steps=$('res-steps');steps.replaceChildren();r.steps.forEach((step,i)=>{const li=makeEl('li');li.append(makeEl('span',{className:'num',text:String(i+1)}),makeEl('span',{text:step}));steps.append(li);});
       const list=$('res-evidence');list.replaceChildren();evid.keys.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
       const matched=$('matched-note');
       if(result.matched && result.matched.score>=.20){
@@ -459,18 +476,16 @@
         const domain=OCC_SOURCES[result.matched.sourceGroup]||OCC_SOURCES.onet2026;
         const source=$('matched-source');source.href=domain.url;source.textContent='Contexto ocupacional: '+domain.label+' ↗';
       }else{matched.hidden=true;}
-      $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat} ${evid.caveat} Os estudos indicados foram selecionados por tipo de tarefa; salvo indicação explícita, não testaram esta descrição exata nem validaram nosso algoritmo.`;
-      const prompt=$('prompt-box');prompt.hidden=!r.prompt; if(r.prompt){$('res-prompt').textContent=r.prompt(task);} 
+      $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat} ${evid.caveat} Os estudos indicados foram selecionados por tipo de tarefa; salvo indicação explícita, não testaram esta descrição exata nem validaram nosso algoritmo.`; 
       if(result.uncertain){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
-      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment};
+      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment,displayTitle,displaySummary};
     }
     $('task').addEventListener('input',()=>{window.__selectedTask=null;$('charcount').textContent=`${$('task').value.length} / 700`;if($('error').textContent)$('error').textContent='';});
     document.querySelectorAll('.sample').forEach(b=>b.addEventListener('click',()=>{$('task').value=b.dataset.sample;$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;$('task').focus();}));
     $('task-form').addEventListener('submit',e=>{e.preventDefault();const task=$('task').value.trim();if(task.length<8){$('error').textContent='Descreva a tarefa com pelo menos algumas palavras.';$('task').focus();return;} $('error').textContent='';const flags={sensitive:$('sensitive').checked,stakes:$('stakes').checked,prohibited:$('prohibited').checked};render(classifyWithCatalog(task,$('goal').value,flags),task);});
     function flash(button,text){const prev=button.textContent;button.textContent=text;setTimeout(()=>{button.textContent=prev;},1700);} 
     async function copy(text,button){try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);}else{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}flash(button,'Copiado ✓');}catch(e){flash(button,'Não foi possível copiar');}}
-    $('copy-result').addEventListener('click',()=>{const s=window.currentResult;if(!s)return;let content=`ANTES DA IA — RECOMENDAÇÃO\nTarefa: ${s.task}\n${s.r.title}\n${s.r.summary}\n\nPLANO:\n${s.r.steps.map((x,i)=>i+1+'. '+x).join('\n')}\n\nPOR QUÊ:\n${s.r.reason}\n\nFORÇA DA EVIDÊNCIA: ${s.assessment.grade} (${s.assessment.method})\nO que sabemos: ${s.assessment.supports}\nO que não sabemos: ${s.assessment.uncertainty}\n\nUSE SEU CÉREBRO: ${s.assessment.brainTitle}. ${s.assessment.brainAction}\n${s.assessment.cognition}\n\nFONTES:\n${s.evid.keys.map(k=>`${REFERENCES[k].authors} (${REFERENCES[k].year}): ${REFERENCES[k].url}`).join('\n')}\n\nNota: árvore de decisão heurística, não validada cientificamente.`;copy(content,$('copy-result'));});
-    $('copy-prompt').addEventListener('click',()=>{if(window.currentResult?.r.prompt)copy(window.currentResult.r.prompt(window.currentResult.task),$('copy-prompt'));});
+    $('copy-result').addEventListener('click',()=>{const s=window.currentResult;if(!s)return;let content=`ANTES DA IA — RECOMENDAÇÃO\nTarefa: ${s.task}\n${s.displayTitle}\n${s.displaySummary}\n\nUSE SEU CÉREBRO:\n${s.assessment.brainTitle}\n${s.assessment.brainAction}\n\nO QUE DIZEM AS EVIDÊNCIAS:\nForça: ${s.assessment.grade} (${s.assessment.method})\n${s.assessment.supports}\nNão demonstrado: ${s.assessment.uncertainty}\n\nFORÇA DA EVIDÊNCIA: ${s.assessment.grade} (${s.assessment.method})\nO que sabemos: ${s.assessment.supports}\nO que não sabemos: ${s.assessment.uncertainty}\n\nUSE SEU CÉREBRO: ${s.assessment.brainTitle}. ${s.assessment.brainAction}\n${s.assessment.cognition}\n\nFONTES:\n${s.evid.keys.map(k=>`${REFERENCES[k].authors} (${REFERENCES[k].year}): ${REFERENCES[k].url}`).join('\n')}\n\nNota: árvore de decisão heurística, não validada cientificamente.`;copy(content,$('copy-result'));});
     $('new-task').addEventListener('click',()=>{$('resultado').classList.remove('show');$('task').value='';$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;window.scrollTo({top:document.getElementById('como-funciona').offsetTop-20,behavior:'smooth'});$('task').focus({preventScroll:true});});
     $('print-result').addEventListener('click',()=>window.print());
     window.__matchTask=nearestTask;window.__classifyWithCatalog=classifyWithCatalog;window.__classify=classify; // usable for manual verification in browser console

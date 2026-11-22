@@ -47,8 +47,8 @@
   const DIRECT = {
     email: {
       grade:'Moderada',method:'Experimentos de campo com trabalho de e-mail',
-      supports:'Estudo randomizado identificou menos tempo gasto com e-mails entre usuários de IA integrada ao escritório; experimento de escrita também encontrou ganhos de produtividade.',
-      uncertainty:'Os estudos não mediram perda de raciocínio e não verificaram a qualidade de todo e-mail individual.'
+      supports:'Um experimento com ferramentas de IA integradas ao escritório encontrou menos tempo gasto com e-mails; outro experimento encontrou ganhos de rapidez e qualidade em escrita profissional. Isso apoia usar IA como apoio à edição e revisão.',
+      uncertainty:'Esses estudos não compararam diretamente “escrever primeiro e pedir revisão” com “deixar a IA escrever tudo”. Essa sequência é uma recomendação prudente para preservar autoria e julgamento; não há demonstração de que ela previna perda de QI.'
     },
     emailSummary: {
       grade:'Limitada',method:'Evidências próximas, não teste do resumo exato',
@@ -139,7 +139,13 @@
       return ['Defina o que é importante antes de resumir', 'Antes de pedir um resumo, formule o que precisa descobrir. Compare datas, números e conclusões com o original. Se o objetivo for aprender o conteúdo, tente explicá-lo sozinho depois.'];
     }
     if (has(s, /\b(e mail|email|gmail|outlook|correio eletronico)\b/)) {
-      return ['Decida o que você quer comunicar', 'Escolha objetivo, destinatário, tom e compromisso assumido. Deixe a IA rascunhar, mas leia e ajuste tudo antes de enviar em seu nome.'];
+      if (has(s, /\b(escrever|redigir|responder|resposta|preparar|compose|write|reply|answer)\b/)) {
+        return ['Escreva a primeira versão. Deixe a IA revisar.', 'Pense no que quer comunicar e escreva um rascunho com suas palavras (ou comece por um rascunho seu já existente). Depois, peça à IA sugestões de clareza, tom, gramática e concisão. Decida o que aceitar e confira fatos, anexos, destinatários e compromissos antes de enviar.'];
+      }
+      return ['Decida o que importa na comunicação', 'Defina você a intenção, o tom e os compromissos. Use IA para organizar ou revisar mensagens, sem delegar a decisão sobre o que enviar.'];
+    }
+    if (has(s, /\b(whatsapp|mensagem|mensagens|sms|direct|dm)\b/) && has(s, /\b(escrever|redigir|responder|enviar|preparar)\b/)) {
+      return ['Escreva sua mensagem e depois peça revisão', 'Defina você o objetivo e escreva a mensagem. Use a IA para melhorar clareza e tom, sem transferir a responsabilidade pelo que será enviado em seu nome.'];
     }
     if (has(s, /\b(fotos|fotografias|galeria|google photos|google fotos|imagens)\b/)) {
       return ['Estabeleça seus critérios de organização', 'Decida quais fotos têm valor, o que deve ser privado e o que pode ser descartado. Confira as sugestões antes de mover, compartilhar ou excluir.'];
