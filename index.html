@@ -153,6 +153,21 @@
     .matched-note p{margin:8px 0 4px;font-size:15px;font-weight:700;letter-spacing:-.016em}
     .matched-note small{font-size:11px;line-height:1.5;color:var(--muted)}
     @media print{.top-strip,.site-header,.hero,.science,.footer,.result-actions{display:none!important}.results{display:block!important;padding:0}.result-card{background:white!important;color:black!important;border:1px solid #ccc}.result-desc,.result-task{color:#555}.result-detail-grid{display:block}.subcard{break-inside:avoid;margin-top:30px}.evidence-item{break-inside:avoid}.container{width:100%}}
+
+    /* Autocomplete: resultados rápidos, locais e acessíveis. */
+    .suggestions[hidden]{display:none}
+    .suggestions{border-top:1px solid #e5e5dc;background:#fff;padding:8px 0 12px}
+    .suggestions-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 24px 10px}
+    .suggestions-heading strong{font:700 10px/1.5 var(--mono);letter-spacing:.025em;color:var(--royal)}
+    .suggestions-heading small{font-size:11px;color:#868d88}
+    .suggestions-list{max-height:345px;overflow-y:auto;overscroll-behavior:contain}
+    .suggestion{display:flex;align-items:center;gap:14px;width:100%;padding:12px 21px;border:0;border-left:3px solid transparent;background:transparent;text-align:left;color:var(--ink);transition:background .14s ease,border-color .14s ease}
+    .suggestion:hover,.suggestion.is-active{background:#f4f5ef;border-left-color:var(--royal)}
+    .suggestion-text{font-size:13px;line-height:1.5;font-weight:600;flex:1;min-width:0;overflow-wrap:anywhere}
+    .suggestion-category{white-space:nowrap;color:#6e7771;font-size:10px;font-weight:700}
+    .suggestion-arrow{font-size:17px;color:var(--royal)}
+    .suggestions-empty{margin:0;padding:12px 24px 16px;color:#717b74;font-size:12px;line-height:1.6}
+    @media(max-width:660px){.suggestions-heading{padding:9px 15px}.suggestions-heading small{display:none}.suggestion{padding:12px 13px;gap:9px;align-items:flex-start}.suggestion-text{font-size:12px}.suggestion-category{font-size:9px;margin-top:3px;white-space:normal;max-width:92px;text-align:right}.suggestion-arrow{font-size:15px;margin-top:1px}.suggestions-list{max-height:340px}}
   </style>
 </head>
 <body>
@@ -176,6 +191,8 @@
               <textarea id="task" maxlength="700" required aria-describedby="task-help" placeholder="Qual tarefa você está pensando em fazer?&#10;Ex.: Quero estudar estatística para uma prova..."></textarea>
             </div>
             <div class="search-bottom"><span class="search-help" id="task-help">A resposta depende do seu objetivo.</span><div class="search-actions"><span id="charcount" class="charcount">0 / 700</span><button class="submit-btn" id="analyze" type="submit">Analisar tarefa <span aria-hidden="true">↗</span></button></div></div>
+            <div class="suggestions" id="task-suggestions" hidden><div class="suggestions-heading"><strong id="suggestions-label">Tarefas semelhantes</strong><small>Selecione para ver a recomendação</small></div><div class="suggestions-list" id="suggestions-list" role="listbox" aria-label="Tarefas sugeridas"></div></div>
+            <span id="suggestions-status" class="sr-only" role="status" aria-live="polite"></span>
           </div>
           <p class="error" id="error" role="alert"></p>
         </form>
@@ -366,5 +383,6 @@
     $('print-result').addEventListener('click',()=>window.print());
     window.__matchTask=nearestTask;window.__classifyWithCatalog=classifyWithCatalog;window.__classify=classify; // usable for manual verification in browser console
   </script>
+  <script src="autocomplete.js"></script>
 </body>
 </html>
