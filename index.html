@@ -94,9 +94,8 @@
     .result-task{border-top:1px solid rgba(255,255,255,.18);margin-top:33px;padding-top:18px;font-size:12px;line-height:1.6;color:#aebdbb;position:relative;z-index:1}
     .result-task b{color:var(--accent);font:700 10px var(--mono);text-transform:uppercase;letter-spacing:.03em;margin-right:11px}
     .res-rule{display:none}
-    .result-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:21px 0 55px}
-    .text-action{border:0;background:transparent;border-bottom:1px solid #bcbeb4;border-radius:0;color:#42504b;padding:9px 1px;font-size:12px;font-weight:700;transition:color .2s}.text-action:hover{color:var(--royal)}
-    .text-action.primary{color:var(--royal);border-color:var(--royal)}
+
+
     .result-detail-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:74px;align-items:start}
     .overline{color:var(--royal);margin-bottom:17px}
     .subcard h4{font-size:clamp(29px,3.35vw,42px);line-height:1.12;letter-spacing:-.06em;font-weight:700;margin-bottom:24px}
@@ -147,13 +146,8 @@
     @media(max-width:900px){.result-detail-grid,.science-layout{gap:37px}.container{width:min(100% - 48px,1160px)}.hero{padding:88px 0 80px}.top-links{gap:18px}.site-status{display:none}}
     @media(max-width:660px){.container{width:calc(100% - 36px)}.site-header{min-height:68px}.brand{font-size:17px}.brand-star{font-size:28px}.top-links{gap:16px;font-size:11px}.top-links a:first-child{display:none}.hero{padding:75px 0 70px;min-height:auto}.hero .eyebrow{font-size:9px;gap:8px;margin-bottom:22px}.hero .eyebrow .small-line{width:14px}h1{font-size:clamp(50px,11.7vw,76px);letter-spacing:-.08em;line-height:.99;margin-bottom:22px}.hero-description{font-size:15px;line-height:1.65;margin-bottom:31px;padding:0 5px}.search-main{padding:21px 19px 7px 19px;gap:11px}.search-symbol{width:18px;height:18px}textarea{font-size:16px;min-height:100px}.search-bottom{padding:10px 12px 12px 19px;align-items:flex-end}.search-help{max-width:160px;font-size:9px}.search-actions{gap:8px}.submit-btn{padding:12px 13px;gap:9px;font-size:12px;white-space:nowrap}.charcount{display:none}.examples{justify-content:flex-start;gap:7px;margin-top:18px}.examples-title{flex-basis:100%;text-align:left}.example{font-size:11px;padding:8px 11px}.below-search{align-items:flex-start;flex-wrap:wrap;gap:11px;flex-direction:column-reverse;margin-top:19px}.custom-body{grid-template-columns:1fr;gap:24px;padding:18px;margin-top:14px}.results{padding:62px 0 78px}.section-top{display:block}.section-top small{display:block;margin-top:7px}.result-card{padding:32px 24px 31px}.result-card h3{font-size:clamp(34px,8.5vw,51px);margin:28px 0 17px}.result-desc{font-size:14px}.result-task{margin-top:26px}.result-actions{gap:13px 20px;margin:16px 0 43px}.text-action{font-size:11px}.result-detail-grid{grid-template-columns:1fr;gap:48px}.subcard h4{font-size:35px;margin-bottom:19px}.science{padding:66px 0 75px}.science-heading{margin-bottom:37px}.science-layout{grid-template-columns:1fr;gap:22px}.science h2{font-size:clamp(45px,11vw,69px)}.science-intro{font-size:14px}.science-point{padding:17px 0}.disclosure-wrap{margin-top:44px}.footer{padding:36px 0}.footer-inner{display:block}.footer-credit{text-align:left;margin-top:16px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-    .matched-note{margin:20px 0 2px;padding:18px 22px;border:1px solid var(--line);background:rgba(255,255,255,.45);border-radius:9px}
-    .matched-note[hidden]{display:none}
-    .matched-note .mono{color:var(--royal);font-size:9px}
-    .matched-note p{margin:8px 0 4px;font-size:15px;font-weight:700;letter-spacing:-.016em}
-    .matched-note small{font-size:11px;line-height:1.5;color:var(--muted)}
-    .matched-source{display:block;margin-top:8px;font-size:11px;color:var(--royal);text-decoration:underline;text-underline-offset:3px}
-    @media print{.top-strip,.site-header,.hero,.science,.footer,.result-actions{display:none!important}.results{display:block!important;padding:0}.result-card{background:white!important;color:black!important;border:1px solid #ccc}.result-desc,.result-task{color:#555}.result-detail-grid{display:block}.subcard{break-inside:avoid;margin-top:30px}.evidence-item{break-inside:avoid}.container{width:100%}}
+
+    @media print{.top-strip,.site-header,.hero,.science,.footer{display:none!important}.results{display:block!important;padding:0}.result-card{background:white!important;color:black!important;border:1px solid #ccc}.result-desc,.result-task{color:#555}.result-detail-grid{display:block}.subcard{break-inside:avoid;margin-top:30px}.evidence-item{break-inside:avoid}.container{width:100%}}
   
     /* Autocomplete: resultados rápidos, locais e acessíveis. */
     .suggestions[hidden]{display:none}
@@ -257,12 +251,7 @@
         <div class="brain-recommendation-label"><span aria-hidden="true">✳</span><p class="mono">USE SEU CÉREBRO</p></div>
         <div class="brain-recommendation-copy"><h4 id="brain-title"></h4><p id="brain-action"></p><small>Orientação prática. Confira abaixo o que os estudos realmente testaram.</small></div>
       </section>
-      <aside class="matched-note" id="matched-note" hidden aria-label="Correspondência do catálogo">
-        <span class="mono">SITUAÇÃO SEMELHANTE NO CATÁLOGO</span>
-        <p id="matched-task"></p>
-        <small id="matched-quality"></small><a id="matched-source" class="matched-source" href="#fundamentos" target="_blank" rel="noopener noreferrer">Sobre este grupo de tarefas ↗</a>
-      </aside>
-      <div class="result-actions"><button type="button" class="text-action primary" id="copy-result">Copiar recomendação ↗</button><button type="button" class="text-action" id="print-result">Imprimir / salvar PDF ↗</button><button type="button" class="text-action" id="new-task">Analisar outra tarefa ↗</button></div>
+
       <section class="subcard evidence-section" aria-labelledby="science-title"><p class="mono overline">02 / O QUE AS EVIDÊNCIAS DIZEM</p><h4 id="science-title">O que os estudos realmente mostram?</h4><p class="reason" id="res-reason"></p><span class="reason-pill" id="reason-pill"></span><div class="evidence-assessment" aria-label="Força da evidência para a recomendação"><div class="assessment-header"><span class="assessment-heading">FORÇA DA EVIDÊNCIA</span><span class="assessment-grade" id="evidence-grade"></span></div><p class="assessment-method" id="evidence-method"></p><p class="assessment-text"><strong>O que sustenta a sugestão:</strong> <span id="evidence-support"></span></p><p class="assessment-text"><strong>O que não está demonstrado:</strong> <span id="evidence-uncertainty"></span></p><p class="assessment-cognition" id="evidence-cognition"></p></div><div class="evidence-heading">Pesquisas e fontes</div><div class="evidence-list" id="res-evidence"></div><p class="limitation" id="res-limitation"></p></section>
     </section>
 
@@ -468,14 +457,6 @@
       $('evidence-uncertainty').textContent=assessment.uncertainty;
       $('evidence-cognition').textContent='SOBRE “EMBURRECER”: '+assessment.cognition;
       const list=$('res-evidence');list.replaceChildren();evid.keys.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
-      const matched=$('matched-note');
-      if(result.matched && result.matched.score>=.20){
-        matched.hidden=false;
-        $('matched-task').textContent=result.matched.task;
-        $('matched-quality').textContent=`${result.matched.profession||'Diversas profissões'} · ${result.matched.sector||''}. Exemplo construído a partir de um fluxo profissional; correspondência textual, não frequência comprovada.`;
-        const domain=OCC_SOURCES[result.matched.sourceGroup]||OCC_SOURCES.onet2026;
-        const source=$('matched-source');source.href=domain.url;source.textContent='Contexto ocupacional: '+domain.label+' ↗';
-      }else{matched.hidden=true;}
       $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat} ${evid.caveat} Os estudos indicados foram selecionados por tipo de tarefa; salvo indicação explícita, não testaram esta descrição exata nem validaram nosso algoritmo.`; 
       if(result.uncertain){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
       $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment,displayTitle,displaySummary};
@@ -483,11 +464,6 @@
     $('task').addEventListener('input',()=>{window.__selectedTask=null;$('charcount').textContent=`${$('task').value.length} / 700`;if($('error').textContent)$('error').textContent='';});
     document.querySelectorAll('.sample').forEach(b=>b.addEventListener('click',()=>{$('task').value=b.dataset.sample;$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;$('task').focus();}));
     $('task-form').addEventListener('submit',e=>{e.preventDefault();const task=$('task').value.trim();if(task.length<8){$('error').textContent='Descreva a tarefa com pelo menos algumas palavras.';$('task').focus();return;} $('error').textContent='';const flags={sensitive:$('sensitive').checked,stakes:$('stakes').checked,prohibited:$('prohibited').checked};render(classifyWithCatalog(task,$('goal').value,flags),task);});
-    function flash(button,text){const prev=button.textContent;button.textContent=text;setTimeout(()=>{button.textContent=prev;},1700);} 
-    async function copy(text,button){try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);}else{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}flash(button,'Copiado ✓');}catch(e){flash(button,'Não foi possível copiar');}}
-    $('copy-result').addEventListener('click',()=>{const s=window.currentResult;if(!s)return;let content=`ANTES DA IA — RECOMENDAÇÃO\nTarefa: ${s.task}\n${s.displayTitle}\n${s.displaySummary}\n\nUSE SEU CÉREBRO:\n${s.assessment.brainTitle}\n${s.assessment.brainAction}\n\nO QUE DIZEM AS EVIDÊNCIAS:\nForça: ${s.assessment.grade} (${s.assessment.method})\n${s.assessment.supports}\nNão demonstrado: ${s.assessment.uncertainty}\n\nFORÇA DA EVIDÊNCIA: ${s.assessment.grade} (${s.assessment.method})\nO que sabemos: ${s.assessment.supports}\nO que não sabemos: ${s.assessment.uncertainty}\n\nUSE SEU CÉREBRO: ${s.assessment.brainTitle}. ${s.assessment.brainAction}\n${s.assessment.cognition}\n\nFONTES:\n${s.evid.keys.map(k=>`${REFERENCES[k].authors} (${REFERENCES[k].year}): ${REFERENCES[k].url}`).join('\n')}\n\nNota: árvore de decisão heurística, não validada cientificamente.`;copy(content,$('copy-result'));});
-    $('new-task').addEventListener('click',()=>{$('resultado').classList.remove('show');$('task').value='';$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;window.scrollTo({top:document.getElementById('como-funciona').offsetTop-20,behavior:'smooth'});$('task').focus({preventScroll:true});});
-    $('print-result').addEventListener('click',()=>window.print());
     window.__matchTask=nearestTask;window.__classifyWithCatalog=classifyWithCatalog;window.__classify=classify; // usable for manual verification in browser console
   </script>
   <script src="autocomplete.js"></script>
