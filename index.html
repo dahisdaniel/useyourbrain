@@ -273,7 +273,7 @@
           <div><h2 id="science-main-title">Nem toda dificuldade precisa <em>desaparecer.</em></h2><p class="science-intro">Algumas tarefas consomem tempo sem nos acrescentar muito. Outras são justamente o exercício que desenvolve nossa capacidade de pensar, criar e aprender.</p><p class="science-intro">O objetivo não é ser contra a IA. Não está demonstrado que seu uso diminua a inteligência geral. Em algumas atividades, porém, terceirizar a tentativa pode mudar o que aprendemos. Por isso, importa saber quando <strong>delegar</strong>, quando <strong>colaborar</strong> e quando <strong>preservar o esforço humano</strong>.</p></div>
           <div class="science-points"><div class="science-point"><span class="point-num">01</span><div><h3>Aprender não é só chegar à resposta.</h3><p>O desempenho com IA durante a prática pode ser diferente do desempenho posterior sem ajuda.</p></div></div><div class="science-point"><span class="point-num">02</span><div><h3>Ideias melhores podem ficar mais parecidas.</h3><p>Em certas tarefas, a IA aumenta a qualidade individual, mas reduz a diversidade entre produções.</p></div></div><div class="science-point"><span class="point-num">03</span><div><h3>Economizar esforço também tem valor.</h3><p>Em trabalhos instrumentais, experimentos mostram ganhos reais de produtividade.</p></div></div><div class="science-point"><span class="point-num">04</span><div><h3>O risco muda tudo.</h3><p>Privacidade, segurança, regras da atividade e consequências de um erro precisam entrar na decisão.</p></div></div></div>
         </div>
-        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 50.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os 50 mil exemplos combinam 208 perfis de atuação e uso, fluxos de trabalho e contextos profissionais; não são 50 mil registros coletados de usuários nem representam um ranking mensurado de popularidade. Cada recomendação depende do propósito, das restrições e do risco da tarefa. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade e produtividade); outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
+        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 50.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os 50 mil exemplos combinam 208 perfis de atuação e uso, fluxos de trabalho e contextos profissionais; não são 50 mil registros coletados de usuários nem representam um ranking mensurado de popularidade. Cada recomendação depende do propósito, das restrições e do risco da tarefa. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade, confiabilidade e produtividade); tarefas que exigem interpretação recebem uma proposta híbrida: raciocínio humano, IA como contraponto e verificação das fontes. Essa sequência é uma orientação editorial, não uma intervenção cuja superioridade tenha sido provada em todas as áreas; outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
       </div>
     </section>
   </main>
@@ -291,6 +291,7 @@
   <script src="catalogo-loader.js"></script>
   <script src="search-engine.js"></script>
   <script src="evidence-strength.js"></script>
+  <script src="hybrid-guidance.js"></script>
   <script>
 'use strict';
     const REFERENCES={
@@ -303,6 +304,7 @@
       risko:{title:'Cognitive Offloading',authors:'Risko & Gilbert',journal:'Trends in Cognitive Sciences',year:2016,url:'https://doi.org/10.1016/j.tics.2016.07.002',kind:'Revisão conceitual',summary:'Descreve a transferência de demandas cognitivas para ferramentas externas e discute suas consequências e limites.'},
       sparrow:{title:'Google Effects on Memory',authors:'Sparrow, Liu & Wegner',journal:'Science',year:2011,url:'https://doi.org/10.1126/science.1207745',kind:'Experimentos sobre memória',summary:'Esperar ter acesso posterior a informações pode reduzir a lembrança do conteúdo e aumentar a lembrança de onde recuperá-lo.'},
       icmje:{title:'Use of Artificial Intelligence in Publishing: Use of AI by Authors',authors:'ICMJE',journal:'Recomendações editoriais',year:2026,url:'https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html',kind:'Recomendação editorial — não é experimento',summary:'Autores humanos mantêm responsabilidade por integridade e exatidão, devem verificar conteúdo e declarar uso de IA quando exigido.'},
+      riskbias:{title:'Retrieve-Then-Verify for Evaluating Evidence Support and Hallucination in Large Language Model–Generated Medical Information: Empirical Study',authors:'Liang et al.',journal:'JMIR AI',year:2026,url:'https://doi.org/10.2196/93761',kind:'Avaliação empírica de 97 ensaios clínicos',summary:'Avaliou análises automáticas de risco de viés: muitos julgamentos globais pareciam corretos, mas parte substancial das justificativas não encontrava suporte nas fontes. Não demonstra superioridade de uma sequência humano-primeiro.'},
       researchsurvey:{title:'Generative Artificial Intelligence (GenAI) in the research process',authors:'Pesquisadores de universidades dinamarquesas',journal:'Technology in Society',year:2025,url:'https://doi.org/10.1016/j.techsoc.2025.102813',kind:'Pesquisa com 2.534 pesquisadores',summary:'Avaliou usos de IA em escrita, revisão, dados e desenho experimental; a aceitação ética variou conforme a tarefa.'},
       nist:{title:'AI Risk Management Framework: Generative AI Profile',authors:'NIST',journal:'NIST AI 600-1',year:2024,url:'https://doi.org/10.6028/NIST.AI.600-1',kind:'Diretriz técnica — não é estudo experimental',summary:'Organiza riscos de IA generativa, incluindo confabulação, privacidade, integridade das informações e necessidade de controles proporcionais.'}
 ,
@@ -451,14 +453,34 @@
     }
     function makeEl(tag,opts={}){const el=document.createElement(tag);if(opts.className)el.className=opts.className;if(opts.text!==undefined)el.textContent=opts.text;return el;}
     function render(result,task){
-      const r=RECS[result.category]; const evid=evidenceFor(task,result); $('result-card').dataset.variant=result.category;
+      const r=RECS[result.category];
+      const hybrid=window.UYB_HYBRID?.suggest(task,result)||null;
+      const originalEvidence=evidenceFor(task,result);
+      const evid=hybrid ? {
+        ...originalEvidence,
+        label:'Uso híbrido: evidência específica e limites',
+        level:hybrid.method,
+        reason:hybrid.reason,
+        caveat:hybrid.uncertainty,
+        keys:[...new Set([...hybrid.refs,...originalEvidence.keys])].filter(k=>REFERENCES[k]).slice(0,4)
+      } : originalEvidence;
+      $('result-card').dataset.variant=result.category;
       const s=normalize(task);
       const emailWriting=result.category==='routine' && /(?:e mail|email|gmail|outlook|correio eletronico)/.test(s) && /(?:escrever|redigir|responder|resposta|preparar|compose|write|reply|answer)/.test(s) && !/(?:resumir|resumo|revisar|corrigir|classificar|organizar|filtrar|buscar|traduzir)/.test(s);
-      const displayTitle=emailWriting?'Escreva você. Deixe a IA revisar.':r.title;
-      const displaySummary=emailWriting?'Defina sua intenção e escreva a primeira versão com suas palavras. Use IA depois para sugerir ajustes de clareza, tom e gramática. Você decide o que aceita e confere tudo antes de enviar.':r.summary;
-      $('res-category').textContent=r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=displayTitle; $('res-summary').textContent=displaySummary; $('res-task').textContent=task;
+      const displayTitle=hybrid?hybrid.title:(emailWriting?'Escreva você. Deixe a IA revisar.':r.title);
+      const displaySummary=hybrid?hybrid.summary:(emailWriting?'Defina sua intenção e escreva a primeira versão com suas palavras. Use IA depois para sugerir ajustes de clareza, tom e gramática. Você decide o que aceita e confere tudo antes de enviar.':r.summary);
+      $('res-category').textContent=hybrid&&result.category!=='highrisk'&&result.category!=='authorship'?'Abordagem híbrida · IA como apoio':r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=displayTitle; $('res-summary').textContent=displaySummary; $('res-task').textContent=task;
       $('res-reason').textContent=evid.reason; $('reason-pill').textContent=evid.label+' · '+evid.level;
-      const assessment=window.UYB_EVIDENCE.assess(task,result,evid);
+      const baseAssessment=window.UYB_EVIDENCE.assess(task,result,evid);
+      const assessment=hybrid ? {
+        ...baseAssessment,
+        grade:result.category==='highrisk'?'Diretriz + indireta':result.category==='authorship'?'Normativa + limitada':hybrid.grade,
+        method:hybrid.method,
+        supports:hybrid.supports,
+        uncertainty:hybrid.uncertainty,
+        brainTitle:hybrid.brainTitle,
+        brainAction:hybrid.brainAction
+      } : baseAssessment;
       $('res-evidence-quick').textContent='FORÇA DA EVIDÊNCIA: '+assessment.grade;
       $('brain-title').textContent=assessment.brainTitle;
       $('brain-action').textContent=assessment.brainAction;
@@ -468,9 +490,9 @@
       $('evidence-uncertainty').textContent=assessment.uncertainty;
       $('evidence-cognition').textContent='SOBRE “EMBURRECER”: '+assessment.cognition;
       const list=$('res-evidence');list.replaceChildren();evid.keys.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
-      $('res-limitation').textContent=`LIMITAÇÃO: ${r.caveat} ${evid.caveat} Os estudos indicados foram selecionados por tipo de tarefa; salvo indicação explícita, não testaram esta descrição exata nem validaram nosso algoritmo.`; 
-      if(result.uncertain){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
-      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment,displayTitle,displaySummary};
+      $('res-limitation').textContent=`LIMITAÇÃO: ${hybrid?hybrid.uncertainty:r.caveat+' '+evid.caveat} Estudos próximos não equivalem à validação da tarefa exata ou da sequência híbrida, e nossa árvore de decisão é editorial.`; 
+      if(result.uncertain&&!hybrid){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
+      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment,displayTitle,displaySummary,hybrid};
     }
     $('task').addEventListener('input',()=>{window.__selectedTask=null;$('charcount').textContent=`${$('task').value.length} / 700`;if($('error').textContent)$('error').textContent='';});
     document.querySelectorAll('.sample').forEach(b=>b.addEventListener('click',()=>{$('task').value=b.dataset.sample;$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;$('task').focus();}));

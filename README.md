@@ -67,3 +67,9 @@ Cada recomendação mostra: **força da evidência**, o tipo de estudo ou norma 
 Nenhuma etiqueta significa que o usuário perderá QI ou ficará permanentemente menos inteligente por usar IA. Há estudos sobre aprendizagem posterior sem ferramenta em contextos delimitados, mas não prova de declínio geral da inteligência. O propósito do produto é favorecer decisões conscientes sobre o esforço que convém delegar versus preservar.
 
 A avaliação contextual é definida em `evidence-strength.js`, funciona 100% localmente e é copiada para `dist/` pelo build. Não há consultas pagas nem avaliação de cada uma das 50.000 tarefas em experimentos individuais.
+
+## Recomendações híbridas por julgamento intelectual
+
+O arquivo `hybrid-guidance.js` acrescenta regras transparentes para **15 fluxos de trabalho** que envolvem análise crítica: avaliação de estudos, síntese científica, busca bibliográfica, hipóteses e desenho experimental, teses, análise de dados, revisão de código, engenharia, clínica, direito, finanças, estratégia empresarial, seleção de profissionais, docência e criatividade. O sistema preserva prioridades de **privacidade, proibição de IA, aprendizagem e expressão pessoal**; tarefas mecânicas, como organizar fotos ou resumir e-mail, permanecem fora dessas regras.
+
+O fluxo recomendado é **raciocínio humano quando ele é parte do objetivo → IA como crítica/segunda opinião → verificação em fontes ou testes**. Esse fluxo é editorial e plausível, não experimentalmente validado como superior para toda situação. A força da evidência distingue estudos diretos de falhas de fundamentação, experimentos de produtividade e recomendações normativas. A tela exibe fontes aplicáveis e as limitações; não promete evitar perda de inteligência.
