@@ -202,6 +202,14 @@
     .top-strip{background:linear-gradient(90deg,#f2a4aa,#e784a1,#b75387)}
     .submit-btn:hover{background:#ffc5cb}
     @media(max-width:660px){.hero{padding-top:41px;padding-bottom:61px}.hero-mascot{width:95px;margin-bottom:17px}.brand-mascot{width:39px;height:38px}}
+
+    /* Critérios cognitivos: descrições editoriais, sem falsa precisão numérica. */
+    .brain-recommendation-copy .cognitive-focus{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 13px;margin:16px 0 12px;padding:10px 0;border-block:1px solid #ebdfdf;color:#8f2e60;font-weight:700;font-size:12px;line-height:1.7}
+    .cognitive-focus-label{font:700 9px/1.7 var(--mono);letter-spacing:.06em;color:#927b82}
+    .cognitive-guidance{display:grid;gap:9px;margin-bottom:14px}
+    .cognitive-guidance p{margin:0;font-size:12.5px;line-height:1.75;color:#5d4e56}
+    .cognitive-guidance strong{color:#70344e}
+    @media(max-width:660px){.brain-recommendation-copy .cognitive-focus{margin:14px 0 11px}.cognitive-guidance p{font-size:12px}}
   </style>
 </head>
 <body>
@@ -263,7 +271,15 @@
       </article>
       <section class="brain-recommendation" aria-labelledby="brain-title">
         <div class="brain-recommendation-label"><span aria-hidden="true">✳</span><p class="mono">USE SEU CÉREBRO</p></div>
-        <div class="brain-recommendation-copy"><h4 id="brain-title"></h4><p id="brain-action"></p><small>Orientação prática. Confira abaixo o que os estudos realmente testaram.</small></div>
+        <div class="brain-recommendation-copy">
+          <h4 id="brain-title"></h4><p id="brain-action"></p>
+          <p class="cognitive-focus"><span class="cognitive-focus-label">CAPACIDADES EM FOCO</span><span id="cognitive-focus"></span></p>
+          <div class="cognitive-guidance">
+            <p><strong>IA pode ajudar:</strong> <span id="cognitive-delegate"></span></p>
+            <p><strong>Teste de autonomia:</strong> <span id="cognitive-check"></span></p>
+          </div>
+          <small>A proposta é preservar a prática intelectual sem abrir mão dos benefícios da tecnologia.</small>
+        </div>
       </section>
 
       <section class="subcard evidence-section" aria-labelledby="science-title"><p class="mono overline">02 / O QUE AS EVIDÊNCIAS DIZEM</p><h4 id="science-title">O que os estudos realmente mostram?</h4><p class="reason" id="res-reason"></p><span class="reason-pill" id="reason-pill"></span><div class="evidence-assessment" aria-label="Força da evidência para a recomendação"><div class="assessment-header"><span class="assessment-heading">FORÇA DA EVIDÊNCIA</span><span class="assessment-grade" id="evidence-grade"></span></div><p class="assessment-method" id="evidence-method"></p><p class="assessment-text"><strong>O que sustenta a sugestão:</strong> <span id="evidence-support"></span></p><p class="assessment-text"><strong>O que não está demonstrado:</strong> <span id="evidence-uncertainty"></span></p><p class="assessment-cognition" id="evidence-cognition"></p></div><div class="evidence-heading">Pesquisas e fontes</div><div class="evidence-list" id="res-evidence"></div><p class="limitation" id="res-limitation"></p></section>
@@ -273,10 +289,10 @@
       <div class="container">
         <div class="science-heading"><span class="mono">POR QUE ESTA FERRAMENTA EXISTE</span><span class="mono" style="color:#778078">PENSAMENTO CRÍTICO × TECNOLOGIA</span></div>
         <div class="science-layout">
-          <div><h2 id="science-main-title">Nem toda dificuldade precisa <em>desaparecer.</em></h2><p class="science-intro">Algumas tarefas consomem tempo sem nos acrescentar muito. Outras são justamente o exercício que desenvolve nossa capacidade de pensar, criar e aprender.</p><p class="science-intro">O objetivo não é ser contra a IA. Não está demonstrado que seu uso diminua a inteligência geral. Em algumas atividades, porém, terceirizar a tentativa pode mudar o que aprendemos. Por isso, importa saber quando <strong>delegar</strong>, quando <strong>colaborar</strong> e quando <strong>preservar o esforço humano</strong>.</p></div>
+          <div><h2 id="science-main-title">Nem toda dificuldade precisa <em>desaparecer.</em></h2><p class="science-intro">Algumas tarefas consomem tempo sem nos acrescentar muito. Outras são justamente o exercício que desenvolve nossa capacidade de pensar, criar e aprender.</p><p class="science-intro">O objetivo não é ser contra a IA. Não está demonstrado que seu uso diminua a inteligência geral. Mas pensar criticamente, escrever com as próprias palavras e praticar novas habilidades continuam sendo capacidades valiosas. Por isso, importa saber quando <strong>delegar</strong>, quando <strong>colaborar</strong> e quando <strong>preservar o esforço humano</strong>.</p></div>
           <div class="science-points"><div class="science-point"><span class="point-num">01</span><div><h3>Aprender não é só chegar à resposta.</h3><p>O desempenho com IA durante a prática pode ser diferente do desempenho posterior sem ajuda.</p></div></div><div class="science-point"><span class="point-num">02</span><div><h3>Ideias melhores podem ficar mais parecidas.</h3><p>Em certas tarefas, a IA aumenta a qualidade individual, mas reduz a diversidade entre produções.</p></div></div><div class="science-point"><span class="point-num">03</span><div><h3>Economizar esforço também tem valor.</h3><p>Em trabalhos instrumentais, experimentos mostram ganhos reais de produtividade.</p></div></div><div class="science-point"><span class="point-num">04</span><div><h3>O risco muda tudo.</h3><p>Privacidade, segurança, regras da atividade e consequências de um erro precisam entrar na decisão.</p></div></div></div>
         </div>
-        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 50.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os 50 mil exemplos combinam 208 perfis de atuação e uso, fluxos de trabalho e contextos profissionais; não são 50 mil registros coletados de usuários nem representam um ranking mensurado de popularidade. Cada recomendação depende do propósito, das restrições e do risco da tarefa. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade, confiabilidade e produtividade); tarefas que exigem interpretação recebem uma proposta híbrida: raciocínio humano, IA como contraponto e verificação das fontes. Essa sequência é uma orientação editorial, não uma intervenção cuja superioridade tenha sido provada em todas as áreas; outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
+        <div class="disclosure-wrap"><details class="disclosure-details"><summary>Como o site chega às recomendações?</summary><p class="disclosure"><strong>Transparência metodológica.</strong> Este protótipo funciona no seu navegador, sem API externa. Ele procura correspondências em 50.000 exemplos de tarefas pré-configurados e utiliza regras de decisão baseadas no objetivo e nas opções de contexto selecionadas. Os 50 mil exemplos combinam 208 perfis de atuação e uso, fluxos de trabalho e contextos profissionais; não são 50 mil registros coletados de usuários nem representam um ranking mensurado de popularidade. Cada recomendação depende do propósito, das restrições e do risco da tarefa. Não há um modelo de IA interpretando seu texto, e a árvore de decisão completa não foi validada como instrumento científico. A nova lógica considera o objetivo (aprender ou concluir), a participação de linguagem e pensamento crítico, a possibilidade de verificação e os riscos. Não são medidas clínicas ou psicométricas. Os estudos citados sustentam princípios específicos (aprendizagem, criatividade, escrita, confiabilidade e produtividade); tarefas que exigem interpretação recebem uma proposta híbrida: raciocínio humano, IA como contraponto e verificação das fontes. Essa sequência é uma orientação editorial, não uma intervenção cuja superioridade tenha sido provada em todas as áreas; outras recomendações dependem de prudência, privacidade ou integridade. Em decisões médicas, jurídicas, financeiras ou de segurança, a ferramenta não substitui avaliação profissional.</p></details></div>
       </div>
     </section>
   </main>
@@ -295,6 +311,7 @@
   <script src="search-engine.js"></script>
   <script src="evidence-strength.js"></script>
   <script src="hybrid-guidance.js"></script>
+  <script src="cognitive-policy.js"></script>
   <script>
 'use strict';
     const REFERENCES={
@@ -306,6 +323,7 @@
       kapur:{title:'Productive failure in learning math',authors:'Manu Kapur',journal:'Cognitive Science',year:2014,url:'https://doi.org/10.1111/cogs.12107',kind:'Dois experimentos randomizados',summary:'Tentar resolver problemas antes da instrução favoreceu a compreensão conceitual e a transferência, mesmo sem obter inicialmente a resposta correta.'},
       dunlosky:{title:'Improving Students’ Learning With Effective Learning Techniques',authors:'Dunlosky et al.',journal:'Psychological Science in the Public Interest',year:2013,url:'https://doi.org/10.1177/1529100612453266',kind:'Revisão de evidências',summary:'Prática de recuperação e estudo distribuído tiveram ampla utilidade para aprender e reter conhecimentos.'},
       doshi:{title:'Generative AI enhances individual creativity but reduces the collective diversity of novel content',authors:'Doshi & Hauser',journal:'Science Advances',year:2024,url:'https://doi.org/10.1126/sciadv.adn5290',kind:'Experimento randomizado',summary:'Histórias com sugestões de IA foram consideradas melhores individualmente, porém ficaram mais semelhantes entre si.'},
+      writingtransfer:{title:'Layer-sensitive cognitive offloading in generative AI-assisted writing: supported performance and independent no-AI outcomes',authors:'Estudo com universitários em aulas de escrita acadêmica',journal:'Frontiers in Psychology',year:2026,url:'https://doi.org/10.3389/fpsyg.2026.1906199',kind:'Estudo quase experimental: 168 concluintes, seis turmas',summary:'Apoio delimitado com reflexão se associou a melhores resultados posteriores sem IA que colaboração aberta. Porém, grupos foram alocados por apenas seis turmas e contrastes tiveram incerteza estatística; não estabelece superioridade causal universal.'},
       noy:{title:'Experimental evidence on the productivity effects of generative artificial intelligence',authors:'Noy & Zhang',journal:'Science',year:2023,url:'https://doi.org/10.1126/science.adh2586',kind:'Experimento randomizado',summary:'Em tarefas profissionais de escrita, o uso de ChatGPT reduziu o tempo médio em 40% e elevou a qualidade média em 18%.'},
       lee:{title:'The Impact of Generative AI on Critical Thinking',authors:'Lee et al.',journal:'CHI',year:2025,url:'https://doi.org/10.1145/3706598.3713778',kind:'Pesquisa observacional',summary:'Em relatos de 319 trabalhadores, maior confiança na IA se associou a menor esforço percebido de pensamento crítico; não demonstra causalidade.'},
       risko:{title:'Cognitive Offloading',authors:'Risko & Gilbert',journal:'Trends in Cognitive Sciences',year:2016,url:'https://doi.org/10.1016/j.tics.2016.07.002',kind:'Revisão conceitual',summary:'Descreve a transferência de demandas cognitivas para ferramentas externas e discute suas consequências e limites.'},
@@ -472,8 +490,13 @@
     function render(result,task){
       const r=RECS[result.category];
       const hybrid=window.UYB_HYBRID?.suggest(task,result)||null;
+      const policy=window.UYB_COGNITION.assess(task,result,{
+        goal:$('goal').value,
+        flags:{sensitive:$('sensitive').checked,prohibited:$('prohibited').checked,stakes:$('stakes').checked},
+        hybrid
+      });
       const originalEvidence=evidenceFor(task,result);
-      const evid=hybrid ? {
+      let evid=hybrid ? {
         ...originalEvidence,
         label:'Uso híbrido: evidência específica e limites',
         level:hybrid.method,
@@ -481,15 +504,34 @@
         caveat:hybrid.uncertainty,
         keys:[...new Set([...hybrid.refs,...originalEvidence.keys])].filter(k=>REFERENCES[k]).slice(0,4)
       } : originalEvidence;
+      if(policy.mode==='critical'&&!hybrid){
+        evid={...evid,label:'Pensamento crítico e verificação independente',
+          level:'Evidência indireta — estratégia humano-primeiro ainda não validada',
+          reason:'A IA pode ajudar a identificar hipóteses e objeções, mas estudos sobre pensamento crítico e erros de modelos não demonstram que suas interpretações sejam corretas. Verifique premissas e fontes.',
+          caveat:'Não há ensaio que comprove o benefício cognitivo desse método para esta tarefa.',
+          keys:['lee','nist','risko']};
+      }
+      if(policy.evidence){
+        evid={...evid,keys:[...new Set(policy.evidence.refs)].filter(k=>REFERENCES[k])};
+      }
       $('result-card').dataset.variant=result.category;
       const s=normalize(task);
       const emailWriting=result.category==='routine' && /(?:e mail|email|gmail|outlook|correio eletronico)/.test(s) && /(?:escrever|redigir|responder|resposta|preparar|compose|write|reply|answer)/.test(s) && !/(?:resumir|resumo|revisar|corrigir|classificar|organizar|filtrar|buscar|traduzir)/.test(s);
-      const displayTitle=hybrid?hybrid.title:(emailWriting?'Escreva você. Deixe a IA revisar.':r.title);
-      const displaySummary=hybrid?hybrid.summary:(emailWriting?'Defina sua intenção e escreva a primeira versão com suas palavras. Use IA depois para sugerir ajustes de clareza, tom e gramática. Você decide o que aceita e confere tudo antes de enviar.':r.summary);
-      $('res-category').textContent=hybrid&&result.category!=='highrisk'&&result.category!=='authorship'?'Abordagem híbrida · IA como apoio':r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=displayTitle; $('res-summary').textContent=displaySummary; $('res-task').textContent=task;
-      $('res-reason').textContent=evid.reason; $('reason-pill').textContent=evid.label+' · '+evid.level;
+      const displayTitle=policy.title;
+      const displaySummary=policy.summary;
+      const modeLabels={
+        learn_language:'Aprender idiomas · IA como tutora',learn_code:'Aprender programação · IA como tutora',
+        learn_any:'Aprendizagem ativa',linguistic:'Linguagem · escreva primeiro',spoken:'Linguagem oral · fale você',
+        critical:'Pensamento crítico · IA como contraponto',creative:'Criatividade · ideias próprias',
+        routine:'Automação com revisão',review:'IA como revisora',summary:'Resumo com verificação',
+        authored:'Autoria intelectual',unclear:'Recomendação provisória'
+      };
+      $('res-category').textContent=modeLabels[policy.mode]||r.tag;
+      $('res-symbol').textContent=r.symbol; $('res-title').textContent=displayTitle; $('res-summary').textContent=displaySummary; $('res-task').textContent=task;
+      $('res-reason').textContent='CRITÉRIO DA FERRAMENTA: '+policy.reason+'\n\nEVIDÊNCIAS RELACIONADAS: '+evid.reason;
+      $('reason-pill').textContent=evid.label+' · '+evid.level;
       const baseAssessment=window.UYB_EVIDENCE.assess(task,result,evid);
-      const assessment=hybrid ? {
+      const hybridAssessment=hybrid ? {
         ...baseAssessment,
         grade:result.category==='highrisk'?'Diretriz + indireta':result.category==='authorship'?'Normativa + limitada':hybrid.grade,
         method:hybrid.method,
@@ -498,18 +540,22 @@
         brainTitle:hybrid.brainTitle,
         brainAction:hybrid.brainAction
       } : baseAssessment;
+      const assessment=policy.evidence?{...hybridAssessment,...policy.evidence}:hybridAssessment;
       $('res-evidence-quick').textContent='FORÇA DA EVIDÊNCIA: '+assessment.grade;
-      $('brain-title').textContent=assessment.brainTitle;
-      $('brain-action').textContent=assessment.brainAction;
+      $('brain-title').textContent=policy.brainTitle;
+      $('brain-action').textContent=policy.brainAction;
+      $('cognitive-focus').textContent=policy.domains.join(' · ');
+      $('cognitive-delegate').textContent=policy.delegate;
+      $('cognitive-check').textContent=policy.check;
       $('evidence-grade').textContent=assessment.grade;
       $('evidence-method').textContent=assessment.method;
       $('evidence-support').textContent=assessment.supports;
       $('evidence-uncertainty').textContent=assessment.uncertainty;
       $('evidence-cognition').textContent='SOBRE “EMBURRECER”: '+assessment.cognition;
       const list=$('res-evidence');list.replaceChildren();evid.keys.forEach(k=>{const ref=REFERENCES[k];const e=makeEl('section',{className:'evidence-item'});const label=makeEl('div',{className:'ev-label',text:`${ref.kind} · ${ref.year}`});const title=makeEl('h5',{text:ref.title});const para=makeEl('p',{text:`${ref.authors} · ${ref.journal}. ${ref.summary}`});const a=makeEl('a',{text:'Ler estudo / documento ↗'});a.href=ref.url;a.target='_blank';a.rel='noopener noreferrer';e.append(label,title,para,a);list.append(e);});
-      $('res-limitation').textContent=`LIMITAÇÃO: ${hybrid?hybrid.uncertainty:r.caveat+' '+evid.caveat} Estudos próximos não equivalem à validação da tarefa exata ou da sequência híbrida, e nossa árvore de decisão é editorial.`; 
-      if(result.uncertain&&!hybrid){const para=makeEl('p',{className:'limitation',text:'AVISO: não foi possível inferir com segurança o propósito da tarefa. Escolha “Qual é seu principal objetivo?” e refaça a análise para obter uma recomendação mais adequada.'});list.prepend(para);}
-      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment,displayTitle,displaySummary,hybrid};
+      $('res-limitation').textContent=`LIMITAÇÃO: ${policy.evidence?policy.evidence.uncertainty:hybrid?hybrid.uncertainty:r.caveat+' '+evid.caveat} A recomendação é editorial: nossa árvore não mede diretamente habilidades cognitivas e não foi validada como instrumento científico.`; 
+      if(result.uncertain&&!hybrid&&policy.mode==='unclear'){const para=makeEl('p',{className:'limitation',text:'AVISO: objetivo pouco claro. Especifique se a tarefa serve para aprender, criar ou economizar tempo e refaça a análise.'});list.prepend(para);}
+      $('resultado').classList.add('show');$('resultado').scrollIntoView({behavior:'smooth',block:'start'});window.currentResult={task,r,result,evid,assessment,displayTitle,displaySummary,hybrid,policy};
     }
     $('task').addEventListener('input',()=>{window.__selectedTask=null;$('charcount').textContent=`${$('task').value.length} / 700`;if($('error').textContent)$('error').textContent='';});
     document.querySelectorAll('.sample').forEach(b=>b.addEventListener('click',()=>{$('task').value=b.dataset.sample;$('task').dispatchEvent(new Event('input'));$('goal').value='auto';$('sensitive').checked=false;$('stakes').checked=false;$('prohibited').checked=false;$('task').focus();}));

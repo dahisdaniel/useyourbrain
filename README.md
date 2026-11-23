@@ -79,3 +79,13 @@ O fluxo recomendado é **raciocínio humano quando ele é parte do objetivo → 
 A base de **50.000 situações** preserva o tamanho original e inclui 176 atividades concretas adicionais de aprendizagem, substituindo contextos genéricos; exemplos: aprender inglês, conversação em idioma estrangeiro, aprender Python, dominar SQL, ler artigos científicos e aprender instrumentos e habilidades cotidianas. Sinônimos PT/EN ficam no índice e não contam como tarefas diferentes. A classificação reconhece a intenção explícita de *aprender*, *estudar*, *praticar*, *treinar*, *learn*, *study* ou *practice*, mesmo para assuntos ausentes da lista.
 
 Em tarefas de aprendizagem, recomendar **IA como tutora** não equivale a proibir IA: a pessoa deve praticar ativamente, pedir pistas e feedback e avaliar a própria autonomia. Para idiomas, citamos uma metanálise de 23 estudos sobre ensino de inglês (DOI: 10.1016/j.actpsy.2025.105649; heterogeneidade alta), e para programação, ensaios com 42 e 275 participantes (DOIs: 10.1016/j.caeai.2025.100527 e 10.1016/j.caeai.2025.100537). A força da evidência considera os contextos específicos e não mede perda de QI.
+
+## Lógica de autonomia intelectual (v2)
+
+`cognitive-policy.js` avalia objetivos de aprendizagem, tarefa de escrita, interpretação crítica, autoria, criatividade, tarefas mecânicas e riscos. Não calcula uma pontuação de inteligência nem infere declínio cognitivo. O site mostra **o que vale exercitar**, **o que pode ser delegado** e **como testar a autonomia sem IA**.
+
+Prioridade: proibição/confidencialidade → decisões de alto impacto → aprendizagem → autoria → pensamento crítico/criatividade → comunicação humana → resumo/revisão → rotinas mecanizadas. O mesmo verbo pode gerar recomendações diferentes: escrever um e-mail pessoal não é o mesmo que processar centenas de respostas automáticas; aprender Python não é pedir que a IA gere código de produção.
+
+Estudos relacionados: Bastani et al., PNAS 2025 (10.1073/pnas.2422633122), Noy e Zhang, Science 2023 (10.1126/science.adh2586), pesquisas de uso e produtividade e estudo quase experimental de escrita acadêmica em Frontiers in Psychology 2026 (10.3389/fpsyg.2026.1906199). Uma sequência de escrita humana seguida de revisão por IA é uma recomendação prudencial, não uma intervenção validada para prevenir perda de inteligência. A IA pode fortalecer prática de idiomas ao oferecer conversação e feedback; não há regra universal de não usá-la.
+
+Os testes de regressão são executados em `npm test` e automaticamente antes de `npm run build` (28 atividades, regras de segurança e integridade da interface).
