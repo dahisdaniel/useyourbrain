@@ -225,7 +225,7 @@
               <label class="sr-only" for="task" style="position:absolute;left:-10000px">Qual tarefa você quer realizar?</label>
               <textarea id="task" maxlength="700" required aria-describedby="task-help" placeholder="Qual tarefa você está pensando em fazer?&#10;Ex.: Quero estudar estatística para uma prova..."></textarea>
             </div>
-            <div class="search-bottom"><span class="search-help" id="task-help">A resposta depende do seu objetivo.</span><div class="search-actions"><span id="charcount" class="charcount">0 / 700</span><button class="submit-btn" id="analyze" type="submit">Analisar tarefa <span aria-hidden="true">↗</span></button></div></div>
+            <div class="search-bottom"><span class="search-help" id="task-help">Diga se quer aprender ou apenas concluir uma tarefa.</span><div class="search-actions"><span id="charcount" class="charcount">0 / 700</span><button class="submit-btn" id="analyze" type="submit">Analisar tarefa <span aria-hidden="true">↗</span></button></div></div>
             <div class="suggestions" id="task-suggestions" hidden><div class="suggestions-heading"><strong id="suggestions-label">Tarefas semelhantes</strong><small>Selecione para ver a recomendação</small></div><div class="suggestions-list" id="suggestions-list" role="listbox" aria-label="Tarefas sugeridas"></div></div>
             <span id="suggestions-status" class="sr-only" role="status" aria-live="polite"></span>
           </div>
@@ -238,6 +238,9 @@
           <button type="button" class="example sample" data-sample="Organizar pastas no computador">Organizar arquivos</button>
           <button type="button" class="example sample" data-sample="Buscar artigos científicos no PubMed">Buscar artigos</button>
           <button type="button" class="example sample" data-sample="Escrever minha tese de doutorado">Escrever tese</button>
+          <button type="button" class="example sample" data-sample="Aprender uma língua estrangeira">Aprender idiomas</button>
+          <button type="button" class="example sample" data-sample="Aprender a programar">Aprender programação</button>
+          <button type="button" class="example sample" data-sample="Aprender algo novo">Aprender algo novo</button>
         </div>
         <div class="below-search">
           <p class="privacy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Sua tarefa é analisada neste navegador, sem envio a um servidor.</p>
@@ -296,6 +299,10 @@
 'use strict';
     const REFERENCES={
       pnas:{title:'Generative AI without guardrails can harm learning: Evidence from high school mathematics',authors:'Bastani et al.',journal:'PNAS',year:2025,url:'https://doi.org/10.1073/pnas.2422633122',kind:'Experimento randomizado',summary:'Alunos com acesso livre a GPT-4 tiveram melhor desempenho na prática, mas desempenho inferior na prova posterior sem IA. Uma versão tutora mitigou esse efeito.'},
+      languageMeta:{title:'Exploring the impact of artificial intelligence on English language teaching: A meta-analysis',authors:'Ekizer',journal:'Acta Psychologica',year:2025,url:'https://doi.org/10.1016/j.actpsy.2025.105649',kind:'Metanálise de 23 estudos experimentais/quase-experimentais',summary:'Assistência por IA esteve associada a melhores resultados no aprendizado de inglês, inclusive prática oral, escrita e motivação. A heterogeneidade foi muito elevada (I²=92,66%), dificultando generalização a outras línguas e sistemas.'},
+      languageChat:{title:'AI-driven chatbots in second language education: A systematic review of their efficacy and pedagogical implications',authors:'Wiboolyasarin e colaboradores',journal:'Ampersand',year:2025,url:'https://doi.org/10.1016/j.amper.2025.100224',kind:'Revisão sistemática de 30 estudos',summary:'Revisou chatbots para prática de segunda língua, destacando oportunidades de conversação e feedback, com dependência de metodologia, contexto e integração pedagógica.'},
+      programTutor:{title:'Evaluating lab assistant chatbot on student learning and behaviors in a programming short course',authors:'Noraset e colaboradores',journal:'Computers and Education: Artificial Intelligence',year:2026,url:'https://doi.org/10.1016/j.caeai.2025.100527',kind:'Experimento controlado com 42 participantes',summary:'Em um curso curto de Python, participantes com assistente que dava pistas sem soluções prontas melhoraram mais entre pré e pós-teste do que aqueles com chatbot irrestrito. Amostra pequena e contexto único.'},
+      programRCT:{title:'Less stress, better scores, same learning: The dissociation of performance and learning in AI-supported programming education',authors:'Bassner e colaboradores',journal:'Computers and Education: Artificial Intelligence',year:2026,url:'https://doi.org/10.1016/j.caeai.2025.100537',kind:'Experimento randomizado com 275 estudantes',summary:'Ferramentas de IA elevaram a performance na tarefa, mas não produziram ganhos maiores de conhecimento nem compreensão de código; o tutor com pistas favoreceu a motivação.'},
       kapur:{title:'Productive failure in learning math',authors:'Manu Kapur',journal:'Cognitive Science',year:2014,url:'https://doi.org/10.1111/cogs.12107',kind:'Dois experimentos randomizados',summary:'Tentar resolver problemas antes da instrução favoreceu a compreensão conceitual e a transferência, mesmo sem obter inicialmente a resposta correta.'},
       dunlosky:{title:'Improving Students’ Learning With Effective Learning Techniques',authors:'Dunlosky et al.',journal:'Psychological Science in the Public Interest',year:2013,url:'https://doi.org/10.1177/1529100612453266',kind:'Revisão de evidências',summary:'Prática de recuperação e estudo distribuído tiveram ampla utilidade para aprender e reter conhecimentos.'},
       doshi:{title:'Generative AI enhances individual creativity but reduces the collective diversity of novel content',authors:'Doshi & Hauser',journal:'Science Advances',year:2024,url:'https://doi.org/10.1126/sciadv.adn5290',kind:'Experimento randomizado',summary:'Histórias com sugestões de IA foram consideradas melhores individualmente, porém ficaram mais semelhantes entre si.'},
@@ -356,6 +363,10 @@
       if(flags.sensitive||sensitive)return {category:'sensitive',source:'Possível presença de informações confidenciais'};
       if(flags.stakes)return {category:'highrisk',source:'Consequências potencialmente graves indicadas por você'};
       if(goal!=='auto')return {category:goal,source:'Objetivo selecionado por você'};
+      // Reconhece a intenção explícita de APRENDER qualquer assunto ou habilidade.
+      // Segurança, regras de integridade e objetivo escolhido manualmente vêm antes.
+      const wantsLearning=/(?:^|\s)(?:aprender|aprendendo|aprendizado|aprendizagem|estudar|estudando|praticar|praticando|treinar|treinando|memorizar|dominar|compreender|me ensine|ensinar me|learn|learning|study|studying|practice|practise|practicing)(?=\s|$)/.test(s);
+      if(wantsLearning)return {category:'learn',source:'Intenção explícita de aprender ou praticar uma habilidade',uncertain:false};
       if (contains(s,['escrever minha tese','redigir minha tese','escrever minha dissertacao','escrever o capitulo da tese','escrever minha monografia','escrever a discussao do meu artigo','escrever resposta aos revisores','escrever um artigo cientifico','redigir meu artigo cientifico'])) return {category:'authorship',source:'Autoria acadêmica precisa ser humana'};
       if(contains(s,['buscar artigos','encontrar artigos cientificos','pesquisar papers','buscar papers','revisao bibliografica','procurar estudos','buscar estudos cientificos'])) return {category:'routine',source:'Busca bibliográfica com verificação de fontes'};
       const scores={learn:0,creative:0,routine:0,highrisk:0,personal:0};
@@ -382,12 +393,12 @@
       const base=classify(task,goal,flags);
       const selected=window.__selectedTask;
       const isSelected=selected&&normalize(selected.task)===normalize(task);
-      const locked=flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive'||(base.category==='highrisk'&&!base.uncertain);
+      const locked=flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive'||base.source==='Intenção explícita de aprender ou praticar uma habilidade'||(base.category==='highrisk'&&!base.uncertain);
       const global=nearestTask(task,null);
       let matched=null;
       if(isSelected){
         matched={...selected,score:1};
-        if(!(flags.prohibited||flags.sensitive||flags.stakes||goal!=='auto'||base.category==='noai'||base.category==='sensitive'||(base.category==='highrisk'&&!base.uncertain))){base.category=selected.category;base.source='Tarefa escolhida no catálogo';base.uncertain=false;}
+        if(!locked){base.category=selected.category;base.source='Tarefa escolhida no catálogo';base.uncertain=false;}
       } else if(!locked&&global&&global.score>=.82){
         base.category=global.category;
         base.source='Correspondência muito forte com tarefa do catálogo';base.uncertain=false;
@@ -412,6 +423,8 @@
       engineering:{label:'Automação de tarefas técnicas e gestão de riscos',level:'Uso ocupacional e diretrizes; inferência indireta',keys:['anthropicindex','nist','codingrct'],reason:'Dados ocupacionais mostram que IA já auxilia tarefas técnicas. Isso é evidência de uso, não valida cálculos de engenharia. Para decisões físicas ou de segurança, normas, testes e responsabilidade profissional prevalecem.',caveat:'O ensaio de código é apenas um análogo de produtividade computacional, não valida cálculos estruturais ou dispositivos médicos.'},
       executive:{label:'Produtividade em trabalho de escritório e liderança',level:'Direta apenas em tarefas próximas de e-mails e reuniões',keys:['emailfield','openaiusage','noy'],reason:'Estudos e dados de uso apontam aplicações reais em reuniões, escrita, planejamento e comunicação. Decisões estratégicas exigem análise própria e checagem dos pressupostos.',caveat:'Resultados de tarefas administrativas não provam que a IA tome decisões executivas melhores que profissionais.'},
       office:{label:'Trabalho de escritório, e-mails e documentos',level:'Direta ou adjacente conforme tarefa',keys:['emailfield','noy','openaiusage'],reason:'Evidências de campo sobre assistência em e-mails e reuniões indicam economias de tempo. Para outras atividades administrativas, a extrapolação exige cautela.',caveat:'Resultados médios não são garantia individual; confira datas, destinatários, anexos e condições de compartilhamento.'},
+      languageLearning:{label:'IA como tutora de idiomas',level:'Metanálise e estudos educacionais específicos',keys:['languageMeta','languageChat','dunlosky'],reason:'Ferramentas de IA podem facilitar prática oral, escrita e feedback no aprendizado de inglês. O essencial é você tentar falar, escrever e compreender antes da correção, e continuar praticando com pessoas e sem IA.',caveat:'A metanálise encontrou heterogeneidade muito alta; seus resultados não demonstram que toda IA ou língua se beneficie da mesma forma, nem que a sequência humano-primeiro seja superior em todos os contextos.'},
+      programmingLearning:{label:'Aprender programação com tutoria guiada',level:'Dois experimentos educacionais específicos',keys:['programTutor','programRCT','pnas'],reason:'Ensaios de aprendizagem em programação mostram que entregar código pronto pode elevar o desempenho imediato sem garantir compreensão. Assistentes que dão pistas são promissores; implemente, explique e teste você mesmo.',caveat:'Os resultados decorrem de cursos e tarefas específicas. Não demonstram prejuízo inevitável de assistentes irrestritos ou benefício universal da tutoria com pistas.'},
       education:{label:'Aprendizagem e apoio pedagógico',level:'Evidência direta em aprendizagem; indireta em preparação docente',keys:['pnas','kapur','risko'],reason:'Estudos diferenciam o uso de IA que substitui a tentativa do aluno do uso que fornece pistas. Para professores, revisar a adequação pedagógica dos materiais é essencial.',caveat:'Efeitos encontrados em estudantes e disciplinas específicas não podem ser generalizados automaticamente a todas as aulas.'},
       legal:{label:'Riscos de decisões jurídicas e integridade de fontes',level:'Diretrizes técnicas e analogias, sem validação específica',keys:['nist','openaiusage','risko'],reason:'IA pode resumir ou comparar textos, mas políticas de risco alertam para erros factuais e citações inventadas. Decisões jurídicas exigem conferir legislação, jurisprudência e jurisdição.',caveat:'As fontes não demonstram que um chatbot possa substituir aconselhamento jurídico para este caso específico.'},
       finance:{label:'Apoio analítico em finanças',level:'Evidência indireta; exigência de revisão',keys:['nist','openaiusage','emailfield'],reason:'Dados de produtividade em escritório justificam testar apoio para organização, relatórios e cenários. Não justificam delegar operações financeiras ou recomendações de investimento.',caveat:'Nenhuma dessas fontes valida previsões de mercado, consultoria financeira pessoal ou cálculo tributário específico.'},
@@ -437,7 +450,11 @@
         key=/(?:e mail|email|gmail|outlook)/.test(s)?'emailSummary':'summaries';
       }
       if(result.category==='noai'||result.category==='sensitive')key='privacy';
-      if(result.category==='learn')key='education';
+      if(result.category==='learn'){
+        const languageTopic=/(?:lingua|idioma|ingles|espanhol|frances|alemao|italiano|japones|mandarim|chines|coreano|hebraico|arabe|portugues|libras|toefl|ielts|dele|delf|pronuncia|vocabulario|conversacao|gramatica)/.test(s);
+        const programmingTopic=/(?:programar|programacao|python|javascript|typescript|java\b|codigo|codar|sql\b|html|css\b|git\b|github|algoritmo|recursao|loops|condicionais|software|backend|frontend|docker|linux|pandas|computacao)/.test(s);
+        key=languageTopic?'languageLearning':programmingTopic?'programmingLearning':'education';
+      }
       if(result.category==='personal')key='personal';
       if(result.category==='creative'&&key!=='research')key='creative';
       if(result.category==='authorship')key='research';
@@ -447,7 +464,7 @@
       if(result.category==='authorship'){keys=['icmje','scholar','researchsurvey'];}
       if(result.category==='highrisk'){keys=[...(key==='clinical'?['clinicalsafety','ama2026']:key==='engineering'?['anthropicindex']:[]),'nist','lee'];}
       if(result.category==='sensitive'||result.category==='noai'){keys=['nist',result.category==='noai'?'pnas':'risko','lee'];}
-      if(result.category==='learn'){keys=['pnas','kapur','dunlosky'];}
+      if(result.category==='learn'){keys=key==='languageLearning'?['languageMeta','languageChat','dunlosky']:key==='programmingLearning'?['programTutor','programRCT','pnas']:['pnas','kapur','dunlosky'];}
       if(result.category==='creative'&&key==='research'){keys=['doshi','researchsurvey','kapur'];}
       return {...group,profileKey:key,keys:[...new Set(keys)].filter(k=>REFERENCES[k])};
     }

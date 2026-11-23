@@ -132,7 +132,16 @@
     }
   };
   function brainFor(s, category) {
-    if (category === 'learn' || category === 'noai' || category === 'authorship' || category === 'sensitive' || category === 'highrisk' || category === 'personal') {
+    if (category === 'learn') {
+      if (/\b(dirigir|nadar|primeiros socorros|rcp|reanima|ressuscitacao|emergencia|eletrica industrial|operar maquinas)\b/.test(s))
+        return ['Pratique com supervisão adequada; IA só complementa', 'Para habilidades físicas e de segurança, a IA pode explicar conceitos e ajudar a revisar perguntas, mas não substitui prática presencial, instrutor qualificado ou avaliações apropriadas.'];
+      if (/\b(lingua|idioma|ingles|espanhol|frances|alemao|italiano|japones|mandarim|chines|coreano|hebraico|arabe|portugues|libras|toefl|ielts|pronuncia|vocabulario|conversacao|gramatica)\b/.test(s))
+        return ['Você fala; a IA corrige e conversa.', 'Use IA como parceira de conversação e professora de apoio: tente formar suas frases, fale ou escreva sem tradução automática e peça correção explicada. Volte a praticar sem assistência e, quando possível, com outras pessoas.'];
+      if (/\b(programar|programacao|python|javascript|typescript|java|codigo|sql|html|css|git|github|algoritmos|recursao|software|backend|frontend|docker|linux|pandas|computacao)\b/.test(s))
+        return ['Escreva e depure o código você mesmo.', 'Faça primeiro uma tentativa, mesmo incompleta. Peça à IA pistas sobre o próximo passo ou explicações de erros, não o programa pronto. Teste, corrija e refaça um desafio similar sem IA.'];
+      return BRAIN_BY_CATEGORY.learn;
+    }
+    if (category === 'noai' || category === 'authorship' || category === 'sensitive' || category === 'highrisk' || category === 'personal') {
       return BRAIN_BY_CATEGORY[category];
     }
     if (has(s, /\b(resumir|resumo|resuma|sintetizar|sumarizar|summarize|summarise)\b/)) {
@@ -165,10 +174,25 @@
     const s = norm(task), cat = result.category || 'routine', profile = evid.profileKey || 'everyday';
     const mathematics = has(s, /\b(matematica|estatistica|algebra|geometria|equacao|fracoes|aritmetica|calculo|trigonometria|exercicios|problemas matematicos)\b/);
     const stories = has(s, /\b(contos?|historias?|narrativas?|ficcao|creative writing)\b/);
+    const languageLearning = has(s, /\b(lingua|idioma|ingles|espanhol|frances|alemao|italiano|japones|mandarim|chines|coreano|hebraico|arabe|portugues|libras|toefl|ielts|pronuncia|vocabulario|conversacao|gramatica)\b/);
+    const supervisedLearning = has(s, /\b(dirigir|nadar|primeiros socorros|rcp|reanima|ressuscitacao|emergencia|eletrica industrial|operar maquinas)\b/);
+    const programmingLearning = has(s, /\b(programar|programacao|python|javascript|typescript|java|codigo|sql|html|css|git|github|algoritmos|recursao|software|backend|frontend|docker|linux|pandas|computacao)\b/);
     let item;
     if (RULES[cat]) item = {...RULES[cat]};
     else if (cat === 'learn') {
-      item = mathematics ? {
+      item = supervisedLearning ? {
+        grade:'Indireta / orientação de segurança',method:'Extrapolação da aprendizagem; prática presencial necessária',
+        supports:'A IA pode explicar conceitos, mas atividades de segurança e habilidades físicas exigem prática real e, quando aplicável, avaliação supervisionada.',
+        uncertainty:'Os estudos educacionais de IA citados não testaram segurança nem certificação dessas habilidades; o conselho é preventivo.'
+      } : languageLearning ? {
+        grade:'Moderada para inglês; indireta para outras línguas',method:'Metanálise de 23 estudos em inglês com elevada heterogeneidade',
+        supports:'Intervenções de IA em ensino de inglês apresentaram benefícios médios de escrita, fala e motivação. Praticar ativamente com feedback é plausível; os efeitos variaram bastante.',
+        uncertainty:'Os estudos não demonstram que a IA substitua professores ou interação humana, nem provam que tentar sozinho antes seja a melhor sequência para qualquer idioma. Não mediram perda permanente de inteligência.'
+      } : programmingLearning ? {
+        grade:'Limitada',method:'Estudos controlados de tutoria para programação',
+        supports:'Em Python, um experimento pequeno encontrou melhora maior com tutor que oferece pistas do que com chatbot irrestrito; outro ensaio maior mostrou ganho de desempenho sem ganho maior de compreensão.',
+        uncertainty:'São tarefas, cursos e modelos específicos. Não se comprovou que todo uso de IA prejudique aprender código, nem que as pistas funcionem igualmente para todas as pessoas.'
+      } : mathematics ? {
         grade:'Moderada',method:'Experimento de IA + estudos de aprendizagem em matemática',
         supports:'Em matemática escolar, um experimento randomizado encontrou pior resultado posterior sem IA quando o acesso foi irrestrito. Trabalhos de “falha produtiva” apoiam a tentativa inicial.',
         uncertainty:'Não é evidência de perda de QI ou efeito duradouro; nem demonstra que toda forma de tutoria por IA atrapalha a aprendizagem.'

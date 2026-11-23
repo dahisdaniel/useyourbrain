@@ -23,7 +23,7 @@ const equiv={
  estudos:'estudo',literatura:'literatura',bibliografica:'bibliografia',bibliografico:'bibliografia',
  tesis:'tese',thesis:'tese',dissertation:'tese',dissertacao:'tese',
  medicos:'medico',medical:'medico',clinica:'clinico',clinical:'clinico',clinicas:'clinico',pacientes:'paciente',patients:'paciente',
- aprender:'aprender',estudar:'aprender',estudos:'estudo',learning:'aprender',learn:'aprender',study:'aprender',
+ aprender:'aprender',estudar:'aprender',estudos:'estudo',learning:'aprender',learn:'aprender',study:'aprender',materia:'assunto',tema:'assunto',
  planilhas:'planilha',spreadsheets:'planilha',spreadsheet:'planilha',excel:'excel',
  organizacao:'organizar',pessoal:'pessoal',pessoais:'pessoal',
  reunioes:'reuniao',meetings:'reuniao',meeting:'reuniao',
@@ -61,6 +61,7 @@ function search(query,limit=6,preferred=null){
  let q=toks(query);if(!q.length)return [];
  if(q.length>20)q=q.slice(0,20);
  const queryNorm=normalize(query);
+ const queryCore=queryNorm.replace(/^(?:(?:eu|quero|preciso|gostaria|vou|desejo|pretendo|estou|planejo|tentando)\s+)+/,'').trim();
  const ids=new Set();const resolved=[];
  for(const term of q){
   const candidates=[];
@@ -98,8 +99,8 @@ function search(query,limit=6,preferred=null){
   score+=Math.min(.18,.18/(1+d.wordCount/6));
   if(d.normal.startsWith(queryNorm))score+=.23;
   else if(d.normal.includes(queryNorm))score+=.12;
-  if(d.normal===queryNorm)score+=1.6;
-  if(d.aliasTexts.includes(queryNorm))score+=1.55;
+  if(d.normal===queryNorm||d.normal===queryCore)score+=1.6;
+  if(d.aliasTexts.includes(queryNorm)||d.aliasTexts.includes(queryCore))score+=1.55;
   if(d.row.priority==='essencial')score+=.25;
   if(q.length>1&&taskhits===1)score-=.12;
   if(score<.22)continue;
