@@ -1,7 +1,7 @@
 import {readFile,copyFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
-const files=['index.html','catalogo-loader.js','search-engine.js','autocomplete.js','evidence-strength.js'];
+const files=['index.html','favicon.svg','catalogo-loader.js','search-engine.js','autocomplete.js','evidence-strength.js'];
 const html=await readFile(resolve(root,'index.html'),'utf8');
 if(!html.includes('classifyWithCatalog')||!html.includes('50.000')||!html.includes('EVIDENCE_PROFILES')||!html.includes('<script src="evidence-strength.js"></script>'))throw Error('Estrutura principal ausente');
 const shards=Array.from({length:10},(_,i)=>`catalogo/parte-${String(i).padStart(2,'0')}.js`);
