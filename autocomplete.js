@@ -15,7 +15,10 @@
   let suggestions=[],active=-1,debounce=0;
   const maxTasks=6;
   function similarTasks(query,limit=maxTasks){
-    return window.UYB_SEARCH?.search(query,limit)||[];
+    const locale=window.UYB_L10N;
+    return locale?.isEnglish()
+      ? locale.suggestionsEnglish(query,limit)
+      : (window.UYB_SEARCH?.search(query,limit)||[]);
   }
 
   function hide(){
@@ -35,7 +38,7 @@
   }
   function selectTask(task){
     window.__selectedTask=task;
-    input.value=task.task;
+    input.value=window.UYB_L10N?.isEnglish() ? (task.displayTask||task.task) : task.task;
     document.getElementById('charcount').textContent=`${input.value.length} / 700`;
     document.getElementById('error').textContent='';
     hide();
@@ -49,20 +52,22 @@
     list.replaceChildren();tray.hidden=false;
     input.setAttribute('aria-expanded','true');input.removeAttribute('aria-activedescendant');
     if(!suggestions.length){
-      label.textContent='Nenhum caso semelhante';
+      label.textContent=window.UYB_L10N?.strings.emptySuggestions||'Nenhum caso semelhante';
       const msg=document.createElement('p');msg.className='suggestions-empty';
-      msg.textContent='Você pode continuar descrevendo e clicar em “Analisar tarefa”.';
-      list.append(msg);status.textContent='Nenhuma correspondência próxima';return;
+      msg.textContent=window.UYB_L10N?.strings.choose||'Você pode continuar descrevendo e clicar em “Analisar tarefa”.';
+      list.append(msg);status.textContent=window.UYB_L10N?.strings.emptySuggestions||'Nenhuma correspondência próxima';return;
     }
-    label.textContent=`${suggestions.length} tarefas relacionadas`;
-    status.textContent=`${suggestions.length} sugestões. Use as setas e Enter para selecionar.`;
+    label.textContent=window.UYB_L10N?.strings.similar(suggestions.length)||`${suggestions.length} tarefas relacionadas`;
+    status.textContent=window.UYB_L10N?.isEnglish()?`${suggestions.length} suggestions. Use arrows and Enter to select.`:`${suggestions.length} sugestões. Use as setas e Enter para selecionar.`;
     suggestions.forEach((item,i)=>{
       const button=document.createElement('button');
       button.type='button';button.id=`suggestion-${i}`;button.className='suggestion';
       button.setAttribute('role','option');button.setAttribute('aria-selected','false');button.tabIndex=-1;
-      const main=document.createElement('span');main.className='suggestion-text';main.textContent=item.task;
+      const main=document.createElement('span');main.className='suggestion-text';main.textContent=window.UYB_L10N?.isEnglish()?(item.displayTask||item.task):item.task;
       const meta=document.createElement('span');meta.className='suggestion-category';
-      meta.textContent=`${item.profession} · ${CAT_LABEL[item.category]||'Tarefa'}`;
+      meta.textContent=window.UYB_L10N?.isEnglish()
+        ? ({learn:'Learn actively',routine:'AI with review',authorship:'Human authorship',creative:'Creative work',highrisk:'High-stakes',sensitive:'Privacy',noai:'No AI',personal:'Personal expression'}[item.category]||'Task')
+        : `${item.profession} · ${CAT_LABEL[item.category]||'Tarefa'}`;
       const arrow=document.createElement('span');arrow.className='suggestion-arrow';
       arrow.setAttribute('aria-hidden','true');arrow.textContent='↗';
       button.append(main,meta,arrow);

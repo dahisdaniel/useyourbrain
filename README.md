@@ -89,3 +89,14 @@ Prioridade: proibição/confidencialidade → decisões de alto impacto → apre
 Estudos relacionados: Bastani et al., PNAS 2025 (10.1073/pnas.2422633122), Noy e Zhang, Science 2023 (10.1126/science.adh2586), pesquisas de uso e produtividade e estudo quase experimental de escrita acadêmica em Frontiers in Psychology 2026 (10.3389/fpsyg.2026.1906199). Uma sequência de escrita humana seguida de revisão por IA é uma recomendação prudencial, não uma intervenção validada para prevenir perda de inteligência. A IA pode fortalecer prática de idiomas ao oferecer conversação e feedback; não há regra universal de não usá-la.
 
 Os testes de regressão são executados em `npm test` e automaticamente antes de `npm run build` (28 atividades, regras de segurança e integridade da interface).
+
+## Nome público, idiomas e biblioteca de evidências
+
+O nome público da página é **Devo usar IA ou não?** (PT) e **Should I use IA or not?** (EN). O repositório continua chamado `useyourbrain` e o domínio permanece `ia.danieldahis.com`.
+
+- Página principal: `/` (PT) e `/?lang=en` (EN), com seletor no cabeçalho.
+- Biblioteca: `/estudos.html?lang=pt` e `/estudos.html?lang=en`, com 24 referências curadas e explicações do desenho, resultados, limitações e relevância.
+- A biblioteca **não** pretende ser revisão sistemática exaustiva; inclui estudos experimentais, estudos observacionais, revisões, benchmarks e uma diretriz editorial.
+- O banco de **50 mil atividades** continua local e originalmente majoritariamente em português. A versão EN inclui busca e sinônimos para casos centrais, tradução das recomendações e pesquisa em inglês. Algumas atividades profissionais menos comuns ainda têm cobertura lexical limitada em inglês.
+- O site não faz nenhuma chamada paga para modelos de IA. As recomendações e a biblioteca são pré-carregadas no navegador.
+- `npm test` e `npm run build` validam as regras cognitivas, traduções PT/EN e as 24 referências.

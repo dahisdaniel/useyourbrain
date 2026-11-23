@@ -1,9 +1,12 @@
 import {readFile,copyFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
-const files=['index.html','favicon.svg','catalogo-loader.js','search-engine.js','autocomplete.js','evidence-strength.js','hybrid-guidance.js','cognitive-policy.js'];
+const files=['index.html','estudos.html','favicon.svg','catalogo-loader.js','search-engine.js','autocomplete.js','evidence-strength.js','hybrid-guidance.js','cognitive-policy.js','studies-data.js','studies-ui.js','localization.js'];
 const html=await readFile(resolve(root,'index.html'),'utf8');
-if(!html.includes('classifyWithCatalog')||!html.includes('50.000')||!html.includes('EVIDENCE_PROFILES')||!html.includes('<script src="evidence-strength.js"></script>')||!html.includes('<script src="hybrid-guidance.js"></script>')||!html.includes('<script src="cognitive-policy.js"></script>'))throw Error('Estrutura principal ausente');
+if(!html.includes('classifyWithCatalog')||!html.includes('50.000')||!html.includes('EVIDENCE_PROFILES')||!html.includes('<script src="evidence-strength.js"></script>')||!html.includes('<script src="hybrid-guidance.js"></script>')||!html.includes('<script src="cognitive-policy.js"></script>')||!html.includes('/localization.js')||!html.includes('Devo usar IA ou não?')||!html.includes('/estudos.html'))throw Error('Estrutura principal ou suporte PT/EN ausente');
+const library=await readFile(resolve(root,'estudos.html'),'utf8');
+const studies=await readFile(resolve(root,'studies-data.js'),'utf8');
+if(!library.includes('id="library"')||!library.includes('/studies-ui.js')||!studies.includes('window.UYB_STUDIES'))throw Error('Biblioteca de pesquisas ausente');
 const shards=Array.from({length:10},(_,i)=>`catalogo/parte-${String(i).padStart(2,'0')}.js`);
 let count=0;
 const packed=[];

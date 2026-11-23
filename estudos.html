@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f5">
+  <meta name="description" content="Biblioteca científica sobre IA, aprendizagem, pensamento crítico, memória, linguagem e criatividade. Estudos explicados com métodos, resultados e limitações.">
+  <meta property="og:title" content="Estudos | Devo usar IA ou não?">
+  <meta property="og:description" content="O que as pesquisas realmente mostram sobre IA e cognição? Leia métodos, resultados, limitações e fontes originais.">
+  <meta property="og:type" content="website">
+  <title>Estudos | Devo usar IA ou não?</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#fbf8f5;--ink:#34232d;--plum:#992d61;--blush:#f5e8e7;--line:#e4d9d8;--muted:#76676e;--sans:'DM Sans',Arial,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:'Space Mono',monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}a:hover{color:var(--plum)}button,select,input{font:inherit}
+    :focus-visible{outline:3px solid #cc7598;outline-offset:3px}::selection{background:#ffb2bd;color:#34232d}
+    .container{width:min(1140px,calc(100% - 64px));margin:auto}
+    .top-strip{height:7px;background:linear-gradient(90deg,#f2a4aa,#e784a1,#b75387)}
+    .header{min-height:84px;display:flex;align-items:center;gap:27px;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px;letter-spacing:-.055em}
+    .brand img{width:41px;height:39px;object-fit:contain}.nav{display:flex;align-items:center;gap:25px;margin-left:auto}
+    .nav a{font-size:12px;font-weight:700}.nav a.current{color:var(--plum)}
+    .languages{display:flex;align-items:center;gap:5px;padding:3px;border-radius:30px;border:1px solid #d8c6ca}
+    .languages a{padding:5px 9px;border-radius:25px;color:#876f79;font:700 10px var(--mono)}
+    .languages a.active{background:#92345c;color:white}
+    .hero{padding:85px 0 47px;text-align:center}
+    .eyebrow{font:700 10px var(--mono);letter-spacing:.03em;color:var(--plum);margin:0 0 22px}
+    h1{font-size:clamp(53px,7.2vw,95px);font-weight:700;line-height:1.04;letter-spacing:-.08em;margin:0 0 24px}
+    h1 em{font-family:var(--serif);font-weight:400;color:var(--plum);letter-spacing:-.055em}
+    .intro{max-width:730px;margin:0 auto;color:#665e62;font-size:16px;line-height:1.8}
+    .method-note{max-width:890px;background:#f8eeec;border:1px solid #ead6d8;margin:35px auto 0;text-align:left;padding:18px 23px;border-radius:10px;color:#604b57;font-size:12px;line-height:1.8}
+    .method-note strong{color:#7e2e52}
+    .controls{display:grid;grid-template-columns:1.45fr .85fr .85fr;gap:12px;align-items:end;margin:29px 0 24px}
+    .input-label{display:block;font-weight:700;font-size:11px;margin:0 0 9px}
+    .search,.select{height:52px;width:100%;padding:0 15px;border:1px solid #decfd1;border-radius:11px;background:#fff;color:var(--ink);outline-offset:2px}
+    .search::placeholder{color:#9b9093}.search:focus,.select:focus{border-color:#a75379;box-shadow:0 0 0 3px #e6c3d238}
+    .list-top{border-bottom:1px solid var(--line);display:flex;gap:15px;align-items:center;justify-content:space-between;padding:10px 0 14px;margin-bottom:12px;color:#7a6871;font:700 10px var(--mono);letter-spacing:.02em}
+    .list-top button{border:0;background:transparent;color:var(--plum);font:700 11px var(--sans);cursor:pointer}
+    .library{display:grid;gap:10px;padding-bottom:105px}
+    .paper{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .18s,box-shadow .18s}
+    .paper:hover{border-color:#d2b1c0}.paper[open]{border-color:#c88ba8;box-shadow:0 9px 35px #66354b12}
+    .paper summary{cursor:pointer;list-style:none;padding:22px 24px 20px;position:relative}.paper summary::-webkit-details-marker{display:none}
+    .paper-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+    .tag{color:#7e3057;background:#f9e9ec;border-radius:5px;padding:4px 7px;font:700 10px var(--mono)}
+    .tag.secondary{background:#f4f1ef;color:#6a5f64}
+    .year{font:700 10px var(--mono);color:#9d8b92;margin-left:auto}
+    .paper-title{font-weight:800;letter-spacing:-.027em;font-size:18px;line-height:1.38;max-width:880px;margin:0 33px 7px 0}
+    .paper-meta{color:#756b70;font-size:12px;margin:0 0 10px}
+    .paper-teaser{color:#534c51;font-size:13px;line-height:1.75;max-width:900px;margin:0 22px 10px 0}
+    .paper-more{font:700 11px var(--sans);color:var(--plum);display:flex;align-items:center;gap:8px}
+    .paper-more:after{content:'+';font-size:20px;font-weight:400}.paper[open] .paper-more:after{content:'−'}
+    .expanded{border-top:1px solid #e8dddd;margin:0 24px;padding:21px 0 25px}
+    .study-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 35px;margin-bottom:21px}
+    .finding h3{margin:0 0 7px;color:var(--plum);font:700 11px var(--mono);letter-spacing:.04em}
+    .finding p{margin:0;color:#574e53;font-size:13px;line-height:1.85}
+    .reading{display:flex;flex-wrap:wrap;gap:15px;align-items:center;border-top:1px solid #eee5e6;padding-top:17px}
+    .reading a{background:#8c315b;color:white;border-radius:7px;padding:11px 15px;font-weight:800;font-size:12px}
+    .reading a:hover{background:#682144;color:white}.doi{color:#82747b;font:400 10px/1.5 var(--mono);word-break:break-all}
+    .empty{background:white;border:1px dashed #d6c2cc;color:#775e69;padding:36px;border-radius:12px;text-align:center}
+    .footer{background:#2f202b;color:#f9eeed;padding:32px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer p{color:#d2bdc7;font-size:11px;margin:0}
+    @media(max-width:750px){.container{width:calc(100% - 34px)}.header{min-height:72px;gap:10px}.brand{font-size:12px;max-width:46%;line-height:1.2}.brand img{width:32px;height:32px}.nav{gap:10px}.nav a{font-size:11px}.languages a{padding:5px 7px}.hero{padding:58px 0 31px}.intro{font-size:14px}.controls{grid-template-columns:1fr 1fr;gap:14px}.controls>div:first-child{grid-column:span 2}.paper summary{padding:20px 17px}.expanded{margin:0 17px}.paper-title{font-size:16px}.study-grid{grid-template-columns:1fr;gap:19px}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="top-strip"></div>
+  <header class="header container">
+    <a href="/" class="brand" id="brand"><img src="/favicon.svg?v=3" width="41" height="39" alt=""><span>Devo usar IA ou não?</span></a>
+    <nav class="nav" aria-label="Navegação">
+      <a id="home-link" href="/">Ferramenta</a>
+      <a id="studies-link" href="/estudos.html" class="current" aria-current="page">Estudos</a>
+    </nav>
+    <div class="languages" aria-label="Idioma"><a id="language-pt" href="/estudos.html?lang=pt">PT</a><a id="language-en" href="/estudos.html?lang=en">EN</a></div>
+  </header>
+  <main class="container">
+    <section class="hero" aria-labelledby="title">
+      <p class="eyebrow" id="eyebrow">BIBLIOTECA CIENTÍFICA</p>
+      <h1 id="title">O que a ciência diz <em>sobre IA e cognição?</em></h1>
+      <p class="intro" id="intro">Explore pesquisas sobre aprendizagem, pensamento crítico, memória, linguagem, criatividade e produtividade — com explicações do método, resultados e limitações.</p>
+      <p class="method-note" id="method-note"><strong>Leitura crítica:</strong> esta é uma seleção de estudos centrais, não uma revisão sistemática de toda a literatura. Um estudo que demonstra produtividade não comprova preservação cognitiva; uma associação não prova causalidade.</p>
+    </section>
+    <section aria-label="Filtrar estudos">
+      <div class="controls">
+        <div><label class="input-label" id="query-label" for="search">Encontrar um estudo</label><input class="search" id="search" type="search" autocomplete="off" placeholder="Tema, autor, método ou palavra-chave..." aria-label="Pesquisar estudos"></div>
+        <div><label class="input-label" id="topic-label" for="topic">Tema</label><select class="select" id="topic" aria-label="Filtrar tema"></select></div>
+        <div><label class="input-label" id="type-label" for="design">Tipo de pesquisa</label><select class="select" id="design" aria-label="Filtrar tipo de estudo"></select></div>
+      </div>
+      <div class="list-top"><span id="count" role="status" aria-live="polite">Carregando estudos...</span><button id="clear" type="button">Limpar filtros</button></div>
+    </section>
+    <section id="library" class="library" aria-label="Biblioteca de estudos"></section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><div class="brand"><img src="/favicon.svg?v=3" width="34" height="34" alt=""><span id="footer-brand">Devo usar IA ou não?</span></div><p id="footer-note">Ciência para pensar melhor — com e sem inteligência artificial.</p></div></footer>
+  <script src="/studies-data.js"></script>
+  <script src="/studies-ui.js"></script>
+</body>
+</html>
