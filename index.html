@@ -459,7 +459,7 @@
       $('res-category').textContent=r.tag; $('res-symbol').textContent=r.symbol; $('res-title').textContent=displayTitle; $('res-summary').textContent=displaySummary; $('res-task').textContent=task;
       $('res-reason').textContent=evid.reason; $('reason-pill').textContent=evid.label+' · '+evid.level;
       const assessment=window.UYB_EVIDENCE.assess(task,result,evid);
-      $('res-evidence-quick').textContent='FORÇA DA EVIDÊNCIA: '+assessment.grade+' · Não é uma medida de QI';
+      $('res-evidence-quick').textContent='FORÇA DA EVIDÊNCIA: '+assessment.grade;
       $('brain-title').textContent=assessment.brainTitle;
       $('brain-action').textContent=assessment.brainAction;
       $('evidence-grade').textContent=assessment.grade;
